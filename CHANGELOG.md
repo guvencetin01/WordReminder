@@ -1,6 +1,6 @@
 ## [3.3.0] - Hatırlatma zamanlaması ve kart yaşam döngüsü
 
-- Hatırlatma aralığı kaydedilmiş ayara tam olarak uyar; varsayılan değer 10 dakikadır. Ayar değişikliği zamanlayıcıya hemen uygulanır.
+- Hatırlatma aralığı kaydedilmiş ayara tam olarak uyar; varsayılan değer 10 dakikadır. Ayar değişikliği zamanlayıcıya hemen uygulanır. “Tekrar et” eylemi de bu ayarı kullanır; yalnızca açıkça seçilen “5 dk sonra” eylemi 5 dakikalık tek seferlik ertelemedir.
 - Aynı anda yalnızca bir kart gösterilir. Aralık açık kart sırasında dolarsa tek bekleyen hatırlatma kart kapanınca gösterilir; tekrar tekrar ertelenmez.
 - Kart, açıldıktan 2 dakika sonra otomatik kapanır.
 - Kullanıcının hiç etkileşmediği ve zaman aşımıyla kapanan kart gösterim istatistiğine eklenmez. Etkileşim varsa gösterim yalnızca bir kez kaydedilir.
