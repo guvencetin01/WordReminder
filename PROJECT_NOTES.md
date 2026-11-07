@@ -1,3 +1,8 @@
+## 3.4.0 içerik notları
+- A2 DAILY grubundaki 25 kelimeye örnek cümle ve Türkçe çeviri eklendi: cheap, cheek, chef, chemical, chest, childhood, chili, chin, choice, citizen, classic, cleaner, clear, clerk, clue, coast, coin, colorful, comfortable, common, communicate, competition, complaint, complete, continue.
+- Her yeni satır katalogda doğrulandı; mevcut kelime örneklerinin üzerine yazılmadı. Şema değişikliği yoktur.
+- Toplam örnek/çeviri girdisi 749; etkili İngilizce örnek sayısı 1.060.
+
 ## 3.3.0 hatırlatma zamanlaması
 - SettingsRepository.getReminderMinutes() ve MainWindow interval spinner varsayılanı 10 dakikadır; mevcut kayıtlı değer korunur.
 - Scheduler start(minutes) uygulama açılışında kayıtlı değeri alır. Ayar kaydedilince intervalChanged(minutes) eski görevi iptal edip tam yeni aralıkla sayacı yeniden başlatır. “Tekrar et” snoozeToConfiguredInterval() ile kayıtlı ayarı kullanır; yalnızca kullanıcı açıkça “5 dk sonra” seçerse tek seferlik 5 dakika uygulanır.
