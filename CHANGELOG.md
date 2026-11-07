@@ -1,3 +1,12 @@
+## [3.2.0] - Kart tasarımı, başlangıç ayarları ve örnek cümleler
+
+- Windows başlangıç seçeneklerinin açıklamaları ayrı metin alanlarında gösterilir; sistem tepsisinde başlatma yalnızca otomatik başlatma açıkken seçilebilir.
+- Hatırlatma kartı açık yeşil arka plan, ince koyu yeşil kenarlık ve uyumlu buton/metin renkleriyle yeniden tasarlandı.
+- Zor kelime işareti kart kapanmadan açılıp kapatılır; diğer hatırlatma kararları kartı kapatır.
+- 121 günlük kelimeye İngilizce örnek ve Türkçe çeviri eklendi; içerik dosyası 724 satıra ulaştı.
+- Etkili katalog 1.035 İngilizce örnek ve 724 Türkçe çeviri içerir; 311 mevcut örnek çeviri bekler.
+- SQLite şeması 7 olarak kalır; kullanıcı verileri korunur.
+
 ## [3.1.0] - Zamanlama güvenilirliği ve içerik genişletmesi
 
 - Hatırlatma için kelime seçimi, kart gösterim kaydı ve tekrar/öğrenildi kayıtları veritabanı yürütücüsüne taşındı; JavaFX arayüz iş parçacığında senkron SQLite sorgusu/işlemi yapılmaz.
