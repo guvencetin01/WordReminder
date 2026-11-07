@@ -79,7 +79,7 @@ public final class MainWindow {
     private final Label customWordsValue = new Label("0");
     private final Label knownReviewsValue = new Label("0");
     private final Label dueWordsValue = new Label("0");
-    private final Label statusLabel = new Label("Hazır");
+    private final Label statusLabel = new Label("Kelime kataloğu hazırlanıyor...");
     private final Label resultCountLabel = new Label("0 kelime");
     private final Spinner<Integer> intervalSpinner = new Spinner<>();
     private final Spinner<Integer> dailyGoalSpinner = new Spinner<>();
