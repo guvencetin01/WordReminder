@@ -655,14 +655,45 @@ public final class MainWindow {
         Label startupDescription = new Label("Bu seçenek, yalnızca mevcut Windows kullanıcısı için Başlangıç klasörüne kayıt ekler. Yönetici izni gerekmez.");
         startupDescription.getStyleClass().add("hint-label");
         startupDescription.setWrapText(true);
+        startWithWindowsCheck.setText("");
+        startMinimizedCheck.setText("");
+        startWithWindowsCheck.setAccessibleText("Windows oturumu açıldığında WordReminder'ı otomatik başlat");
+        startMinimizedCheck.setAccessibleText("Otomatik başlatıldığında ana pencereyi göstermeden sistem tepsisinde çalıştır");
         startWithWindowsCheck.setDisable(!startupManager.isSupported());
         startMinimizedCheck.setDisable(!startupManager.isSupported());
-        startWithWindowsCheck.setWrapText(true);
-        startMinimizedCheck.setWrapText(true);
-        startWithWindowsCheck.setMaxWidth(Double.MAX_VALUE);
-        startMinimizedCheck.setMaxWidth(Double.MAX_VALUE);
+        Label startupOptionTitle = new Label("Windows oturumu açıldığında WordReminder'ı otomatik başlat");
+        startupOptionTitle.getStyleClass().add("startup-option-title");
+        startupOptionTitle.setWrapText(true);
+        Label startupOptionHint = new Label("Program, mevcut Windows kullanıcısı oturum açtığında kendiliğinden çalışır.");
+        startupOptionHint.getStyleClass().add("hint-label");
+        startupOptionHint.setWrapText(true);
+        VBox startupOptionText = new VBox(3, startupOptionTitle, startupOptionHint);
+        HBox startupOptionRow = new HBox(10, startWithWindowsCheck, startupOptionText);
+        startupOptionRow.setAlignment(Pos.CENTER_LEFT);
+        startupOptionRow.setOnMouseClicked(event -> {
+            if (event.getTarget() != startWithWindowsCheck) {
+                startWithWindowsCheck.setSelected(!startWithWindowsCheck.isSelected());
+            }
+        });
+
+        Label minimizedOptionTitle = new Label("Başlangıçta pencereyi gösterme, sistem tepsisinde çalış");
+        minimizedOptionTitle.getStyleClass().add("startup-option-title");
+        minimizedOptionTitle.setWrapText(true);
+        Label minimizedOptionHint = new Label("Yalnızca yukarıdaki otomatik başlatma seçeneği açıkken uygulanır.");
+        minimizedOptionHint.getStyleClass().add("hint-label");
+        minimizedOptionHint.setWrapText(true);
+        VBox minimizedOptionText = new VBox(3, minimizedOptionTitle, minimizedOptionHint);
+        HBox minimizedOptionRow = new HBox(10, startMinimizedCheck, minimizedOptionText);
+        minimizedOptionRow.setAlignment(Pos.CENTER_LEFT);
+        minimizedOptionRow.setOnMouseClicked(event -> {
+            if (!startMinimizedCheck.isDisabled() && event.getTarget() != startMinimizedCheck) {
+                startMinimizedCheck.setSelected(!startMinimizedCheck.isSelected());
+            }
+        });
+        startWithWindowsCheck.selectedProperty().addListener((observable, oldValue, selected) ->
+                startMinimizedCheck.setDisable(!startupManager.isSupported() || !selected));
         startupBox.getChildren().addAll(startupHeading, startupDescription,
-                startWithWindowsCheck, startMinimizedCheck);
+                startupOptionRow, minimizedOptionRow);
 
         VBox backupBox = new VBox(8);
         backupBox.getStyleClass().add("settings-card");
@@ -945,6 +976,7 @@ public final class MainWindow {
             dailyGoalSpinner.getValueFactory().setValue(settingsRepository.getDailyGoal());
             startWithWindowsCheck.setSelected(settingsRepository.isStartWithWindows());
             startMinimizedCheck.setSelected(settingsRepository.isStartMinimized());
+            startMinimizedCheck.setDisable(!startupManager.isSupported() || !startWithWindowsCheck.isSelected());
             reminderLevelCombo.setValue(levelLabel(settingsRepository.getReminderLevel()));
             reminderCategoryCombo.setValue(categoryLabel(settingsRepository.getReminderCategory()));
         } catch (SQLException ex) {
@@ -955,7 +987,7 @@ public final class MainWindow {
     private void saveSettings() {
         int minutes = intervalSpinner.getValue();
         boolean startup = startWithWindowsCheck.isSelected();
-        boolean minimized = startMinimizedCheck.isSelected();
+        boolean minimized = startup && startMinimizedCheck.isSelected();
         String level = selectedLevelCode(reminderLevelCombo.getValue());
         String category = selectedCategoryCode(reminderCategoryCombo.getValue());
         try {
