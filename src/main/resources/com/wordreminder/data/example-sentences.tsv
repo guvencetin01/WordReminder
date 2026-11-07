@@ -4224,3 +4224,124 @@ vertical scaling|Vertical scaling increases the CPU or memory of an existing ser
 workload isolation|Workload isolation prevents background jobs from slowing down user requests.|İş yükü yalıtımı arka plan görevlerinin kullanıcı isteklerini yavaşlatmasını önler.
 zero trust architecture|Zero trust architecture verifies every access request instead of trusting the internal network.|Sıfır güven mimarisi iç ağa güvenmek yerine her erişim isteğini doğrular.
 zero-downtime migration|The team used a zero-downtime migration to move data while the service stayed online.|Ekip hizmet çevrim içiyken verileri taşımak için kesintisiz geçiş kullandı.
+ABA problem|The ABA problem can occur when a value changes and later returns to its original state.|ABA problemi bir değer değişip daha sonra ilk hâline döndüğünde ortaya çıkabilir.
+actor model|The actor model gives each actor its own state and message queue.|Aktör modeli her aktöre kendi durumunu ve mesaj kuyruğunu verir.
+adaptive load balancing|Adaptive load balancing moves requests towards servers with more available capacity.|Uyarlanabilir yük dengeleme istekleri daha fazla kapasitesi olan sunuculara yönlendirir.
+affinity scheduling|Affinity scheduling tries to keep a task on the processor where its data is available.|Yakınlık zamanlaması bir görevi verilerinin bulunduğu işlemcide tutmaya çalışır.
+asymmetric encryption|Asymmetric encryption uses a public key and a private key.|Asimetrik şifreleme bir açık anahtar ve bir özel anahtar kullanır.
+asynchronous replication|Asynchronous replication copies changes to a replica without delaying the original transaction.|Eşzamansız çoğaltma özgün işlemi geciktirmeden değişiklikleri bir kopyaya aktarır.
+at-least-once delivery|At-least-once delivery may send the same message more than once.|En az bir kez teslim garantisi aynı mesajı birden fazla kez gönderebilir.
+at-most-once delivery|At-most-once delivery avoids duplicates but may lose a message.|En fazla bir kez teslim garantisi tekrarları önler ancak bir mesajın kaybolmasına izin verebilir.
+atomic broadcast|Atomic broadcast ensures that all participants deliver messages in the same order.|Atomik yayın bütün katılımcıların mesajları aynı sırayla teslim etmesini sağlar.
+availability consistency trade-off|The availability consistency trade-off becomes important when a network is partitioned.|Ağ bölündüğünde erişilebilirlik-tutarlılık ödünleşimi önem kazanır.
+backpressure propagation|Backpressure propagation slows upstream producers when downstream consumers cannot keep up.|Geri basınç yayılımı aşağı akıştaki tüketiciler yetişemediğinde yukarı akıştaki üreticileri yavaşlatır.
+bounded staleness|Bounded staleness limits how far a replica may fall behind the latest update.|Sınırlı eskilik bir kopyanın en son güncellemenin ne kadar gerisinde kalabileceğini sınırlar.
+cache coherence protocol|The cache coherence protocol keeps cached copies consistent between processor cores.|Önbellek tutarlılığı protokolü işlemci çekirdekleri arasındaki önbellek kopyalarını tutarlı tutar.
+cache stampede|A cache stampede occurs when many requests reload the same expired item at once.|Önbellek yığılması aynı süresi dolmuş öğe çok sayıda istek tarafından aynı anda yeniden yüklendiğinde oluşur.
+cache-oblivious algorithm|A cache-oblivious algorithm performs well without knowing the exact cache size.|Önbellekten bağımsız algoritma tam önbellek boyutunu bilmeden de verimli çalışır.
+capability-based security|Capability-based security grants access through unforgeable references to resources.|Yetenek tabanlı güvenlik kaynaklara sahteciliği mümkün olmayan başvurular üzerinden erişim verir.
+causal broadcast|Causal broadcast preserves the causal order of messages across participants.|Nedensel yayın katılımcılar arasında mesajların nedensel sırasını korur.
+causal consistency|Causal consistency requires related updates to be observed in a causally valid order.|Nedensel tutarlılık ilişkili güncellemelerin nedensel açıdan geçerli bir sırayla görülmesini gerektirir.
+causal consistency model|The causal consistency model preserves cause-and-effect order while allowing some concurrent updates.|Nedensel tutarlılık modeli bazı eşzamanlı güncellemelere izin verirken neden-sonuç sırasını korur.
+causal ordering|Causal ordering ensures that an effect is not delivered before its cause.|Nedensel sıralama bir etkinin nedeninden önce teslim edilmemesini sağlar.
+checkpointing|Checkpointing saves the current state so a long computation can resume after failure.|Kontrol noktası alma mevcut durumu kaydederek uzun bir hesaplamanın arızadan sonra devam etmesini sağlar.
+clock drift|Clock drift causes two computer clocks to gradually show different times.|Saat kayması iki bilgisayar saatinin zamanla farklı zamanlar göstermesine neden olur.
+consistent cut|A consistent cut includes an event's causes whenever it includes that event.|Tutarlı kesit bir olayı içerdiğinde o olayın nedenlerini de içerir.
+consistent hashing|Consistent hashing minimises how many keys move when a server is added.|Tutarlı karma bir sunucu eklendiğinde taşınan anahtar sayısını en aza indirir.
+content-addressable storage|Content-addressable storage retrieves an object by using a hash of its contents.|İçerik adreslenebilir depolama bir nesneyi içeriğinin özetini kullanarak getirir.
+contention management|Contention management decides how competing transactions should proceed.|Çekişme yönetimi rekabet eden işlemlerin nasıl ilerlemesi gerektiğine karar verir.
+control plane|The control plane configures network devices and distributes routing information.|Kontrol düzlemi ağ cihazlarını yapılandırır ve yönlendirme bilgilerini dağıtır.
+coordinated omission|Coordinated omission can hide latency spikes when a load generator waits for responses.|Koordineli ihmal yük üreteci yanıtları beklerken gecikme sıçramalarını gizleyebilir.
+crash consistency|Crash consistency ensures that stored data remains valid after a sudden power loss.|Çökme tutarlılığı ani elektrik kesintisinden sonra saklanan verilerin geçerli kalmasını sağlar.
+data plane|The data plane forwards packets according to rules installed by the control plane.|Veri düzlemi paketleri kontrol düzleminin yüklediği kurallara göre iletir.
+data race|A data race occurs when threads access shared data concurrently and at least one writes to it.|Veri yarışı iş parçacıkları paylaşılan veriye eşzamanlı eriştiğinde ve en az biri yazma yaptığında oluşur.
+deferred reclamation|Deferred reclamation delays freeing memory until no thread can still access it.|Ertelenmiş geri kazanım hiçbir iş parçacığı belleğe erişemeyene kadar belleğin serbest bırakılmasını geciktirir.
+deterministic replay|Deterministic replay reproduces an execution using the same recorded inputs and events.|Belirlenimci yeniden oynatma aynı kaydedilmiş girdileri ve olayları kullanarak yürütmeyi tekrar oluşturur.
+deterministic state machine|A deterministic state machine produces the same next state for the same current state and input.|Belirlenimci durum makinesi aynı mevcut durum ve girdi için aynı sonraki durumu üretir.
+distributed atomic commit|Distributed atomic commit ensures that every participant commits or aborts the shared transaction.|Dağıtık atomik kesinleştirme ortak işlemin bütün katılımcılar tarafından ya tamamlanmasını ya da iptal edilmesini sağlar.
+distributed deadlock|A distributed deadlock occurs when processes on different machines wait on one another indefinitely.|Dağıtık kilitlenme farklı makinelerdeki süreçler birbirlerini süresiz beklediğinde oluşur.
+distributed failure detector|A distributed failure detector estimates whether another process has stopped responding.|Dağıtık arıza algılayıcı başka bir sürecin yanıt vermeyi bırakıp bırakmadığını tahmin eder.
+distributed snapshot|A distributed snapshot records a consistent view of a system across multiple processes.|Dağıtık anlık görüntü birden fazla süreçteki sistemin tutarlı görünümünü kaydeder.
+epistemic logic|Epistemic logic models what agents know and how their knowledge changes.|Epistemik mantık aktörlerin ne bildiğini ve bilgilerinin nasıl değiştiğini modeller.
+epoch-based reclamation|Epoch-based reclamation frees retired memory after all active threads pass a safe epoch.|Dönem tabanlı geri kazanım kullanımdan kaldırılmış belleği bütün etkin iş parçacıkları güvenli bir dönemi geçtikten sonra serbest bırakır.
+failure atomicity|Failure atomicity ensures that an operation is either fully applied or not applied at all.|Arıza atomikliği bir işlemin ya tamamen uygulanmasını ya da hiç uygulanmamasını sağlar.
+failure domain|A failure domain groups components that may fail together because they share infrastructure.|Arıza alanı aynı altyapıyı paylaştıkları için birlikte arızalanabilecek bileşenleri gruplar.
+failure transparency|Failure transparency lets a system continue providing its service despite certain internal failures.|Arıza şeffaflığı sistemin belirli iç arızalara rağmen hizmet vermeye devam etmesini sağlar.
+false sharing|False sharing occurs when threads modify different variables on the same cache line.|Sahte paylaşım iş parçacıkları aynı önbellek satırındaki farklı değişkenleri değiştirdiğinde oluşur.
+fencing mechanism|A fencing mechanism prevents an expired owner from continuing to modify a shared resource.|Çitleme mekanizması süresi dolmuş bir sahibin paylaşılan kaynağı değiştirmeye devam etmesini önler.
+fencing token|The storage service rejects an operation that carries an older fencing token.|Depolama hizmeti daha eski bir çitleme belirteci taşıyan işlemi reddeder.
+formal verification|Formal verification uses mathematical methods to prove that software satisfies specified properties.|Biçimsel doğrulama yazılımın belirtilen özellikleri karşıladığını kanıtlamak için matematiksel yöntemler kullanır.
+fuzzy consistency|Fuzzy consistency allows a system to accept a defined range of temporary differences between replicas.|Bulanık tutarlılık sistemin kopyalar arasında tanımlı bir aralıktaki geçici farklılıklara izin vermesini sağlar.
+garbage collector pause|A long garbage collector pause can increase application response times.|Uzun bir çöp toplayıcı duraklaması uygulamanın yanıt sürelerini artırabilir.
+global snapshot|The global snapshot records the state of all participating processes at a consistent point.|Küresel anlık görüntü bütün katılımcı süreçlerin durumunu tutarlı bir noktada kaydeder.
+happens-before consistency|Happens-before consistency preserves the order of causally related operations.|Önce-gerçekleşme tutarlılığı nedensel olarak ilişkili işlemlerin sırasını korur.
+happens-before relation|The happens-before relation defines when one event must be considered earlier than another.|Önce-gerçekleşme ilişkisi bir olayın diğerinden önce kabul edilmesi gerektiği durumu tanımlar.
+hazard pointer|A hazard pointer announces that a thread may still access a particular memory object.|Tehlike işaretçisi bir iş parçacığının belirli bir bellek nesnesine hâlâ erişebileceğini bildirir.
+hierarchical locking|Hierarchical locking acquires locks from broader resources to more specific resources.|Hiyerarşik kilitleme kilitleri daha genel kaynaklardan daha özel kaynaklara doğru alır.
+hybrid logical clock|A hybrid logical clock combines physical time with a logical counter.|Hibrit mantıksal saat fiziksel zamanı mantıksal bir sayaçla birleştirir.
+immutable infrastructure|Immutable infrastructure replaces servers instead of changing them after deployment.|Değişmez altyapı dağıtımdan sonra sunucuları değiştirmek yerine yenileriyle değiştirir.
+in-memory transaction|The in-memory transaction updates data structures without first writing every change to disk.|Bellek içi işlem her değişikliği önce diske yazmadan veri yapılarını günceller.
+indirect addressing|Indirect addressing accesses a value through a reference rather than its direct location.|Dolaylı adresleme bir değere doğrudan konumu yerine bir başvuru üzerinden erişir.
+instruction pipeline|The instruction pipeline overlaps stages of instruction execution to improve processor throughput.|Komut işlem hattı işlemci verimini artırmak için komut yürütme aşamalarını örtüştürür.
+isolation level|The isolation level determines which effects of concurrent transactions can be observed.|Yalıtım seviyesi eşzamanlı işlemlerin hangi etkilerinin görülebileceğini belirler.
+leader lease|A leader lease grants a node temporary authority to coordinate the group.|Lider kiralaması bir düğüme grubu koordine etmesi için geçici yetki verir.
+lease-based locking|Lease-based locking releases ownership automatically when the lease expires.|Kira tabanlı kilitleme kira süresi dolduğunda sahipliği otomatik olarak serbest bırakır.
+linearizable register|A linearizable register behaves as if each read and write occurred instantaneously in one global order.|Doğrusallaştırılabilir kayıt her okuma ve yazma tek bir küresel sırada anında gerçekleşmiş gibi davranır.
+lock convoy|A lock convoy forms when many threads queue behind a lock held by one slow thread.|Kilit kuyruğu yavaş bir iş parçacığının tuttuğu kilidin arkasında çok sayıda iş parçacığı sıraya girdiğinde oluşur.
+lock elision|Lock elision avoids taking a lock when hardware can safely handle the critical section.|Kilit atlama donanım kritik bölümü güvenle işleyebildiğinde kilit almayı önler.
+lock-free algorithm|A lock-free algorithm guarantees that at least one thread can make progress despite contention.|Kilit kullanmayan algoritma çekişmeye rağmen en az bir iş parçacığının ilerleyebilmesini garanti eder.
+lock-free data structure|A lock-free data structure supports concurrent access without relying on traditional locks.|Kilit kullanmayan veri yapısı geleneksel kilitlere dayanmadan eşzamanlı erişimi destekler.
+memory barrier|A memory barrier constrains the order in which memory operations become visible.|Bellek bariyeri bellek işlemlerinin görünür hâle gelme sırasını sınırlar.
+memory consistency model|The memory consistency model defines the values that concurrent threads are allowed to observe.|Bellek tutarlılığı modeli eşzamanlı iş parçacıklarının hangi değerleri görebileceğini tanımlar.
+memory ordering|Memory ordering determines how reads and writes may be observed across threads.|Bellek sıralaması okuma ve yazmaların iş parçacıkları arasında nasıl gözlemlenebileceğini belirler.
+memory reclamation|Memory reclamation safely returns unused memory to the allocator.|Bellek geri kazanımı kullanılmayan belleği güvenli biçimde ayırıcıya geri verir.
+message deduplication|Message deduplication prevents a repeated delivery from triggering the same action twice.|Mesaj tekilleştirme yinelenen teslimin aynı eylemi iki kez tetiklemesini önler.
+message ordering guarantee|The message ordering guarantee specifies the sequence in which consumers receive related messages.|Mesaj sıralama garantisi tüketicilerin ilişkili mesajları hangi sırayla alacağını belirtir.
+multi-leader replication|Multi-leader replication allows more than one node to accept writes.|Çok liderli çoğaltma birden fazla düğümün yazma kabul etmesine izin verir.
+multi-version concurrency control|Multi-version concurrency control lets readers access a consistent version while writers continue updating data.|Çok sürümlü eşzamanlılık denetimi yazıcılar veriyi güncellerken okuyucuların tutarlı bir sürüme erişmesini sağlar.
+multiversion timestamp ordering|Multiversion timestamp ordering uses transaction timestamps to determine which data version can be read or written.|Çok sürümlü zaman damgası sıralaması hangi veri sürümünün okunup yazılabileceğini belirlemek için işlem zaman damgalarını kullanır.
+network partition|A network partition prevents groups of nodes from communicating with one another.|Ağ bölünmesi düğüm gruplarının birbiriyle iletişim kurmasını engeller.
+non-blocking algorithm|A non-blocking algorithm allows system-wide progress without requiring every thread to wait.|Bloklamayan algoritma her iş parçacığının beklemesini gerektirmeden sistem genelinde ilerleme sağlar.
+non-repeatable read|A non-repeatable read occurs when the same row returns a different value within one transaction.|Tekrarlanamayan okuma aynı satır tek bir işlem içinde farklı bir değer döndürdüğünde oluşur.
+non-uniform memory access|Non-uniform memory access gives processors different costs for accessing local and remote memory.|Tekdüze olmayan bellek erişimi işlemcilere yerel ve uzak belleğe erişimde farklı maliyetler getirir.
+optimistic concurrency control|Optimistic concurrency control checks for conflicts before committing an update.|İyimser eşzamanlılık denetimi bir güncellemeyi kesinleştirmeden önce çakışmaları kontrol eder.
+optimistic locking|Optimistic locking uses a version value to detect conflicting updates.|İyimser kilitleme çakışan güncellemeleri tespit etmek için bir sürüm değeri kullanır.
+partial failure|Partial failure occurs when some components fail while others continue running.|Kısmi arıza bazı bileşenler çalışmaya devam ederken diğerleri bozulduğunda oluşur.
+phantom read|A phantom read occurs when a repeated query returns new rows added by another transaction.|Hayalet okuma tekrarlanan bir sorgu başka bir işlemin eklediği yeni satırları döndürdüğünde oluşur.
+quorum read|A quorum read collects responses from enough replicas to satisfy the read threshold.|Çoğunluk okuması okuma eşiğini karşılayacak kadar kopyadan yanıt toplar.
+quorum write|A quorum write waits for enough replicas to acknowledge a write operation.|Çoğunluk yazması bir yazma işlemini yeterli sayıda kopyanın onaylamasını bekler.
+quorum-based replication|Quorum-based replication uses read and write thresholds to balance consistency and availability.|Çoğunluk tabanlı çoğaltma tutarlılık ve erişilebilirliği dengelemek için okuma ve yazma eşikleri kullanır.
+read repair|Read repair updates stale replicas when a read detects inconsistent values.|Okuma onarımı bir okuma tutarsız değerleri tespit ettiğinde eski kopyaları günceller.
+read-after-write consistency|Read-after-write consistency ensures that a client can see its own successful update.|Yazma sonrası okuma tutarlılığı istemcinin kendi başarılı güncellemesini görebilmesini sağlar.
+read-copy-update|Read-copy-update lets readers access data while writers prepare a replacement copy.|Oku-kopyala-güncelle yöntemi yazıcılar yedek kopya hazırlarken okuyucuların veriye erişmesini sağlar.
+replica divergence|Replica divergence occurs when database copies develop different values.|Kopya ayrışması veritabanı kopyaları farklı değerler geliştirdiğinde oluşur.
+replicated state machine|A replicated state machine applies the same ordered commands on several nodes.|Çoğaltılmış durum makinesi aynı sıralı komutları birkaç düğümde uygular.
+replication lag|Replication lag measures the delay before a replica receives a committed change.|Çoğaltma gecikmesi bir kopyanın kesinleştirilmiş değişikliği almasına kadar geçen süreyi ölçer.
+request coalescing|Request coalescing combines identical requests so a backend performs the work once.|İstek birleştirme aynı istekleri birleştirerek arka ucun işi bir kez yapmasını sağlar.
+request hedging|Request hedging sends a backup request when the original request is unusually slow.|İstek yedekleme özgün istek olağan dışı yavaş olduğunda yedek bir istek gönderir.
+retry amplification|Retry amplification occurs when repeated retries increase load on an already failing service.|Yeniden deneme büyümesi tekrarlanan denemeler zaten arızalı olan hizmetin yükünü artırdığında oluşur.
+retry budget|The retry budget limits how many additional attempts a client may make.|Yeniden deneme bütçesi istemcinin yapabileceği ek deneme sayısını sınırlar.
+saga pattern|The saga pattern coordinates a long transaction through smaller local transactions and compensating actions.|Saga örüntüsü uzun bir işlemi daha küçük yerel işlemler ve telafi eylemleriyle koordine eder.
+scatter-gather|The scatter-gather pattern sends a request to several services and combines their replies.|Dağıt-topla örüntüsü bir isteği birkaç hizmete gönderir ve yanıtlarını birleştirir.
+serial execution history|A serial execution history runs transactions one after another without overlap.|Seri yürütme geçmişi işlemleri çakışma olmadan art arda yürütür.
+serializability|Serializability ensures that concurrent transactions have an effect equivalent to some serial order.|Serileştirilebilirlik eşzamanlı işlemlerin herhangi bir seri sıraya eşdeğer etki oluşturmasını sağlar.
+speculative execution|Speculative execution starts work before it is certain that the result will be needed.|Spekülatif yürütme sonucun gerekeceği kesinleşmeden önce işlemi başlatır.
+split-brain prevention|Split-brain prevention stops two isolated nodes from both acting as the primary leader.|Beyin bölünmesini önleme birbirinden kopmuş iki düğümün de birincil lider gibi davranmasını engeller.
+stable storage|Stable storage preserves committed data across crashes and restarts.|Kararlı depolama kesinleştirilmiş verileri çökmeler ve yeniden başlatmalar boyunca korur.
+state machine replication|State machine replication keeps several nodes aligned by applying the same commands in the same order.|Durum makinesi çoğaltması aynı komutları aynı sırayla uygulayarak birkaç düğümü uyumlu tutar.
+state transfer|State transfer copies the current state from one node to another during recovery.|Durum aktarımı kurtarma sırasında mevcut durumu bir düğümden diğerine kopyalar.
+store buffer|The store buffer temporarily holds pending writes before they reach main memory.|Yazma arabelleği bekleyen yazmaları ana belleğe ulaşmadan önce geçici olarak tutar.
+strong consistency|Strong consistency makes every successful write immediately visible to later reads.|Güçlü tutarlılık her başarılı yazmayı sonraki okumalara hemen görünür kılar.
+synchronous replication|Synchronous replication waits for a replica to confirm a write before reporting success.|Eşzamanlı çoğaltma başarı bildirilmeden önce bir kopyanın yazmayı onaylamasını bekler.
+transaction anomaly|The database isolation level is designed to prevent a transaction anomaly.|Veritabanı yalıtım seviyesi bir işlem tutarsızlığını önlemek üzere tasarlanmıştır.
+transaction log replay|Transaction log replay rebuilds database state by applying recorded operations in order.|İşlem günlüğünü yeniden oynatma kaydedilmiş işlemleri sırayla uygulayarak veritabanı durumunu yeniden oluşturur.
+two-phase commit|Two-phase commit asks participants to prepare before the coordinator commits the transaction.|İki aşamalı kesinleştirme koordinatör işlemi tamamlamadan önce katılımcılardan hazırlanmalarını ister.
+vector clock|A vector clock tracks causal relationships between events on distributed nodes.|Vektör saati dağıtık düğümlerdeki olaylar arasındaki nedensel ilişkileri takip eder.
+weak consistency|Weak consistency allows replicas to show different values for a limited period.|Zayıf tutarlılık kopyaların sınırlı bir süre farklı değerler göstermesine izin verir.
+write skew|Write skew occurs when concurrent transactions make individually valid updates that violate a shared rule.|Yazma çarpıklığı eşzamanlı işlemler tek tek geçerli ancak ortak bir kuralı bozan güncellemeler yaptığında oluşur.
+write-ahead logging|Write-ahead logging records a change before the database applies it to the data pages.|Önce yazma günlüğü veritabanı değişikliği veri sayfalarına uygulamadan önce kaydeder.
+write-back cache|A write-back cache delays updating the underlying storage until the cached data is flushed.|Geri yazmalı önbellek önbelleğe alınmış veri boşaltılana kadar temel depolamanın güncellenmesini geciktirir.
+write-through cache|A write-through cache updates the cache and underlying storage during the same write operation.|Doğrudan yazmalı önbellek aynı yazma işlemi sırasında önbelleği ve temel depolamayı günceller.
+zero-copy networking|Zero-copy networking moves data between network components with fewer memory copies.|Sıfır kopyalı ağ iletişimi verileri ağ bileşenleri arasında daha az bellek kopyasıyla taşır.
+zero-copy transfer|Zero-copy transfer reduces CPU work by avoiding unnecessary copying of data buffers.|Sıfır kopyalı aktarım veri arabelleklerinin gereksiz kopyalanmasını önleyerek CPU iş yükünü azaltır.
+zero-trust enforcement|Zero-trust enforcement checks identity and access policy for every protected request.|Sıfır güven uygulaması korunan her istek için kimliği ve erişim politikasını kontrol eder.
