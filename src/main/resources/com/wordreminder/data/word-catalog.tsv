@@ -1,6 +1,7 @@
 # WordReminder vocabulary catalogue v1.3.0
 # Fields: CEFR|CATEGORY|ENGLISH|TURKISH|PART_OF_SPEECH|US_IPA|EXAMPLE
 # IPA: CMU Pronouncing Dictionary (Carnegie Mellon University), converted from ARPABET to broad General American IPA.
+# 3.6.0: reviewed Turkish meanings and parts of speech for selected common headwords.
 A1|DAILY|a|ingiliz alfabesinin ilk harfi; birinci kalite veya derece; (müz.) la notası; la perdesi|Tanımlık|/ə/|
 A1|DAILY|about|(edat.) -(e) dair; hakkında; çevresine; etrafında|Edat / Zarf|/əˈbaʊt/|
 A1|DAILY|action|iş; amel; çalışma; meşguliyet|İsim|/ˈækʃən/|
@@ -19,11 +20,11 @@ A1|DAILY|an|bir ünlü ile başlayan kelimelerden evvel kullanılan belgesiz sı
 A1|DAILY|and|(bağlaç.) ve; de; ile And howl (k.dili) Hem de nasıl and so forth ve saire.|Bağlaç|/ənd/|
 A1|DAILY|animal|hayvan; hayvanlara ait hayvani diriksel. animal breeding hayvan besleme. animal heat vücut sıcaklığı. animal husbandry hayvancılık. animal kingdom hayvanlar âlemi. animal magnetism çekicilik. animal nature insandaki hayvansal tabiat. animal psychology hayvan psikolojisi. animal spirits canlılık; hayatiyet. animal worship hayvana tapma; hayvanperestlik. domestic animal ehli hayvan|Sıfat|/ˈænəməl/|
 A1|DAILY|another|(zam.) başka; ayrı; diğer; sair|Zamir|/əˈnʌðɚ/|
-A1|DAILY|any|(zam.) bir herhangi; her ne kadar; her; her bir|Belirteç / Zamir|/ˈɛni/|
+A1|DAILY|any|herhangi bir; hiç; bazı|Belirteç / Zamir|/ˈɛni/|
 A1|DAILY|anyone|(zam) herhangi bir kimse.|Zamir|/ˈɛniˌwʌn/|
 A1|DAILY|apple|elma. apple blossom elma baharı. apple butter elma marmelâdı. apple green elma yaprağı renginde. applejack elma rakısı. apple juice elma suyu. apple of discord (mit) kavga tanrıçası tarafından tanrılara atılan ve Paris tarafından Venüs e hediye edilen elma. apple of the eve gözbebeği; çok değer verilen bir şey. in apple-pie order çok düzenli. apple polisher (A.B.D.); (argo) dalkavak; (slang) yağcı. applesauce elma püresi|İsim|/ˈæpəl/|
 A1|DAILY|are|-sin; -iz; -siniz; -dirler. are (bak.) ar.|İsim|/ɑɹ/|
-A1|DAILY|arm|silahlandırmak; donatmak; teçhiz etmek; savaşa hazırlamak|Fiil|/ɑɹm/|
+A1|DAILY|arm|kol; silahlandırmak; donatmak|İsim / Fiil|/ɑɹm/|
 A1|DAILY|art|(eski.) (sen) -sin; (kıs.) article.; hüner; sanat|İsim|/ɑɹt/|
 A1|DAILY|article|makale; yazı; bent; madde|İsim|/ˈɑɹtəkəl/|
 A1|DAILY|at|(edat.) tarafında; -de; -da; -e|Edat|/æt/|
@@ -98,7 +99,7 @@ A1|DAILY|butterfly|kelebek: kelebek gibi bir yerden bir yere gayesi oimaksızın
 A1|DAILY|buy|satın almak; almak: bir şey karşıIığında sağlamak: kiralamak: rüşvetle elegeçirmek; elde etmek; alıcı durumunda olmak|Fiil|/baɪ/|
 A1|DAILY|by|yakın; bir kenara. go by geçip gitmek. Iay by biriktirmek; yığmak. put by ilerisi için saklamak. by and by çok geçme(den.) by and large genellikle. Can you dropby tonight? Bu gece bize uğrar mısın?; asıl gayeden uzak ifade veya fikir|Edat / Zarf|/baɪ/|
 A1|DAILY|cafe|Iokanta; kahvehane; pastane; bar|İsim|/kəˈfeɪ/|
-A1|DAILY|cake|kalıplaşmak; kalıp seklini almak; katılaşmak; şekil almak|Fiil|/keɪk/|
+A1|DAILY|cake|kek; pasta; katılaşmak; kalıplaşmak|İsim / Fiil|/keɪk/|
 A1|DAILY|call|bağırma; çağırma; bağırış; haykırma|Fiil|/kɔl/|
 A1|DAILY|camera|fotoğraf makinası; kamera; hakimin özel odası. in camera (huk.) gizli celsede. cameraman kameraman.|İsim|/ˈkæmɚə/|
 A1|DAILY|camp|bayağı veya gülünç hareketlerde bulunan kimse; adilik; bayağı eser; adi|İsim|/kæmp/|
@@ -117,7 +118,7 @@ A1|DAILY|celebrate|kutlamak; tesit etmek; ilân etmek; ayin yapmak|Fiil|/ˈsɛl�
 A1|DAILY|chair|iskemle; sandalye; makam; kürsü|İsim|/tʃɛɹ/|
 A1|DAILY|change|değiştirmek; tahvil etmek; aktarma yapmak (tren vb); para bozdurmak|Fiil|/tʃeɪndʒ/|
 A1|DAILY|character|karakter; huy; tabiat; ahlak|İsim|/ˈkɛɹɪktɚ/|
-A1|DAILY|check|durdurmak; birden durdurmak; engel olmak; kontrol altına almak|Fiil|/tʃɛk/|
+A1|DAILY|check|kontrol etmek; denetlemek; kontrol; engellemek; durdurmak|Fiil / İsim|/tʃɛk/|
 A1|DAILY|cheese|peynir; peynir kalıbı; bu şekilde herhangi bir şey. Cheese it ! (argo) Kaç ! big cheese (argo) önemli bir kimse.|İsim|/tʃiz/|
 A1|DAILY|chicken|piliç; tavuk; tavuk veya diğer kümes hayvanlannın eti; (k.dili) toy kimse|İsim|/ˈtʃɪkən/|
 A1|DAILY|child|(çoğ.) -children) bebek; çocuk; çocuksu kimse; kız veya erkek evlât. childbed kadının doğum yapma hali. childbirth doğum. child labor çocukların çalıştırılması. child' play kolay iş. adopted child evlât edinilmiş çocuk|İsim|/tʃaɪld/|
@@ -136,19 +137,19 @@ A1|DAILY|cloud|bulut; duman veya toz bulutu; leke. cloudburst sağanak. cloud-ca
 A1|DAILY|cloudy|bulutlu; bulutlarla ilgili; dalgalı (mermer); dumanlı|Sıfat|/ˈklaʊdi/|
 A1|DAILY|club|sopa; çomak; golf sopası; kulüp|İsim|/klʌb/|
 A1|DAILY|coat|palto; ceket; kat; tabaka|İsim|/koʊt/|
-A1|DAILY|code|kanun; kanunname; dustur şifre; kanun haline getirmek|İsim|/koʊd/|
+A1|DAILY|code|kod; şifre; yazılım kodu; kanunlar bütünü|İsim|/koʊd/|
 A1|DAILY|coffee|kahve; kahve ağacı; (bot.) Coffea arabica. coffee bean kahve çekirdeği.coffee break ABD çalışma esnasında verilen kahve veya çay molası. coffee cake kahvaltı pastası. coffee cup alafranga kahve fincanı.coffee grounds kahve telvesi. coffee house çayevi çayhane; kahvehane|İsim|/ˈkɑfi/|
 A1|DAILY|cold|soğuk; üşümüş; soğumuş; öImüş|Sıfat / İsim|/koʊld/|
 A1|DAILY|collect|toplamak; koleksiyon yapmak; biriktirmek; tahsil etmek|Fiil|/kəˈlɛkt/|
 A1|DAILY|collection|toplama; toplanmış şeyler; koleksiyon; kilisede toplanan para|İsim|/kəˈlɛkʃən/|
 A1|DAILY|college|üniversite; yüksekokul; fakülte College of Cardinals kardinaller heyeti.|İsim|/ˈkɑlɪdʒ/|
 A1|DAILY|color|boyamak; renk vermek; olduğundan başka göstermek; gerçeği tahrif etmek|Fiil|/ˈkʌlɚ/|
-A1|DAILY|concert|bir araya gelerek karar almak; planlamak. concerted kararlaştırılmış; birlikte yapılmış; (müz.) bölümler halinde düzenlenmiş.|Fiil|/ˈkɑnsɚt/|
+A1|DAILY|concert|konser; toplu müzik dinletisi; birlikte düzenlemek veya planlamak|İsim / Fiil|/ˈkɑnsɚt/|
 A1|DAILY|conversation|konuşma; sohbet; muhavere mükâleme. conversation piece dikkati çeken ve kendisinden bahsettiren herhangi bir şey. criminal conversation (huk.) zina.|İsim|/ˌkɑnvɚˈseɪʃən/|
 A1|DAILY|cook|aşçı. cookbook yemek kitabı. Too many cooks spoil the broth idarecinin çok olduğu yerde iş yürümez.; pişirmek; pişmek; tahrif etmek|İsim|/kʊk/|
-A1|DAILY|cool|serinlik; (argo) sükünet; soğukkanIılık. He blew his cool. (argo) Soğukkanlılığını kaybetti.; serinletmek|Sıfat|/kul/|
+A1|DAILY|cool|serin; soğukkanlı; havalı; serinletmek|Sıfat / Fiil|/kul/|
 A1|DAILY|corn|(ABD) mısır; (bot.) Zea mays; tahıl tanesi; tane|İsim|/kɔɹn/|
-A1|DAILY|corner|çıkmaza sokmak; bir köşeye kıstırmak; tekelcilik suretiyle piyasayı ele geçirmek.|Fiil|/ˈkɔɹnɚ/|
+A1|DAILY|corner|köşe; dönemeç; köşeye sıkıştırmak|İsim / Fiil|/ˈkɔɹnɚ/|
 A1|DAILY|correct|düzeltmek doğrultmak; tashih etmek; ıslah etmek; tekdir etmek|Fiil|/kɚˈɛkt/|
 A1|DAILY|couch|sedir; kanepe; divan; yatacak yer|İsim|/kaʊtʃ/|
 A1|DAILY|could|(bak.) can.|İsim|/kʊd/|
@@ -169,8 +170,8 @@ A1|DAILY|desk|yazı masası; yazıhane; daire; şube|İsim|/dɛsk/|
 A1|DAILY|dictionary|sözlük; lügat; kamus.|Sıfat|/ˈdɪkʃəˌnɛɹi/|
 A1|DAILY|difference|ayrılık; fark; ayırıcı özellik; ihtilaf|İsim|/ˈdɪfɚəns/|
 A1|DAILY|different|(A.B.D) from veya than ile: (ing) from veya to ile farklı; başka; ayrı; muhtelif|Sıfat|/ˈdɪfɚənt/|
-A1|DAILY|difficult|güç; zor; müşkül; çetin|İsim|/ˈdɪfəkəlt/|
-A1|DAILY|dig|(dug; digging) kazmak; toprağı bellemek: kazı yapmak; hafriyat yapmak|İsim|/dɪɡ/|
+A1|DAILY|difficult|zor; güç; çetin; güçlük çıkaran|Sıfat|/ˈdɪfəkəlt/|
+A1|DAILY|dig|kazmak; toprağı bellemek; kazı yapmak|Fiil|/dɪɡ/|
 A1|DAILY|dish|tabak; çanak; yemek; (k.dili.) bir kimsenin rahatlıkla yaptığı şey|İsim|/dɪʃ/|
 A1|DAILY|do|(müz.) bir gamın birinci ve son notası.; (k.dili.); eğlenti; toplantı. do' and don'ts yapılması ve yapılmaması gereken şeyler.|Fiil|/du/|
 A1|DAILY|doctor|doktor; tabip; hekim; veteriner|İsim|/ˈdɑktɚ/|
@@ -200,10 +201,10 @@ A1|DAILY|ex|(edat.); (Lat.); (ikt.) kullanma hakkı olmadan; ABD belirli bir sen
 A1|DAILY|example|örnek; misal; numune; ibret. for example örneğin|İsim|/ɪɡˈzæmpəl/|
 A1|DAILY|excellent|mükemmel; kusursuz; üstün; faziletli|Sıfat|/ˈɛksələnt/|
 A1|DAILY|expensive|pahalı; masraflı.|Sıfat|/ɪkˈspɛnsɪv/|
-A1|DAILY|eye|bakmak; süzmek; delmek. eye narrowly dikkatle süzmek.; göz|Fiil|/aɪ/|
+A1|DAILY|eye|göz; gözlemlemek; dikkatle bakmak|İsim / Fiil|/aɪ/|
 A1|DAILY|face|yüz; çehre; surat; sima|İsim|/feɪs/|
 A1|DAILY|factory|fabrika; imalâthane; atölye; (eski.) yabancı bir memlekette iş hanı.|Sıfat|/ˈfæktɚi/|
-A1|DAILY|fair|güzel; hoş; zarif; istenir|İsim|/fɛɹ/|
+A1|DAILY|fair|adil; hakkaniyetli; açık renkli; fuar|Sıfat / İsim|/fɛɹ/|
 A1|DAILY|fairy|peri; (argo) homoseksüel erkek; (slang) ibne; peri gibi|İsim|/ˈfɛɹi/|
 A1|DAILY|family|aile|Zarf|/ˈfæməli/|My family lives in Ankara.
 A1|DAILY|famous|ünlü; meşhur; tanınmış; maruf|Sıfat|/ˈfeɪməs/|
@@ -234,7 +235,7 @@ A1|DAILY|flag|(ged; ging) büyük ve yassı kaldırım taşı; bu taşlarla dö�
 A1|DAILY|floor|taş veya tahta döşeme; yer; zemin; dip|İsim|/flɔɹ/|
 A1|DAILY|flower|çiçek; çiçek açan bitki; süs; süsleme|İsim|/ˈflaʊɚ/|
 A1|DAILY|fly|uçuş; (terz.) fermuar veya düğme ile kapatılabilen kısım; (beysbol.) vurulup havaya kaldırılan top; (mak.) sürat regülatorü: bayrak veya sancağın ucu: çadırda kapı yerine geçen perde: (çoğ.)|Zarf|/flaɪ/|
-A1|DAILY|following|taraftarlar; bağımlı olan kimseler; tabi olanlar; takip eden|İsim|/ˈfɑloʊɪŋ/|
+A1|DAILY|following|takip eden; sonraki; aşağıdaki; takipçiler|Sıfat / İsim|/ˈfɑloʊɪŋ/|
 A1|DAILY|food|yemek, yiyecek|İsim|/fud/|The food is very good.
 A1|DAILY|foreign|yabancı; ecnebi; harici; dış|İsim|/ˈfɔɹən/|
 A1|DAILY|forty|kırk (40; XL) forty acres 16 hektar. forty winks kısa süren uyku; şekerleme; kestirme. the roaring forties (coğr.) 40° ile 49 arasındaki kuzey ve güney enlem dereceleri içinde kalan fırtınalı denizler.|İsim|/ˈfɔɹti/|
@@ -257,7 +258,7 @@ A1|DAILY|give|(gave; given) vermek; hediye etmek; hibe etmek|Fiil|/ɡɪv/|
 A1|DAILY|glass|cam; camdan yapılmış şey; bardak; kadeh|İsim|/ɡlæs/|
 A1|DAILY|goal|gaye; hedef; maksat; nişan|Sıfat|/ɡoʊl/|
 A1|DAILY|gold|altın; altın para; servet; zenginlik|İsim|/ɡoʊld/|
-A1|DAILY|good|(better; best) (ünlem) iyi; âIâ; güzel|Sıfat / İsim|/ɡʊd/|
+A1|DAILY|good|iyi; güzel; faydalı; uygun|Sıfat / İsim|/ɡʊd/|
 A1|DAILY|goodbye|hoşça kal|İsim|/ˌɡʊdˈbaɪ/|Goodbye, see you tomorrow.
 A1|DAILY|grade|derece; mertebe; tabaka; cins|İsim|/ɡɹeɪd/|
 A1|DAILY|grammar|gramer; sarf; dilbilgisi; gramer kitabı|İsim|/ˈɡɹæmɚ/|
@@ -333,7 +334,7 @@ A1|DAILY|key|kilitlemek; (mak.) tutturmak; kilit taşını yerleştirip kemeri t
 A1|DAILY|kick|tekmelemek; tekme atmak; tekme vurmak; çifte atmak|Fiil|/kɪk/|
 A1|DAILY|king|kral; başta olan kimse; bir konuda en usta kimse; satranç şahı|İsim|/kɪŋ/|
 A1|DAILY|kitchen|mutfak. kitchen cabinet mutfak dolabı; başbakanın özel danışmanlar grubu. kitchen garden sebze bahçesi. kitchen stuff yemek için pişirilecek malzeme; nevale; yemeklerden artan yaglar.|İsim|/ˈkɪtʃən/|
-A1|DAILY|knee|diz ile vurmak.; diz; dize benzer veya diz şeklinde şey; elbisenin diz üzerine gelen kısmı|Fiil|/ni/|
+A1|DAILY|knee|diz; dizle vurmak|İsim / Fiil|/ni/|
 A1|DAILY|knife|(çoğ.) knives) bıçak; çakı; makina bıçağı; bıçakla kesmek|İsim|/naɪf/|
 A1|DAILY|know|(knew; known) bilmek; tanımak; seçmek|Fiil|/noʊ/|
 A1|DAILY|language|dil; lisan; konuşma kabiliyeti; herhangi bir ifade tarzı|İsim|/ˈlæŋɡwədʒ/|
@@ -459,7 +460,7 @@ A1|DAILY|plane|(geom.) düzlem; müstevi; düzey; safha|İsim|/pleɪn/|
 A1|DAILY|play|.oynamak; eğlenmek; hareket etmek; sallanmak|Fiil|/pleɪ/|
 A1|DAILY|please|lütfen|İsim|/pliz/|Please open the window.
 A1|DAILY|pleasure|zevk; sefa; haz; lezzet sevinç|İsim|/ˈplɛʒɚ/|
-A1|DAILY|pocket|cebe yerleştirmek; cebe koymak; cebine atmak; (slang) iç etmek|Fiil|/ˈpɑkət/|
+A1|DAILY|pocket|cep; cebe koymak; cebe atmak|İsim / Fiil|/ˈpɑkət/|
 A1|DAILY|poem|(şiir); koşoşuk; manzume; şairane ifade.prose poem mensur şiir|İsim|/ˈpoʊəm/|
 A1|DAILY|point|işaret etmek; göstermek; yöneltmek; hedefe nişan almak|Fiil|/pɔɪnt/|
 A1|DAILY|pool|bahis tutuşmada veya kumarda ortaya konulan para; on beş bilye ile oynanan bir çeşit bilardo; (tic.) rekabete meydan vermemek için mal fiyatlarını kontrol altmda tutan tüccarlar birliği; çalışma grubu|İsim|/pul/|
@@ -567,28 +568,28 @@ A1|DAILY|spell|(ed veya spelt) hecelemek; imlâsını harf harf söylemek; söyl
 A1|DAILY|spend|(spent) harcamak; sarfetmek; bol bol vermek; israf etmek|Fiil|/spɛnd/|
 A1|DAILY|sport|eğlence; oyun; spor; neşe|İsim|/spɔɹt/|
 A1|DAILY|spot|yer; mevki; mahal; benek|İsim|/spɑt/|
-A1|DAILY|spring|yay; zemberek; yaylanma; atlama|İsim|/spɹɪŋ/|
+A1|DAILY|spring|ilkbahar; bahar; yay; zemberek|İsim|/spɹɪŋ/|
 A1|DAILY|spy|casus; hafiye; ajan; casusluk etme|İsim|/spaɪ/|
 A1|DAILY|stage|sahne; tiyatro; sahne hayatı; tiyatroculuk|İsim|/steɪdʒ/|
 A1|DAILY|stand|(stood) ayakta durmak; kaim olmak; durmak; ayakta kalmak|Fiil|/stænd/|
 A1|DAILY|star|yıldız; yıldız şekli; yıldız işareti; (tiyatro)|İsim|/stɑɹ/|
-A1|DAILY|start|geyik boynuzunun ucu; kuş kuyruğu biçiminde parça.; başlamak; harekete geçmek|Fiil|/stɑɹt/|
+A1|DAILY|start|başlamak; harekete geçmek; başlangıç|Fiil / İsim|/stɑɹt/|
 A1|DAILY|station|durak; tevakkuf mahalli; merkez; istasyon|İsim|/ˈsteɪʃən/|
 A1|DAILY|still|(bağlaç) sessiz; sakin; hareketsiz; durgun|Bağlaç|/stɪl/|
 A1|DAILY|stone|taş; taştan yapılmış şey; taşa benzer şey; (tıb.) mesane taşı|İsim|/stoʊn/|
-A1|DAILY|stop|(-ped; -ping) durdurmak; alı koymak; engellemek|Fiil|/stɑp/|
+A1|DAILY|stop|durmak; durdurmak; durak; mola|Fiil / İsim|/stɑp/|
 A1|DAILY|store|(A.B.D.) mağaza; dükkân; biriktirilmiş şey; stok|İsim|/stɔɹ/|
-A1|DAILY|story|hikaye; öykü; tarih; rivayet|Sıfat|/ˈstɔɹi/|
+A1|DAILY|story|hikâye; öykü; anlatı|İsim|/ˈstɔɹi/|
 A1|DAILY|street|sokak|İsim|/stɹit/|Our office is on this street.
-A1|DAILY|strict|sıkı; dikkatli; çok titiz; harfi harfine tanımlanmış tam|İsim|/stɹɪkt/|
+A1|DAILY|strict|katı; sıkı; titiz; kurallara bağlı|Sıfat|/stɹɪkt/|
 A1|DAILY|strong|kuvvetli; zorlu; güçlü; metin|Sıfat|/stɹɔŋ/|
-A1|DAILY|student|öğrenci; talebe; uzman. student body bir okul veya üniversite öğrencilerinin tümü. student lamp değişik yönlere çevrilebilen masa lambası. student nurse hemşirelik öğrencisi. student teacher stajiyer öğretmen. studentship öğrencilik; ing. burs.|Sıfat|/ˈstudənt/|
+A1|DAILY|student|öğrenci; talebe|İsim|/ˈstudənt/|
 A1|DAILY|sub|(k. dili) sub ile başlayan bazı kelimelerin (kıs.)ası: subaltern; submarine subordinate; subscription; substitute gibi.|İsim|/sʌb/|
-A1|DAILY|subject|hükmü altına almak; itaat ettirmek; boyun eğdirmek; arz etmek|Fiil|/səbˈdʒɛkt/|
+A1|DAILY|subject|konu; ders; özne; tabi kılmak|İsim / Fiil|/səbˈdʒɛkt/|
 A1|DAILY|subway|(A.B.D.) metro; tünel.|İsim|/ˈsʌbˌweɪ/|
 A1|DAILY|successful|başarılı; muvaffakıyetli. successfully başarıyla; muvaffakıyetle. successfulness başarılılık.|Sıfat|/səkˈsɛsfəl/|
 A1|DAILY|sugar|şeker; tatlı söz; kompliman; (argo) şekerim|İsim|/ˈʃʊɡɚ/|
-A1|DAILY|suggestion|ima; ihtar; fikir verme; teklif|İsim|/səˈdʒɛstʃən/|
+A1|DAILY|suggestion|öneri; teklif; tavsiye; ima|İsim|/səˈdʒɛstʃən/|
 A1|DAILY|sum|(-med; -ming) toplam; yekun; mecmu|İsim|/sʌm/|
 A1|DAILY|summer|yaz; yaz mevsimi; yazı geçirmek; yaz esnasında bakmak veya beslemek|İsim|/ˈsʌmɚ/|
 A1|DAILY|sun|(-ned; -ning) güneş; güneş ışığı; güneşli yer|İsim|/sʌn/|
@@ -599,10 +600,10 @@ A1|DAILY|super|(önek) üstün; üzerinde; fevkinde; fazlasıyla.|İsim|/ˈsupɚ
 A1|DAILY|supermarket|süper market; büyük mağaza.|İsim|/ˈsupɚˌmɑɹkɪt/|
 A1|DAILY|sure|(ünlem) muhakkak; şüphesiz; olumlu; müspet|Ünlem|/ʃʊɹ/|
 A1|DAILY|surf|kıyıda kırılan köpüklü dalgalar; çatlayan dalgalar; (spor)dalgalar üstünde tahta ile kıyıya doğru kaymak.|İsim|/sɝf/|
-A1|DAILY|surprise|sürpriz; birden karşısına çıkış; hayret; beklenilmedik şey|Fiil|/sɚˈpɹaɪz/|
+A1|DAILY|surprise|sürpriz; beklenmedik olay; şaşırtmak|İsim / Fiil|/sɚˈpɹaɪz/|
 A1|DAILY|survey|bakmak; dikkatle her şeye göz gezdirmek; muayene etmek; yoklamak|Fiil|/sɚˈveɪ/|
 A1|DAILY|sweet|tatlı; şekerli; taze; hoş|Sıfat|/swit/|
-A1|DAILY|swim|(swam; swum; -ming) yüzmek; batmamak|İsim|/swɪm/|
+A1|DAILY|swim|yüzmek; yüzme|Fiil / İsim|/swɪm/|
 A1|DAILY|swimming|yüzme; baş dönmesi; dönen (baş); yüzen|İsim|/ˈswɪmɪŋ/|
 A1|DAILY|tall|uzun boylu; uzun; yüksek; (k. dili) mübalağalı|Sıfat|/tɔl/|
 A1|DAILY|tea|çay fidanı; (bot.) Thea sinensis; kuru çay yaprağı; çay|İsim|/ti/|
@@ -661,7 +662,7 @@ A1|DAILY|try|uğraşmak; çalışmak; teşebbüs etmek; kalkışmak|Fiil|/tɹaɪ
 A1|DAILY|tube|boru; tüp; (bot.) çiçeğin boru gibi olan kısmı; boru eklinde şey|İsim|/tub/|
 A1|DAILY|tuesday|salı (kıs.) Tues.|İsim|/ˈtuzdi/|
 A1|DAILY|turkey|hindi; (zool.) Meleagris gallopavo; (A.B.D.); (argo) başarısız piyes. turkey buzzard hindi akbabası. turkey cock erkek hindi|İsim|/ˈtɝki/|
-A1|DAILY|turn|dönüş devir; deveran; sapış; yön değiştirme|Fiil|/tɝn/|
+A1|DAILY|turn|dönmek; çevirmek; dönüş; sıra|Fiil / İsim|/tɝn/|
 A1|DAILY|tv|televizyon.|İsim|/ˌtiˈvi/|
 A1|DAILY|twelve|on iki. Twelve Apostles Hazreti İsa'nın havarisi olan on iki resul.|İsim|/twɛlv/|
 A1|DAILY|twenty|yirmi.|İsim|/ˈtwɛnti/|
@@ -675,19 +676,19 @@ A1|DAILY|vase|vazo.|İsim|/veɪs/|
 A1|DAILY|vegetable|sebze; zerzevat; göveri; yeşillik|Sıfat|/ˈvɛdʒtəbəl/|
 A1|DAILY|video|televizyonla resim nakline ait .video tape görüntü ve ses kaydeden televizyon bandı.|İsim|/ˈvɪdioʊ/|
 A1|DAILY|visit|ziyaret etmek; yoklamak; gömrüşmeye gitmek; resmi ziyarette bulunmak|Fiil|/ˈvɪzɪt/|
-A1|DAILY|vote|rey; oy; oy hakkı; oyu belirten vasıta|İsim|/voʊt/|
-A1|DAILY|wake|(-d veya woke; woken) uyanmak; uyanık kalmak; canlanmak|İsim|/weɪk/|
+A1|DAILY|vote|oy; oy vermek; oy kullanmak|İsim / Fiil|/voʊt/|
+A1|DAILY|wake|uyanmak; uyandırmak; uyanık kalmak|Fiil|/weɪk/|
 A1|DAILY|walk|yürümek; yürüyerek gitmek; yaya gitmek; davranmak|Fiil|/wɔk/|
 A1|DAILY|wall|duvar; (çoğ.) kale bedeni; sur; etrafına duvar çekmek. wall creeper duvar tırmaşık kuşu|İsim|/wɔl/|
 A1|DAILY|war|(-red; -ring) savaşmak; harp etmek; muharebe etmek|İsim|/wɔɹ/|
 A1|DAILY|warm|ılık; hafif sıcak; ısıtan; sıcak tutan|İsim|/wɔɹm/|
 A1|DAILY|was|(bak.) be.|İsim|/wɑz/|
-A1|DAILY|wash|yıkama; yıkanma; çamaşır; deniz veya nehir suyunun çalkanmasından hasıl olan ses|İsim|/wɑʃ/|
+A1|DAILY|wash|yıkamak; yıkanmak; yıkama|Fiil / İsim|/wɑʃ/|
 A1|DAILY|watch|bakmak; dikkat etmek; beklemek; gözlemek|Fiil|/wɑtʃ/|
 A1|DAILY|water|su|İsim|/ˈwɔtɚ/|Can I have some water?
 A1|DAILY|way|yol; tarik; yön; yan|İsim|/weɪ/|
 A1|DAILY|we|(zam.) biz; (bak.) I.|Zamir|/wi/|
-A1|DAILY|wear|dayanıklılık; dayanma; aşınma; yıpranma|İsim|/wɛɹ/|
+A1|DAILY|wear|giymek; takmak; üzerinde taşımak; aşınmak|Fiil|/wɛɹ/|
 A1|DAILY|wednesday|çarşamba.|İsim|/ˈwɛnzdi/|
 A1|DAILY|week|hafta. week in week out haftalarca. weeks ago haftalarca önce. a full week tam bir hafta; olaylarla dolu bir hafta .by the week hafta hesabına göre. for weeks haftalarca.|İsim|/wik/|
 A1|DAILY|weekend|hafta sonu.|İsim|/ˈwiˌkɛnd/|
@@ -716,7 +717,7 @@ A1|DAILY|world|dünya; cihan; alem; evren|İsim|/wɝld/|
 A1|DAILY|would|(bak.) will; (eski) arzulamak; istemek; (yardımcı fiil): a)(istek): He would like to go. Gitmek istiyor. b) (şart): He would help if he were here. Burada olsaydı yardım ederdi. c) (gelecek zaman): He kept looking for the medicine that would cure him. Kendisini iyi edecek ilacı arayıp durdu. d) (kararlılık): He would not go. Gitmemekte kararlıydı. e) (olasılık): Letting him come would cause serious trouble. Gelmesine izin vermek önemli olaylara sebep olurdu. (tercih): we would rather you saved your money. Paranı sarfetmemeni tavsiye ederiz. g) (dilek): What would you like me to do? Ne yapmamı arzu edersiniz? h) (alışkanlık): We would swim everyday that summer. O yaz her gün yüzerdik.|İsim|/wʊd/|
 A1|DAILY|write|(wrote; written eski writ) yazı yazmak; teklif etmek; kaleme almak|Fiil|/ɹaɪt/|
 A1|DAILY|writer|yazar; müellif; muharrir; hattat. writer' cramp çok yazı yazmaktan ileri gelen el veya kol tutulması|İsim|/ˈɹaɪtɚ/|
-A1|DAILY|yard|avlu; odun deposu gibi üstü açık işyeri; istasyon çevresinde tren manevra yeri; kışın ormanda geyiklerin toplandığı yer|Sıfat|/jɑɹd/|
+A1|DAILY|yard|avlu; bahçe; açık çalışma alanı|İsim|/jɑɹd/|
 A1|DAILY|year|sene; bir gezegenin güneş etrafinda döndüğü müddet; (çoğ.) yaş; ihtiyarlık|İsim|/jɪɹ/|
 A1|DAILY|yellow|sarı renkli; rengi sararmış; (k. dili) korkak; alçak|Sıfat|/ˈjɛloʊ/|
 A1|DAILY|yes|evet|İsim|/jɛs/|Yes, I understand.
