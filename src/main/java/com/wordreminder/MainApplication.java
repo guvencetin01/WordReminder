@@ -272,7 +272,10 @@ public class MainApplication extends Application {
     }
 
     private void handlePopupAction(Word word, String action) {
-        activePopup = null;
+        // Hard-word toggles are non-terminal: the study card stays open.
+        if (!"HARD".equals(action) && !"UNHARD".equals(action)) {
+            activePopup = null;
+        }
         switch (action) {
             case "KNOWN" -> executeDatabaseMutation(
                     "Kelime öğrenildi olarak kaydedilemedi.",
