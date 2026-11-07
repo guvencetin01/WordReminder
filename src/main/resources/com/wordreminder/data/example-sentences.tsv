@@ -849,7 +849,7 @@ condition|The condition is checked before the loop.|Döngüden önce koşul kont
 configuration file|The configuration file stores the application’s default values.|Yapılandırma dosyası uygulamanın varsayılan değerlerini saklar.
 configuration option|This configuration option controls how long a session remains active.|Bu yapılandırma seçeneği bir oturumun ne kadar süreceğini kontrol eder.
 configuration setting|Change the configuration setting before restarting the service.|Hizmeti yeniden başlatmadan önce yapılandırma ayarını değiştir.
-constructor||
+constructor|A constructor initializes a new object when it is created.|Yapıcı metot yeni bir nesne oluşturulurken onu başlatır.
 context|The method needs the database context to complete the operation.|İşlemi tamamlamak için metodun veritabanı bağlamına ihtiyacı var.
 control flow|The return statement changes the control flow of the method.|return ifadesi metodun kontrol akışını değiştirir.
 data entry|The form validates each data entry before saving it.|Form, her veri girişini kaydetmeden önce doğrular.
