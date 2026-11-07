@@ -1,3 +1,12 @@
+# WordReminder 3.5.0
+
+## 3.5.0 yenilikleri
+- Katalogdaki 4.654 kelimenin tamamına en az bir İngilizce örnek cümle sağlandı. Günlük ve teknik kelimeler, A1–C2 seviyeleri kapsama dâhildir.
+- `example-sentences.tsv` dosyasında 4.343 benzersiz kelime için İngilizce örnek cümle ve Türkçe çeviri bulunur.
+- Katalogda önceden bulunan 614 örnek de hesaba katıldığında 4.654 kelimenin tamamı örneklidir. Bu mevcut örneklerin 311'i ayrı çeviri kaydı olmadan katalogdan gösterilir.
+- Kayıtlar yinelenen başlık, katalog dışı kelime, boş alan ve eksik cümle kontrolünden geçirildi.
+- SQLite şeması 7 olarak kalır; kullanıcı verileri, öğrenme geçmişi ve ayarlar korunur.
+
 # WordReminder 3.4.0
 
 ## 3.4.0 yenilikleri
