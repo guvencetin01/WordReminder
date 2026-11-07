@@ -1,3 +1,11 @@
+## 3.2.0 arayüz ve içerik notları
+- Windows başlangıç alanında CheckBox metni doğrudan kontrole gömülmez; ayrı başlık/açıklama etiketleriyle gösterilir. Böylece dar ayar kartlarında açıklamanın görünmemesi sorunu önlenir.
+- Sistem tepsisinde başlatma ayarı, Windows oturum açılışında otomatik başlatma seçeneğine bağlıdır. Otomatik başlatma kapatılırsa kaydedilen start_minimized değeri de false olur.
+- ReminderPopup zor-kelime düğmesi HARD/UNHARD eylemlerini kartı kapatmadan yollar; MainApplication bu iki eylemde activePopup referansını korur. Diğer eylemler kartı kapatır.
+- Hatırlatma kartı için açık yeşil zemin, koyu yeşil çerçeve, okunaklı koyu metin ve yeşil tonlu düğmeler kullanılır. ScrollPane ve viewport dahil beyaz yüzey bırakılmaz.
+- example-sentences.tsv dosyasına 121 yeni günlük kelime için elle hazırlanmış İngilizce örnek ve Türkçe karşılık eklendi. İçerik paketi 724 girdidir; etkili örnek toplamı 1.035, çevrili örnek 724, çeviri bekleyen mevcut örnek 311, örneksiz kelime 3.619.
+- SQLite şeması 7 olarak kalır. Yeni migration, tablo temizliği veya kullanıcı verisi silme işlemi yoktur.
+
 ## 3.1.0 zamanlama ve performans notları
 - MainApplication.showNextReminder() kelime seçimini artık veritabanı yürütücüsünde yapar. JavaFX tarafında yalnızca hazır Word nesnesinden popup oluşturulur ve gösterilir.
 - MainWindow.refreshData(), tablo araması ve istatistik sorguları arka planda çalışır. JavaFX düğümleri yalnızca immutable ProgressData snapshot'ından oluşturulur.
