@@ -1,3 +1,10 @@
+## 3.5.0 tam örnek cümle kapsamı
+- Katalogda 4.654 benzersiz kelime vardır; bu sürümde her kelimenin en az bir İngilizce örnek cümlesi bulunacak biçimde eksik kapsam tamamlandı.
+- `example-sentences.tsv` içinde 4.343 benzersiz kelime başlığı için üç alanlı kayıt bulunur: İngilizce başlık, İngilizce örnek, Türkçe çeviri.
+- `word-catalog.tsv` içindeki 614 yerleşik örnek de sayıldığında bütün 4.654 başlığın İngilizce örneği vardır. 311 katalog örneği için ayrıca Türkçe çeviri kaydı bulunmaz.
+- Son statik doğrulama: katalog 4.654/4.654 kapsandı; 4.343 küratörlü kayıt; tekrar 0; katalog dışı başlık 0; boş/bozuk satır 0; hedef kelimeyi içermeyen cümle 0.
+- SQLite şeması 7 olarak kalır. Migration, tablo temizliği veya kullanıcı verisi silme işlemi yoktur.
+
 ## 3.4.0 içerik notları
 - A2 DAILY grubundaki 25 kelimeye örnek cümle ve Türkçe çeviri eklendi: cheap, cheek, chef, chemical, chest, childhood, chili, chin, choice, citizen, classic, cleaner, clear, clerk, clue, coast, coin, colorful, comfortable, common, communicate, competition, complaint, complete, continue.
 - Her yeni satır katalogda doğrulandı; mevcut kelime örneklerinin üzerine yazılmadı. Şema değişikliği yoktur.
