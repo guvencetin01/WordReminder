@@ -1,6 +1,7 @@
 ## [3.1.0] - Zamanlama güvenilirliği ve içerik genişletmesi
 
 - Hatırlatma için kelime seçimi, kart gösterim kaydı ve tekrar/öğrenildi kayıtları veritabanı yürütücüsüne taşındı; JavaFX arayüz iş parçacığında senkron SQLite sorgusu/işlemi yapılmaz.
+- Zaman kritik hatırlatma sorguları, tablo/istatistik işleri ve kullanıcı işlemlerinden bağımsız tek iş parçacıklı bir veritabanı yürütücüsünde çalışır.
 - Ana pencerenin kelime tablosu araması ve istatistik yenilemesi arka planda çalışır. Arama 250 ms gecikmeyle toplulaştırılır; istek sıra numaraları eski sorgu sonuçlarının yeni sonuçları ezmesini engeller.
 - İlk katalog seed işlemi uygulama penceresini bloke etmeden arka planda yürütülür. Normal hatırlatma sayacı seed tamamlandıktan sonra başlar.
 - Kelime gösterim geçmişi Stage.show() başarılı olduktan sonra ayrı transaction ile yazılır; kuyruğa alınan veya gösterilemeyen popup'lar gösterim istatistiğini artırmaz.
