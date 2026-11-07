@@ -37,6 +37,8 @@ public class MainApplication extends Application {
     private TrayIcon trayIcon;
     private boolean exiting;
     private boolean reminderRequestInFlight;
+    private boolean reminderPendingWhilePopupOpen;
+    private boolean presentationRecordedForActivePopup;
     private boolean catalogReady;
     private ExecutorService databaseExecutor;
     private ExecutorService reminderExecutor;
@@ -177,7 +179,13 @@ public class MainApplication extends Application {
             scheduler.retryAfterInterval();
             return;
         }
-        if (activePopup != null || reminderRequestInFlight) {
+        if (activePopup != null) {
+            // The interval elapsed while a card was visible. Do not start another timer:
+            // deliver one reminder as soon as this card is closed.
+            reminderPendingWhilePopupOpen = true;
+            return;
+        }
+        if (reminderRequestInFlight) {
             scheduler.retryAfterInterval();
             return;
         }
@@ -210,7 +218,7 @@ public class MainApplication extends Application {
                                 + " ms bekledi; ana arayüz yükü kontrol edilmeli.");
                     }
                     if (activePopup != null) {
-                        scheduler.retryAfterInterval();
+                        reminderPendingWhilePopupOpen = true;
                         return;
                     }
                     if (failure != null) {
@@ -227,20 +235,10 @@ public class MainApplication extends Application {
                     try {
                         long popupBuildStartedNanos = System.nanoTime();
                         Word word = result.get();
+                        presentationRecordedForActivePopup = false;
                         activePopup = new ReminderPopup(word, action -> handlePopupAction(word, action));
                         activePopup.show();
                         long displayedAtNanos = System.nanoTime();
-                        try {
-                            reminderExecutor.execute(() -> {
-                                try {
-                                    wordRepository.recordPresentation(word.id());
-                                } catch (SQLException ex) {
-                                    AppLogger.error("Kelime kartı gösterimi geçmişe kaydedilemedi.", ex);
-                                }
-                            });
-                        } catch (RejectedExecutionException ex) {
-                            AppLogger.error("Kelime kartı gösterim kaydı kuyruğa alınamadı.", ex);
-                        }
                         long workerQueueMillis = TimeUnit.NANOSECONDS.toMillis(
                                 queryStartedNanos - requestStartedNanos);
                         long databaseMillis = TimeUnit.NANOSECONDS.toMillis(
@@ -272,29 +270,73 @@ public class MainApplication extends Application {
     }
 
     private void handlePopupAction(Word word, String action) {
-        // Hard-word toggles are non-terminal: the study card stays open.
-        if (!"HARD".equals(action) && !"UNHARD".equals(action)) {
+        // A card is counted only after the user interacts with it. A card that times out
+        // untouched is deliberately excluded from presentation statistics.
+        if (!"AUTO_TIMEOUT".equals(action) && !presentationRecordedForActivePopup) {
+            presentationRecordedForActivePopup = true;
+            recordUserSeenPresentation(word);
+        }
+
+        // Hard-word toggles and the reveal action are non-terminal.
+        boolean terminalAction = switch (action) {
+            case "HARD", "UNHARD", "INTERACTED" -> false;
+            default -> true;
+        };
+        if (terminalAction) {
             activePopup = null;
         }
+
         switch (action) {
-            case "KNOWN" -> executeDatabaseMutation(
-                    "Kelime öğrenildi olarak kaydedilemedi.",
-                    () -> wordRepository.recordReview(word.id(), "KNOWN"));
+            case "KNOWN" -> {
+                executeDatabaseMutation(
+                        "Kelime öğrenildi olarak kaydedilemedi.",
+                        () -> wordRepository.recordReview(word.id(), "KNOWN"));
+                resumePendingReminderIfNeeded();
+            }
             case "REPEAT" -> {
+                reminderPendingWhilePopupOpen = false;
                 scheduler.snooze(Duration.ofMinutes(10));
                 executeDatabaseMutation(
                         "Kelime tekrar kararı kaydedilemedi.",
                         () -> wordRepository.recordReview(word.id(), "REPEAT"));
             }
-            case "SNOOZE" -> scheduler.snooze(Duration.ofMinutes(5));
+            case "SNOOZE" -> {
+                reminderPendingWhilePopupOpen = false;
+                scheduler.snooze(Duration.ofMinutes(5));
+            }
             case "HARD" -> executeDatabaseMutation(
                     "Zor kelime işareti kaydedilemedi.",
                     () -> wordRepository.setHardWord(word.id(), true));
             case "UNHARD" -> executeDatabaseMutation(
                     "Zor kelime işareti kaldırılamadı.",
                     () -> wordRepository.setHardWord(word.id(), false));
-            case "DISMISS" -> { }
-            default -> scheduler.retryAfterInterval();
+            case "DISMISS", "AUTO_TIMEOUT" -> resumePendingReminderIfNeeded();
+            case "INTERACTED" -> { }
+            default -> {
+                scheduler.retryAfterInterval();
+                resumePendingReminderIfNeeded();
+            }
+        }
+    }
+
+    private void recordUserSeenPresentation(Word word) {
+        try {
+            reminderExecutor.execute(() -> {
+                try {
+                    wordRepository.recordPresentation(word.id());
+                } catch (SQLException ex) {
+                    AppLogger.error("Kullanıcının etkileşimde bulunduğu kartın gösterimi kaydedilemedi.", ex);
+                }
+            });
+        } catch (RejectedExecutionException ex) {
+            AppLogger.error("Kelime kartı gösterim kaydı kuyruğa alınamadı.", ex);
+        }
+    }
+
+    private void resumePendingReminderIfNeeded() {
+        if (reminderPendingWhilePopupOpen && !exiting) {
+            reminderPendingWhilePopupOpen = false;
+            scheduler.triggerNow();
         }
     }
 
