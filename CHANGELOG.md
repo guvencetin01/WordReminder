@@ -1,3 +1,13 @@
+## [3.1.0] - Zamanlama güvenilirliği ve içerik genişletmesi
+
+- Hatırlatma için kelime seçimi, kart gösterim kaydı ve tekrar/öğrenildi kayıtları veritabanı yürütücüsüne taşındı; JavaFX arayüz iş parçacığında senkron SQLite sorgusu/işlemi yapılmaz.
+- Ana pencerenin kelime tablosu araması ve istatistik yenilemesi arka planda çalışır. Arama 250 ms gecikmeyle toplulaştırılır; istek sıra numaraları eski sorgu sonuçlarının yeni sonuçları ezmesini engeller.
+- İlk katalog seed işlemi uygulama penceresini bloke etmeden arka planda yürütülür. Normal hatırlatma sayacı seed tamamlandıktan sonra başlar.
+- Kelime gösterim geçmişi Stage.show() başarılı olduktan sonra ayrı transaction ile yazılır; kuyruğa alınan veya gösterilemeyen popup'lar gösterim istatistiğini artırmaz.
+- Hatırlatma günlüklerinde veritabanı iş kuyruğu, sorgu, JavaFX kuyruğu ve popup oluşturma/gösterim süreleri ayrı ölçülür.
+- Mevcut İngilizce örnek cümlesi bulunan 100 teknik terime Türkçe çeviri eklendi. Katalogda 914 İngilizce örnek, 603 Türkçe çeviri ve 311 çevirisi bekleyen örnek bulunur.
+- ReminderScheduler için anlık tetikleme, ertelemenin eski görevi değiştirmesi ve kapatıldığında bekleyen görevin iptali testleri eklendi.
+- SQLite şema sürümü 7 olarak kalır; migration yoktur. Kişisel kelimeler, öğrenme ve gösterim geçmişi, sayaçlar ve ayarlar korunur.
 ## [3.0.0] - Hatırlatma zamanlaması ve içerik genişletmesi
 
 - Daha önce İngilizce örneği bulunan 100 kelimenin Türkçe cümle çevirisi eklendi.
