@@ -231,7 +231,7 @@ public class MainApplication extends Application {
                         activePopup.show();
                         long displayedAtNanos = System.nanoTime();
                         try {
-                            databaseExecutor.execute(() -> {
+                            reminderExecutor.execute(() -> {
                                 try {
                                     wordRepository.recordPresentation(word.id());
                                 } catch (SQLException ex) {
@@ -297,9 +297,9 @@ public class MainApplication extends Application {
 
     /** Executes short SQLite writes away from JavaFX and refreshes the UI asynchronously. */
     private void executeDatabaseMutation(String errorMessage, SqlMutation mutation) {
-        if (databaseExecutor == null || databaseExecutor.isShutdown()) return;
+        if (reminderExecutor == null || reminderExecutor.isShutdown()) return;
         try {
-            databaseExecutor.execute(() -> {
+            reminderExecutor.execute(() -> {
                 try {
                     mutation.run();
                     postToFx(() -> {
@@ -316,7 +316,7 @@ public class MainApplication extends Application {
                 }
             });
         } catch (RejectedExecutionException ex) {
-            AppLogger.error("Veritabanı işlemi kuyruğa alınamadı.", ex);
+            AppLogger.error("Hatırlatma veritabanı işlemi kuyruğa alınamadı.", ex);
         }
     }
 
