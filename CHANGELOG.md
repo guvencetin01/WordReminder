@@ -1,3 +1,9 @@
+## [3.4.0] - A2 örnek cümleleri
+
+- A2 seviyesindeki 25 günlük kelimeye doğal İngilizce örnek cümle ve Türkçe çeviri eklendi.
+- İçerik paketi 749 örnek/çeviri girdisine ulaştı; etkili katalogda 1.060 örnek cümle bulunur.
+- Veritabanı şeması 7 olarak kalır; migration yoktur.
+
 ## [3.3.0] - Hatırlatma zamanlaması ve kart yaşam döngüsü
 
 - Hatırlatma aralığı kaydedilmiş ayara tam olarak uyar; varsayılan değer 10 dakikadır. Ayar değişikliği zamanlayıcıya hemen uygulanır. “Tekrar et” eylemi de bu ayarı kullanır; yalnızca açıkça seçilen “5 dk sonra” eylemi 5 dakikalık tek seferlik ertelemedir.
