@@ -1,3 +1,11 @@
+## [3.3.0] - Hatırlatma zamanlaması ve kart yaşam döngüsü
+
+- Hatırlatma aralığı kaydedilmiş ayara tam olarak uyar; varsayılan değer 10 dakikadır. Ayar değişikliği zamanlayıcıya hemen uygulanır.
+- Aynı anda yalnızca bir kart gösterilir. Aralık açık kart sırasında dolarsa tek bekleyen hatırlatma kart kapanınca gösterilir; tekrar tekrar ertelenmez.
+- Kart, açıldıktan 2 dakika sonra otomatik kapanır.
+- Kullanıcının hiç etkileşmediği ve zaman aşımıyla kapanan kart gösterim istatistiğine eklenmez. Etkileşim varsa gösterim yalnızca bir kez kaydedilir.
+- Veritabanı şeması 7; migration yoktur.
+
 ## [3.2.0] - Kart tasarımı, başlangıç ayarları ve örnek cümleler
 
 - Windows başlangıç seçeneklerinin açıklamaları ayrı metin alanlarında gösterilir; sistem tepsisinde başlatma yalnızca otomatik başlatma açıkken seçilebilir.
