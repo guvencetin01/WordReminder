@@ -14,6 +14,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -27,6 +29,7 @@ public final class ReminderPopup {
     private final Consumer<String> reviewAction;
     private boolean finished;
     private boolean hardWord;
+    private final PauseTransition autoCloseTimer = new PauseTransition(Duration.minutes(2));
 
     public ReminderPopup(Word word, Consumer<String> reviewAction) {
         this.stage = new Stage(StageStyle.UNDECORATED);
@@ -51,10 +54,13 @@ public final class ReminderPopup {
         stage.setY(bounds.getMaxY() - height - 18);
         stage.show();
         stage.toFront();
+        autoCloseTimer.setOnFinished(event -> finish("AUTO_TIMEOUT"));
+        autoCloseTimer.playFromStart();
     }
 
     /** Closes silently during application shutdown; no review action is recorded. */
     public void close() {
+        autoCloseTimer.stop();
         finished = true;
         stage.close();
     }
@@ -156,6 +162,7 @@ public final class ReminderPopup {
         });
 
         reveal.setOnAction(event -> {
+            reviewAction.accept("INTERACTED");
             meaningCard.setVisible(true);
             meaningCard.setManaged(true);
             recallHint.setText("Kendini değerlendir: Bu kelimeyi hatırlayabildin mi?");
@@ -188,6 +195,7 @@ public final class ReminderPopup {
             return;
         }
         finished = true;
+        autoCloseTimer.stop();
         stage.close();
         reviewAction.accept(action);
     }
