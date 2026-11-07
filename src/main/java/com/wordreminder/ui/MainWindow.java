@@ -111,7 +111,6 @@ public final class MainWindow {
         this.databaseExecutor = databaseExecutor;
         build();
         loadSettings();
-        refreshData();
     }
 
     public void show() {
