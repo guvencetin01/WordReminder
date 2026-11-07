@@ -37,6 +37,7 @@ public class MainApplication extends Application {
     private TrayIcon trayIcon;
     private boolean exiting;
     private boolean reminderRequestInFlight;
+    private boolean catalogReady;
     private ExecutorService databaseExecutor;
 
     @Override
@@ -86,6 +87,10 @@ public class MainApplication extends Application {
 
             boolean backgroundStart = getParameters().getRaw().contains("--background");
             boolean startMinimized = settingsRepository.isStartMinimized();
+            boolean hideAtStartup = backgroundStart && startMinimized && trayIcon != null;
+            if (!hideAtStartup) {
+                mainWindow.show();
+            }
 
             // The initial 4,654-row catalogue seed can touch thousands of SQLite rows.
             // Keep it off the JavaFX thread, then start the reminder clock from completion.
@@ -95,13 +100,10 @@ public class MainApplication extends Application {
                     int reminderInterval = settingsRepository.getReminderMinutes();
                     postToFx(() -> {
                         if (exiting) return;
+                        catalogReady = true;
                         scheduler.start(reminderInterval);
                         mainWindow.refreshData();
-                        if (backgroundStart && startMinimized && trayIcon != null) {
-                            mainWindow.hide();
-                        } else {
-                            mainWindow.show();
-                        }
+                        if (hideAtStartup) mainWindow.hide();
                     });
                 } catch (IOException | SQLException ex) {
                     AppLogger.error("Kelime kataloğu hazırlanırken hata oluştu.", ex);
@@ -165,6 +167,10 @@ public class MainApplication extends Application {
      */
     private void showNextReminder() {
         if (exiting) return;
+        if (!catalogReady) {
+            scheduler.retryAfterInterval();
+            return;
+        }
         if (activePopup != null || reminderRequestInFlight) {
             scheduler.retryAfterInterval();
             return;
