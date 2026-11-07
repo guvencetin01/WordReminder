@@ -1,3 +1,11 @@
+## [3.5.0] - Tüm kelimelere örnek cümle
+
+- Katalogdaki 4.654 benzersiz kelimenin tamamı için en az bir İngilizce örnek cümle kapsamı sağlandı; A1–C2 seviyeleri ile günlük ve teknik gruplar tamamlandı.
+- `example-sentences.tsv` dosyası 4.343 benzersiz kelimeye ait İngilizce örnek ve Türkçe çeviri içerir.
+- Katalogda önceden bulunan 614 örnek de dâhil edildiğinde İngilizce örnek kapsamı 4.654/4.654 olur. Mevcut katalog örneklerinin 311'i ayrı Türkçe çeviri kaydı olmadan gösterilir.
+- Yinelenen anahtar, katalog dışı başlık, boş alan ve hedef kelimeyi içermeyen cümle denetimleri temiz geçti.
+- SQLite şeması 7 olarak kalır; migration, kullanıcı verisi sıfırlama veya silme yapılmadı.
+
 ## [3.4.0] - A2 örnek cümleleri
 
 - A2 seviyesindeki 25 günlük kelimeye doğal İngilizce örnek cümle ve Türkçe çeviri eklendi.
