@@ -1,3 +1,10 @@
+# WordReminder 3.4.0
+
+## 3.4.0 yenilikleri
+- A2 seviyesindeki 25 günlük kelimeye İngilizce örnek cümle ve Türkçe çevirisi eklendi.
+- Örnek cümle/çeviri paketi 749 satıra ulaştı. Etkili katalogda 1.060 İngilizce örnek ve 749 Türkçe çeviri bulunur.
+- SQLite şeması 7 olarak kalır; kullanıcı verileri korunur.
+
 # WordReminder 3.3.0
 
 ## 3.3.0 yenilikleri
