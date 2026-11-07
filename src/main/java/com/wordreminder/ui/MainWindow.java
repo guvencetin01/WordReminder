@@ -69,6 +69,7 @@ public final class MainWindow {
     private final AtomicLong dashboardRequestSequence = new AtomicLong();
     private final AtomicLong tableRequestSequence = new AtomicLong();
     private PauseTransition searchDebounce;
+    private boolean suppressFilterEvents;
     private Tab progressTab;
     private final TableView<Word> wordTable = new TableView<>();
     private TableColumn<Word, String> pronunciationColumn;
@@ -288,7 +289,9 @@ public final class MainWindow {
         searchField.setMaxWidth(340);
         searchDebounce = new PauseTransition(Duration.millis(250));
         searchDebounce.setOnFinished(event -> filterTable());
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> searchDebounce.playFromStart());
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!suppressFilterEvents) searchDebounce.playFromStart();
+        });
 
         Button addButton = new Button("+ Kelime ekle");
         addButton.getStyleClass().add("primary-button");
@@ -314,7 +317,9 @@ public final class MainWindow {
         tableLevelFilter.setValue(ALL_LEVELS);
         tableLevelFilter.setPrefWidth(130);
         tableLevelFilter.setMinWidth(115);
-        tableLevelFilter.setOnAction(event -> filterTable());
+        tableLevelFilter.setOnAction(event -> {
+            if (!suppressFilterEvents) filterTable();
+        });
 
         Label categoryLabel = new Label("Alan:");
         categoryLabel.getStyleClass().add("field-label");
@@ -322,7 +327,9 @@ public final class MainWindow {
         tableCategoryFilter.setValue(ALL_CATEGORIES);
         tableCategoryFilter.setPrefWidth(145);
         tableCategoryFilter.setMinWidth(125);
-        tableCategoryFilter.setOnAction(event -> filterTable());
+        tableCategoryFilter.setOnAction(event -> {
+            if (!suppressFilterEvents) filterTable();
+        });
         Label learningLabel = new Label("Öğrenme durumu:");
         learningLabel.getStyleClass().add("field-label");
         tableLearningFilter.getItems().setAll("Tüm durumlar", "Henüz çalışılmayan", "Çalışılan Kelimeler",
@@ -330,7 +337,9 @@ public final class MainWindow {
         tableLearningFilter.setValue("Tüm durumlar");
         tableLearningFilter.setPrefWidth(205);
         tableLearningFilter.setMinWidth(165);
-        tableLearningFilter.setOnAction(event -> filterTable());
+        tableLearningFilter.setOnAction(event -> {
+            if (!suppressFilterEvents) filterTable();
+        });
 
         Button resetFiltersButton = new Button("Filtreleri sıfırla");
         resetFiltersButton.getStyleClass().add("secondary-button");
@@ -918,10 +927,15 @@ public final class MainWindow {
 
     private void resetWordFilters() {
         if (searchDebounce != null) searchDebounce.stop();
-        if (searchField != null) searchField.clear();
-        tableLevelFilter.setValue(ALL_LEVELS);
-        tableCategoryFilter.setValue(ALL_CATEGORIES);
-        tableLearningFilter.setValue("Tüm durumlar");
+        suppressFilterEvents = true;
+        try {
+            if (searchField != null) searchField.clear();
+            tableLevelFilter.setValue(ALL_LEVELS);
+            tableCategoryFilter.setValue(ALL_CATEGORIES);
+            tableLearningFilter.setValue("Tüm durumlar");
+        } finally {
+            suppressFilterEvents = false;
+        }
         filterTable();
     }
 
