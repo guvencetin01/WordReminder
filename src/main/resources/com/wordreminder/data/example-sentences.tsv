@@ -3992,3 +3992,153 @@ woo|The candidate tried to woo voters with promises of lower taxes.|Aday daha d�
 wooded|The path passes through a wooded valley.|Patika ağaçlık bir vadinin içinden geçiyor.
 wrench|The mechanic used a wrench to loosen the bolt.|Tamirci cıvatayı gevşetmek için İngiliz anahtarı kullandı.
 yeast|Yeast helps the bread dough rise.|Maya ekmek hamurunun kabarmasına yardımcı olur.
+abstraction layer|The abstraction layer hides storage details from the rest of the application.|Soyutlama katmanı depolama ayrıntılarını uygulamanın geri kalanından gizler.
+acceptance criteria|The team agreed on the acceptance criteria before starting development.|Ekip geliştirmeye başlamadan önce kabul ölçütleri üzerinde anlaştı.
+accessibility standard|The website must follow the accessibility standard used by the organisation.|Web sitesi kuruluşun kullandığı erişilebilirlik standardına uymalıdır.
+accessibility testing|Accessibility testing checks whether people with different needs can use the application.|Erişilebilirlik testi farklı ihtiyaçları olan kişilerin uygulamayı kullanıp kullanamadığını kontrol eder.
+adaptive concurrency|Adaptive concurrency adjusts the number of simultaneous tasks according to system load.|Uyarlanabilir eşzamanlılık eşzamanlı görev sayısını sistem yüküne göre ayarlar.
+aggregate root|The aggregate root controls changes to objects inside the domain aggregate.|Toplama kökü alan topluluğunun içindeki nesnelere yapılan değişiklikleri yönetir.
+anti-corruption layer|An anti-corruption layer protects the domain model from an external system's data format.|Bozulma önleyici katman alan modelini harici sistemin veri biçiminden korur.
+API composition|API composition combines data from several services into one response.|API birleştirme birkaç hizmetten gelen verileri tek bir yanıtta toplar.
+API contract|The API contract defines the requests and responses that a client can expect.|API sözleşmesi istemcinin bekleyebileceği istekleri ve yanıtları tanımlar.
+API throttling|API throttling limits request rates to protect the service from overload.|API hız sınırlama hizmeti aşırı yüklenmeden korumak için istek oranlarını sınırlar.
+application boundary|The application boundary separates user-facing features from infrastructure concerns.|Uygulama sınırı kullanıcıya dönük özellikleri altyapı konularından ayırır.
+application container|The application container packages the service with its runtime dependencies.|Uygulama konteyneri hizmeti çalışma zamanı bağımlılıklarıyla birlikte paketler.
+application lifecycle|The application lifecycle includes startup, normal operation, and shutdown.|Uygulama yaşam döngüsü başlangıç, normal çalışma ve kapanış aşamalarını içerir.
+application observability|Application observability helps engineers understand a system through logs, metrics, and traces.|Uygulama gözlemlenebilirliği mühendislerin günlükler, ölçümler ve izler aracılığıyla sistemi anlamasına yardımcı olur.
+application topology|The application topology shows how services and components are connected.|Uygulama topolojisi hizmetlerin ve bileşenlerin nasıl bağlandığını gösterir.
+architectural decision|The team documented each architectural decision and its trade-offs.|Ekip her mimari kararı ve ödünleşimlerini belgeledi.
+architectural pattern|The layered architectural pattern separates presentation, business, and data responsibilities.|Katmanlı mimari örüntü sunum, iş ve veri sorumluluklarını ayırır.
+architecture review|The architecture review identified risks in the proposed integration.|Mimari inceleme önerilen entegrasyondaki riskleri belirledi.
+artifact promotion|Artifact promotion moves a tested build to the next deployment environment.|Yapı çıktısının üst ortama taşınması test edilmiş bir derlemeyi sonraki dağıtım ortamına aktarır.
+asynchronous messaging|Asynchronous messaging allows services to exchange information without waiting for an immediate reply.|Eşzamansız mesajlaşma hizmetlerin anında yanıt beklemeden bilgi alışverişi yapmasını sağlar.
+automated rollback|Automated rollback restores the previous release when health checks fail.|Otomatik geri alma sağlık kontrolleri başarısız olduğunda önceki sürümü geri yükler.
+availability requirement|The availability requirement states how often the service must be accessible.|Erişilebilirlik gereksinimi hizmetin ne sıklıkta erişilebilir olması gerektiğini belirtir.
+availability zone|A service can remain available when one availability zone fails.|Bir erişilebilirlik bölgesi arızalansa bile hizmet kullanılabilir kalabilir.
+behavior-driven development|Behavior-driven development describes software features through examples of expected behaviour.|Davranış odaklı geliştirme yazılım özelliklerini beklenen davranış örnekleriyle tanımlar.
+blue-green deployment|Blue-green deployment switches traffic between two production environments to reduce release risk.|Mavi-yeşil dağıtım sürüm riskini azaltmak için trafiği iki üretim ortamı arasında değiştirir.
+blue-green release|A blue-green release keeps the previous environment ready in case the new version fails.|Mavi-yeşil sürüm yeni sürüm başarısız olursa önceki ortamı hazır tutar.
+blue-green strategy|The team selected a blue-green strategy to make deployment easier to reverse.|Ekip dağıtımı geri almayı kolaylaştırmak için mavi-yeşil stratejiyi seçti.
+bounded context|A bounded context defines the boundary within which a domain model has a specific meaning.|Sınırlandırılmış bağlam bir alan modelinin belirli bir anlam taşıdığı sınırı tanımlar.
+branch coverage|Branch coverage measures whether each decision outcome has been tested.|Dal kapsamı her karar sonucunun test edilip edilmediğini ölçer.
+breaking change|The new release contains a breaking change that requires client updates.|Yeni sürüm istemci güncellemeleri gerektiren geriye dönük uyumsuz bir değişiklik içeriyor.
+bulkhead isolation|Bulkhead isolation prevents a failure in one component from exhausting resources in another.|Bölme yalıtımı bir bileşendeki arızanın diğerindeki kaynakları tüketmesini önler.
+business continuity|The business continuity plan explains how essential operations will continue during an outage.|İş sürekliliği planı kesinti sırasında temel faaliyetlerin nasıl sürdürüleceğini açıklar.
+cache hierarchy|The cache hierarchy stores frequently used data at different levels of speed and size.|Önbellek hiyerarşisi sık kullanılan verileri farklı hız ve boyut seviyelerinde saklar.
+canary deployment|Canary deployment sends a small share of traffic to a new version before a full release.|Kanarya dağıtımı tam sürümden önce trafiğin küçük bir bölümünü yeni sürüme yönlendirir.
+canonical data model|A canonical data model gives multiple systems a shared structure for exchanging information.|Standart veri modeli birden fazla sisteme bilgi alışverişi için ortak bir yapı sağlar.
+capacity planning|Capacity planning estimates the resources needed for future workloads.|Kapasite planlaması gelecekteki iş yükleri için gereken kaynakları tahmin eder.
+capacity threshold|The monitoring system sends an alert when usage reaches the capacity threshold.|İzleme sistemi kullanım kapasite eşiğine ulaştığında uyarı gönderir.
+change data capture|Change data capture records database changes so that other systems can process them.|Değişiklik verisi yakalama veritabanı değişikliklerini diğer sistemlerin işleyebilmesi için kaydeder.
+change failure rate|The team tracks the change failure rate to assess release quality.|Ekip sürüm kalitesini değerlendirmek için değişiklik başarısızlık oranını izler.
+chaos engineering|Chaos engineering tests resilience by deliberately introducing controlled failures.|Kaos mühendisliği kontrollü arızaları kasıtlı olarak oluşturarak dayanıklılığı test eder.
+clean architecture|Clean architecture keeps business rules independent of external frameworks and databases.|Temiz mimari iş kurallarını harici çatılardan ve veritabanlarından bağımsız tutar.
+cloud native|The cloud native service scales automatically when demand increases.|Bulut yerel hizmet talep arttığında otomatik olarak ölçeklenir.
+cloud orchestration|Cloud orchestration coordinates the creation and operation of cloud resources.|Bulut orkestrasyonu bulut kaynaklarının oluşturulmasını ve çalıştırılmasını koordine eder.
+code maintainability|Code maintainability improves when modules have clear responsibilities and tests.|Modüllerin sorumlulukları ve testleri açık olduğunda kodun sürdürülebilirliği artar.
+code ownership|Code ownership makes it clear which team maintains each part of the repository.|Kod sahipliği deponun her bölümünü hangi ekibin sürdürdüğünü açıkça belirtir.
+cold standby|The cold standby server is started only when the primary system becomes unavailable.|Soğuk yedek sunucu yalnızca birincil sistem kullanılamaz olduğunda başlatılır.
+cold start|A cold start occurs when a service must initialise before handling its first request.|Soğuk başlangıç bir hizmetin ilk isteği işlemeden önce başlatılması gerektiğinde oluşur.
+command bus|The command bus routes commands to the handlers responsible for processing them.|Komut veri yolu komutları işlemekle sorumlu işleyicilere yönlendirir.
+command query responsibility segregation|Command query responsibility segregation separates operations that change data from operations that read it.|Komut-sorgu sorumluluğu ayrımı veriyi değiştiren işlemleri okuma işlemlerinden ayırır.
+compensating transaction|A compensating transaction reverses the business effect of an earlier step in a workflow.|Telafi işlemi bir iş akışındaki önceki adımın iş etkisini geri alır.
+component coupling|High component coupling makes independent changes more difficult.|Yüksek bileşen bağımlılığı bağımsız değişiklik yapmayı zorlaştırır.
+configuration as code|Configuration as code stores environment settings in version-controlled files.|Kod olarak yapılandırma ortam ayarlarını sürüm denetimli dosyalarda saklar.
+configuration drift|Configuration drift occurs when deployed environments no longer share the intended settings.|Yapılandırma sapması dağıtılmış ortamlar artık amaçlanan ayarları paylaşmadığında oluşur.
+configuration management|Configuration management keeps application settings consistent across environments.|Yapılandırma yönetimi uygulama ayarlarını ortamlar arasında tutarlı tutar.
+container orchestration|Container orchestration schedules containers and manages their health.|Konteyner orkestrasyonu konteynerleri zamanlar ve sağlıklarını yönetir.
+continuous deployment|Continuous deployment releases every change that passes the required checks.|Sürekli dağıtım gerekli kontrolleri geçen her değişikliği yayımlar.
+continuous testing|Continuous testing runs automated checks throughout the delivery process.|Sürekli test teslimat süreci boyunca otomatik kontrolleri çalıştırır.
+contract testing|Contract testing checks whether two services follow their agreed interface.|Sözleşme testi iki hizmetin üzerinde anlaştıkları arayüze uyup uymadığını kontrol eder.
+cross-cutting concern|Logging is a cross-cutting concern because many parts of the application use it.|Günlükleme uygulamanın birçok bölümü tarafından kullanıldığı için kesişen bir konudur.
+cryptographic hash|A cryptographic hash helps verify that a downloaded file has not changed.|Kriptografik özet indirilen dosyanın değiştirilmediğini doğrulamaya yardımcı olur.
+data abstraction|Data abstraction hides storage details behind a simple interface.|Veri soyutlaması depolama ayrıntılarını basit bir arayüzün arkasında gizler.
+data architecture|The data architecture defines how information is stored and shared across the organisation.|Veri mimarisi bilgilerin kuruluş genelinde nasıl saklanıp paylaşılacağını tanımlar.
+data availability|Data availability ensures that authorised applications can access required information.|Veri erişilebilirliği yetkili uygulamaların gerekli bilgilere ulaşmasını sağlar.
+data catalog|The data catalog helps analysts discover approved datasets.|Veri kataloğu analistlerin onaylı veri kümelerini bulmasına yardımcı olur.
+data consistency|The database uses transactions to maintain data consistency.|Veritabanı veri tutarlılığını korumak için işlemler kullanır.
+data durability|Data durability protects committed records against unexpected system failures.|Veri kalıcılığı onaylanmış kayıtları beklenmedik sistem arızalarına karşı korur.
+data federation|Data federation gives users a unified view of information stored in separate systems.|Veri federasyonu kullanıcılara ayrı sistemlerde saklanan bilgilerin birleşik görünümünü sunar.
+data governance|Data governance defines who can access, change, and share organisational information.|Veri yönetişimi kurumsal bilgilere kimin erişebileceğini, bunları değiştirebileceğini ve paylaşabileceğini tanımlar.
+data lineage|Data lineage records where information came from and how it was transformed.|Veri kökeni bilginin nereden geldiğini ve nasıl dönüştürüldüğünü kaydeder.
+data mesh|A data mesh gives domain teams responsibility for the data products they publish.|Veri ağı yayımladıkları veri ürünlerinin sorumluluğunu alan ekiplerine verir.
+data partitioning|Data partitioning divides a large dataset into smaller manageable parts.|Veri bölümleme büyük bir veri kümesini daha küçük yönetilebilir parçalara ayırır.
+data pipeline|The data pipeline validates and transforms records before loading them into the warehouse.|Veri işlem hattı kayıtları ambara yüklemeden önce doğrular ve dönüştürür.
+data replication|Data replication copies records to another database for availability or recovery.|Veri çoğaltma erişilebilirlik veya kurtarma amacıyla kayıtları başka bir veritabanına kopyalar.
+database connection saturation|Database connection saturation occurs when all available connections are in use.|Veritabanı bağlantı doygunluğu kullanılabilir tüm bağlantılar dolduğunda oluşur.
+database failover|Database failover directs application traffic to a standby database after a failure.|Veritabanı devretmesi arızadan sonra uygulama trafiğini yedek veritabanına yönlendirir.
+database failover strategy|The database failover strategy defines how the service switches to a healthy replica.|Veritabanı devretme stratejisi hizmetin sağlıklı bir kopyaya nasıl geçeceğini tanımlar.
+database normalization|Database normalization reduces unnecessary duplication between related tables.|Veritabanı normalleştirmesi ilişkili tablolar arasındaki gereksiz tekrarları azaltır.
+database observability|Database observability helps engineers investigate slow queries and resource usage.|Veritabanı gözlemlenebilirliği mühendislerin yavaş sorguları ve kaynak kullanımını incelemesine yardımcı olur.
+database replication|Database replication keeps copies of records on multiple database servers.|Veritabanı çoğaltma kayıtların kopyalarını birden fazla veritabanı sunucusunda tutar.
+database sharding|Database sharding distributes rows across separate database instances.|Veritabanı parçalama satırları ayrı veritabanı örneklerine dağıtır.
+declarative configuration|Declarative configuration describes the desired state rather than the steps to create it.|Bildirimsel yapılandırma oluşturma adımları yerine istenen durumu tanımlar.
+declarative programming|Declarative programming describes what result is required instead of every execution step.|Bildirimsel programlama her yürütme adımını değil, hangi sonucun gerektiğini açıklar.
+dependency graph|The dependency graph shows which modules rely on other modules.|Bağımlılık grafiği hangi modüllerin diğerlerine bağlı olduğunu gösterir.
+dependency inversion|Dependency inversion makes high-level business logic independent of low-level details.|Bağımlılığın tersine çevrilmesi üst düzey iş mantığını alt düzey ayrıntılardan bağımsız kılar.
+deployment freeze|The company introduced a deployment freeze before the major holiday.|Şirket büyük tatilden önce dağıtım dondurma dönemi başlattı.
+deployment rollback|The deployment rollback returned the service to the last stable version.|Dağıtımı geri alma hizmeti son kararlı sürüme döndürdü.
+deployment strategy|The deployment strategy describes how a new version reaches production.|Dağıtım stratejisi yeni sürümün üretim ortamına nasıl ulaşacağını açıklar.
+deployment topology|The deployment topology shows where application components run.|Dağıtım topolojisi uygulama bileşenlerinin nerede çalıştığını gösterir.
+design by contract|Design by contract defines preconditions and postconditions for software operations.|Sözleşmeye dayalı tasarım yazılım işlemleri için ön koşulları ve son koşulları tanımlar.
+disaster recovery|The disaster recovery plan explains how systems will be restored after a major incident.|Felaket kurtarma planı büyük bir olaydan sonra sistemlerin nasıl geri yükleneceğini açıklar.
+distributed application architecture|Distributed application architecture separates work across services running on different machines.|Dağıtık uygulama mimarisi işleri farklı makinelerde çalışan hizmetlere ayırır.
+distributed cache|A distributed cache shares frequently requested data across several application instances.|Dağıtık önbellek sık istenen verileri birkaç uygulama örneği arasında paylaşır.
+distributed computing|Distributed computing allows multiple computers to work on a shared problem.|Dağıtık hesaplama birden fazla bilgisayarın ortak bir problem üzerinde çalışmasını sağlar.
+distributed database|A distributed database stores related data across several networked locations.|Dağıtık veritabanı ilişkili verileri ağ bağlantılı birkaç konumda saklar.
+distributed lock|A distributed lock prevents separate service instances from modifying the same resource simultaneously.|Dağıtık kilit ayrı hizmet örneklerinin aynı kaynağı aynı anda değiştirmesini önler.
+distributed transaction|A distributed transaction coordinates a group of changes across multiple services.|Dağıtık işlem birden fazla hizmetteki değişiklik grubunu koordine eder.
+domain boundary|A domain boundary separates responsibilities that belong to different business areas.|Alan sınırı farklı iş alanlarına ait sorumlulukları birbirinden ayırır.
+domain event|A domain event records something important that happened in the business domain.|Alan olayı iş alanında gerçekleşen önemli bir durumu kaydeder.
+domain model|The domain model represents the main concepts and rules of the business.|Alan modeli işletmenin temel kavramlarını ve kurallarını temsil eder.
+domain-driven design|Domain-driven design aligns software structure with the language and rules of the business.|Alan odaklı tasarım yazılım yapısını işletmenin dili ve kurallarıyla uyumlu hâle getirir.
+dynamic configuration|Dynamic configuration allows settings to change without restarting the service.|Dinamik yapılandırma ayarların hizmeti yeniden başlatmadan değiştirilmesine olanak tanır.
+edge computing|Edge computing processes data close to the devices that produce it.|Uç bilişim verileri onları üreten cihazlara yakın yerde işler.
+elastic scaling|Elastic scaling increases or reduces resources as demand changes.|Elastik ölçekleme talep değiştikçe kaynakları artırır veya azaltır.
+error budget|The error budget defines how much unreliability a service can tolerate.|Hata bütçesi bir hizmetin ne kadar güvenilmezliğe tolerans gösterebileceğini tanımlar.
+event sourcing|Event sourcing stores each state change as an event that can be replayed.|Olay kaynaklı yaklaşım her durum değişikliğini yeniden oynatılabilen bir olay olarak saklar.
+event-driven architecture|Event-driven architecture lets components react to events instead of calling each other directly.|Olay odaklı mimari bileşenlerin birbirini doğrudan çağırmak yerine olaylara tepki vermesini sağlar.
+execution plan|The database execution plan shows how a query will be processed.|Veritabanı yürütme planı bir sorgunun nasıl işleneceğini gösterir.
+fault containment|Fault containment limits the effect of a failure to one part of the system.|Arıza sınırlama bir arızanın etkisini sistemin tek bir bölümüyle sınırlar.
+fault injection|Fault injection deliberately introduces errors to test system resilience.|Arıza enjeksiyonu sistem dayanıklılığını test etmek için kasıtlı olarak hatalar oluşturur.
+fault isolation|Fault isolation helps identify which component caused a system failure.|Arıza yalıtımı sistem arızasına hangi bileşenin neden olduğunu belirlemeye yardımcı olur.
+feature lifecycle|The feature lifecycle covers planning, release, maintenance, and removal.|Özellik yaşam döngüsü planlama, yayımlama, bakım ve kaldırma aşamalarını kapsar.
+feature management|Feature management controls which users can access particular application features.|Özellik yönetimi hangi kullanıcıların belirli uygulama özelliklerine erişebileceğini kontrol eder.
+feature toggle|A feature toggle lets the team enable or disable a function without releasing new code.|Özellik anahtarı ekibin yeni kod yayımlamadan bir işlevi açıp kapatmasını sağlar.
+federated authentication|Federated authentication allows users to sign in through a trusted identity provider.|Birleşik kimlik doğrulama kullanıcıların güvenilir bir kimlik sağlayıcısı üzerinden oturum açmasına izin verir.
+federated identity|Federated identity lets a user access several services with one trusted identity.|Birleşik kimlik kullanıcının tek bir güvenilir kimlikle birden fazla hizmete erişmesini sağlar.
+functional requirement|A functional requirement describes a behaviour the system must provide.|İşlevsel gereksinim sistemin sunması gereken bir davranışı tanımlar.
+graceful shutdown|Graceful shutdown allows active requests to finish before the service stops.|Kontrollü kapatma hizmet durmadan önce etkin isteklerin tamamlanmasını sağlar.
+high availability architecture|High availability architecture uses redundancy to keep essential services running.|Yüksek erişilebilirlik mimarisi temel hizmetleri çalışır durumda tutmak için yedeklilik kullanır.
+horizontal partitioning strategy|A horizontal partitioning strategy divides table rows across separate storage groups.|Yatay bölümleme stratejisi tablo satırlarını ayrı depolama gruplarına böler.
+horizontal scaling|Horizontal scaling adds more servers to handle increased demand.|Yatay ölçekleme artan talebi karşılamak için daha fazla sunucu ekler.
+immutable deployment|Immutable deployment replaces an entire instance instead of modifying it in place.|Değişmez dağıtım bir örneği yerinde değiştirmek yerine tamamını yenisiyle değiştirir.
+in-memory database|An in-memory database keeps its working data in memory for fast access.|Bellek içi veritabanı hızlı erişim için çalışma verilerini bellekte tutar.
+infrastructure as code|Infrastructure as code defines servers and networks in version-controlled files.|Kod olarak altyapı sunucuları ve ağları sürüm denetimli dosyalarda tanımlar.
+infrastructure drift|Infrastructure drift occurs when the running environment differs from its declared configuration.|Altyapı sapması çalışan ortam tanımlanmış yapılandırmasından farklılaştığında oluşur.
+infrastructure provisioning|Infrastructure provisioning creates the compute, network, and storage resources a service needs.|Altyapı tedariki bir hizmetin ihtiyaç duyduğu işlem, ağ ve depolama kaynaklarını oluşturur.
+integration boundary|The integration boundary defines how one system communicates with another.|Entegrasyon sınırı bir sistemin diğeriyle nasıl iletişim kuracağını tanımlar.
+integration pipeline|The integration pipeline builds and tests changes before they are merged.|Entegrasyon hattı değişiklikler birleştirilmeden önce derleme ve test işlemlerini yürütür.
+interface contract|The interface contract specifies the operations and data formats shared by components.|Arayüz sözleşmesi bileşenlerin paylaştığı işlemleri ve veri biçimlerini belirtir.
+latency budget|The latency budget limits how much time each part of a request may consume.|Gecikme bütçesi bir isteğin her bölümünün harcayabileceği süreyi sınırlar.
+load shedding|Load shedding rejects low-priority requests when a service is overloaded.|Yük azaltma bir hizmet aşırı yüklendiğinde düşük öncelikli istekleri reddeder.
+load testing|Load testing measures how an application behaves under expected user traffic.|Yük testi bir uygulamanın beklenen kullanıcı trafiği altında nasıl davrandığını ölçer.
+log aggregation|Log aggregation collects records from multiple services into one searchable place.|Günlük toplama birden fazla hizmetin kayıtlarını aranabilir tek bir yerde birleştirir.
+logical data model|The logical data model describes entities and relationships without storage details.|Mantıksal veri modeli depolama ayrıntılarına girmeden varlıkları ve ilişkileri açıklar.
+long-running process|A long-running process may need checkpoints to recover after interruption.|Uzun süre çalışan bir süreç kesintiden sonra toparlanmak için kontrol noktalarına ihtiyaç duyabilir.
+message delivery guarantee|The message delivery guarantee defines whether a message can be lost or delivered more than once.|Mesaj teslim garantisi bir mesajın kaybolup kaybolamayacağını veya birden fazla kez teslim edilip edilmeyeceğini tanımlar.
+message queue|The message queue stores tasks until a worker is ready to process them.|Mesaj kuyruğu bir çalışan işleyene kadar görevleri saklar.
+message serialization|Message serialization converts a message into a format suitable for transmission.|Mesaj serileştirme bir mesajı aktarım için uygun bir biçime dönüştürür.
+microservice architecture|Microservice architecture divides an application into small independently deployable services.|Mikro hizmet mimarisi bir uygulamayı bağımsız dağıtılabilen küçük hizmetlere böler.
+migration strategy|The migration strategy describes how existing data and users move to the new system.|Taşıma stratejisi mevcut verilerin ve kullanıcıların yeni sisteme nasıl geçeceğini açıklar.
+modular architecture|Modular architecture separates a system into components with clear boundaries.|Modüler mimari sistemi açık sınırlara sahip bileşenlere ayırır.
+multi-region deployment|Multi-region deployment runs service instances in more than one geographic region.|Çok bölgeli dağıtım hizmet örneklerini birden fazla coğrafi bölgede çalıştırır.
+network policy|The network policy defines which services may communicate with one another.|Ağ politikası hangi hizmetlerin birbiriyle iletişim kurabileceğini tanımlar.
+network segmentation|Network segmentation separates networks to limit access between different systems.|Ağ bölümlendirmesi farklı sistemler arasındaki erişimi sınırlamak için ağları ayırır.
+operational overhead|The new monitoring tool reduced operational overhead for the support team.|Yeni izleme aracı destek ekibinin operasyonel iş yükünü azalttı.
+operational readiness|The checklist confirms operational readiness before the service goes live.|Kontrol listesi hizmet kullanıma açılmadan önce operasyonel hazırlığı doğrular.
+performance benchmark|The performance benchmark compares response times across different builds.|Performans kıyaslaması farklı derlemelerdeki yanıt sürelerini karşılaştırır.
+performance profiling|Performance profiling identifies which functions consume the most processing time.|Performans profilleme en fazla işlem süresi tüketen işlevleri belirler.
+performance regression|The test detected a performance regression after the latest change.|Test son değişiklikten sonra performans gerilemesi tespit etti.
+persistent connection|A persistent connection can be reused for multiple requests.|Kalıcı bağlantı birden fazla istek için yeniden kullanılabilir.
+platform engineering|Platform engineering builds shared tools that help development teams deliver software.|Platform mühendisliği geliştirme ekiplerinin yazılım teslim etmesine yardımcı olan ortak araçlar oluşturur.
