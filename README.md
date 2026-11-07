@@ -1,7 +1,7 @@
 # WordReminder 3.3.0
 
 ## 3.3.0 yenilikleri
-- Hatırlatma aralığı ayarlarda kayıtlı dakika değerine göre uygulanır; varsayılan değer 10 dakikadır. Aralık değiştirildiğinde yeni süre hemen başlar.
+- Hatırlatma aralığı ayarlarda kayıtlı dakika değerine göre uygulanır; varsayılan değer 10 dakikadır. Aralık değiştirildiğinde yeni süre hemen başlar. “Tekrar et” de ayarlı aralığı kullanır; “5 dk sonra” düğmesi açıkça seçilen tek seferlik ertelemedir.
 - Bir hatırlatma kartı açıkken ikinci kart açılmaz. Aralık kart açıkken dolarsa tek bir hatırlatma beklemeye alınır ve mevcut kart kapanınca gösterilir.
 - Kart, gösterildikten 2 dakika sonra kullanıcı etkileşimi olmadıysa otomatik kapanır.
 - Otomatik zaman aşımında kullanıcı etkileşimi yoksa kart gösterimi sunum/öğrenme istatistiklerine yazılmaz.
