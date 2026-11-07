@@ -218,6 +218,17 @@ public class MainApplication extends Application {
                         activePopup = new ReminderPopup(word, action -> handlePopupAction(word, action));
                         activePopup.show();
                         long displayedAtNanos = System.nanoTime();
+                        try {
+                            databaseExecutor.execute(() -> {
+                                try {
+                                    wordRepository.recordPresentation(word.id());
+                                } catch (SQLException ex) {
+                                    AppLogger.error("Kelime kartı gösterimi geçmişe kaydedilemedi.", ex);
+                                }
+                            });
+                        } catch (RejectedExecutionException ex) {
+                            AppLogger.error("Kelime kartı gösterim kaydı kuyruğa alınamadı.", ex);
+                        }
                         long workerQueueMillis = TimeUnit.NANOSECONDS.toMillis(
                                 queryStartedNanos - requestStartedNanos);
                         long databaseMillis = TimeUnit.NANOSECONDS.toMillis(
