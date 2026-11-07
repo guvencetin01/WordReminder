@@ -3137,3 +3137,159 @@ command injection|Input validation can prevent a command injection attack.|Girdi
 command pattern|The command pattern turns a request into a separate object.|Komut tasarım deseni bir isteği ayrı bir nesneye dönüştürür.
 common language runtime|The Common Language Runtime manages program execution in .NET.|Common Language Runtime, .NET'te programın çalıştırılmasını yönetir.
 communication protocol|A communication protocol defines how devices exchange messages.|İletişim protokolü cihazların mesajları nasıl alışveriş edeceğini tanımlar.
+compile-time|A compile-time error is reported before the program starts.|Derleme zamanı hatası program başlamadan önce bildirilir.
+conditional statement|A conditional statement runs code only when its condition is true.|Koşul deyimi kodu yalnızca koşulu doğru olduğunda çalıştırır.
+connection pool|The connection pool reuses database connections to reduce overhead.|Bağlantı havuzu ek yükü azaltmak için veritabanı bağlantılarını yeniden kullanır.
+connection string|The application reads the connection string from a secure configuration file.|Uygulama bağlantı dizesini güvenli bir yapılandırma dosyasından okur.
+container image|The container image includes the application and its required libraries.|Konteyner imajı uygulamayı ve gerekli kütüphanelerini içerir.
+container runtime|The container runtime starts and manages isolated containers.|Konteyner çalışma zamanı yalıtılmış konteynerleri başlatır ve yönetir.
+content delivery network|A content delivery network serves files from servers close to users.|İçerik dağıtım ağı dosyaları kullanıcılara yakın sunuculardan sunar.
+content type|The HTTP content type tells the client what kind of data is returned.|HTTP içerik türü istemciye hangi tür verinin döndürüldüğünü söyler.
+control structure|A loop is a control structure that repeats a block of code.|Döngü, bir kod bloğunu tekrarlayan bir kontrol yapısıdır.
+CPU core|A CPU core can execute instructions independently of other cores.|İşlemci çekirdeği diğer çekirdeklerden bağımsız olarak komut yürütebilir.
+cross-platform|The cross-platform application runs on Windows, macOS, and Linux.|Platformlar arası uygulama Windows, macOS ve Linux'ta çalışır.
+cryptographic key|The cryptographic key is used to encrypt and decrypt the data.|Kriptografik anahtar verileri şifrelemek ve çözmek için kullanılır.
+data access|The data access layer separates database operations from the user interface.|Veri erişim katmanı veritabanı işlemlerini kullanıcı arayüzünden ayırır.
+data access layer|The data access layer provides a single place for database queries.|Veri erişim katmanı veritabanı sorguları için tek bir nokta sağlar.
+data aggregation|Data aggregation combines records into useful summary values.|Veri toplulaştırma kayıtları yararlı özet değerlere dönüştürür.
+data binding|Data binding keeps the user interface synchronized with the model.|Veri bağlama kullanıcı arayüzünü modelle eşzamanlı tutar.
+data breach|The company informed its users after a data breach exposed account details.|Bir veri ihlali hesap bilgilerini açığa çıkardıktan sonra şirket kullanıcılarını bilgilendirdi.
+data compression|Data compression reduces the size of files before they are transferred.|Veri sıkıştırma dosyaların aktarılmadan önce boyutunu küçültür.
+data conversion|Data conversion changes values from one format into another.|Veri dönüştürme değerleri bir biçimden başka bir biçime çevirir.
+data encryption|Data encryption protects sensitive information from unauthorized access.|Veri şifreleme hassas bilgileri yetkisiz erişime karşı korur.
+data mapping|Data mapping connects fields in one system with corresponding fields in another.|Veri eşleme bir sistemdeki alanları başka bir sistemdeki karşılık gelen alanlarla ilişkilendirir.
+data migration|The data migration moved customer records to the new database.|Veri taşıma müşteri kayıtlarını yeni veritabanına aktardı.
+data model|The data model describes how application records relate to one another.|Veri modeli uygulama kayıtlarının birbiriyle nasıl ilişkili olduğunu açıklar.
+data processing|The server performs data processing before returning the results.|Sunucu sonuçları döndürmeden önce veri işleme yapar.
+data source|The report gets its figures from a reliable data source.|Rapor verilerini güvenilir bir veri kaynağından alır.
+data transfer object|A data transfer object carries values between application layers.|Veri aktarım nesnesi değerleri uygulama katmanları arasında taşır.
+data validation|Data validation rejects input that does not meet the required rules.|Veri doğrulama gerekli kurallara uymayan girdiyi reddeder.
+data warehouse|The data warehouse stores information for business reporting.|Veri ambarı iş raporlaması için bilgileri saklar.
+database connection|The application opens a database connection before running the query.|Uygulama sorguyu çalıştırmadan önce veritabanı bağlantısı açar.
+database constraint|A database constraint prevents invalid values from being stored.|Veritabanı kısıtı geçersiz değerlerin kaydedilmesini önler.
+database driver|The database driver allows the application to communicate with SQLite.|Veritabanı sürücüsü uygulamanın SQLite ile iletişim kurmasını sağlar.
+database engine|The database engine manages how records are stored and retrieved.|Veritabanı motoru kayıtların nasıl saklanıp getirileceğini yönetir.
+database schema|The database schema defines tables, columns, and relationships.|Veritabanı şeması tabloları, sütunları ve ilişkileri tanımlar.
+database transaction|A database transaction keeps a group of related changes consistent.|Veritabanı işlemi birbiriyle ilişkili değişiklikleri tutarlı tutar.
+database trigger|A database trigger runs automatically when a specified table event occurs.|Veritabanı tetikleyicisi belirtilen tablo olayı gerçekleştiğinde otomatik çalışır.
+dead code|Dead code is never executed and can usually be removed safely.|Ölü kod hiçbir zaman çalıştırılmaz ve genellikle güvenle kaldırılabilir.
+deployment artifact|The deployment artifact contains the files needed to install the application.|Dağıtım çıktısı uygulamayı kurmak için gereken dosyaları içerir.
+deployment environment|The team tests the application in a separate deployment environment.|Ekip uygulamayı ayrı bir dağıtım ortamında test eder.
+deployment pipeline|The deployment pipeline automates building, testing, and releasing software.|Dağıtım işlem hattı yazılımın derlenmesini, test edilmesini ve yayımlanmasını otomatikleştirir.
+design pattern|The repository pattern is a design pattern for separating data access.|Depo tasarım deseni veri erişimini ayırmak için kullanılan bir tasarım desenidir.
+design principle|The single-responsibility rule is a useful design principle.|Tek sorumluluk kuralı yararlı bir tasarım ilkesidir.
+development cycle|The development cycle includes planning, coding, testing, and review.|Geliştirme döngüsü planlama, kodlama, test ve inceleme aşamalarını içerir.
+distributed application|A distributed application runs components on multiple computers.|Dağıtık uygulama bileşenlerini birden fazla bilgisayarda çalıştırır.
+document database|A document database stores records as flexible documents.|Belge veritabanı kayıtları esnek belgeler olarak saklar.
+document object model|The document object model represents a web page as a tree of objects.|Belge nesne modeli bir web sayfasını nesneler ağacı olarak temsil eder.
+dynamic dispatch|Dynamic dispatch selects the method implementation at runtime.|Dinamik yönlendirme yöntem gerçekleştirimini çalışma zamanında seçer.
+dynamic typing|Dynamic typing determines a variable's type while the program runs.|Dinamik türleme değişkenin türünü program çalışırken belirler.
+encryption algorithm|The encryption algorithm transforms readable data into protected data.|Şifreleme algoritması okunabilir veriyi korumalı veriye dönüştürür.
+encryption key|Never store an encryption key in public source code.|Şifreleme anahtarını herkese açık kaynak kodda asla saklama.
+error code|The error code helps the support team identify the problem.|Hata kodu destek ekibinin sorunu tanımlamasına yardımcı olur.
+error handling|Good error handling prevents an application from failing unexpectedly.|İyi hata yönetimi uygulamanın beklenmedik şekilde çökmesini önler.
+event loop|The event loop processes queued tasks one at a time.|Olay döngüsü sıraya alınmış görevleri birer birer işler.
+event-driven programming|Event-driven programming reacts to actions such as clicks and messages.|Olay odaklı programlama tıklama ve mesaj gibi eylemlere tepki verir.
+execution context|The execution context stores information needed while a function runs.|Yürütme bağlamı bir fonksiyon çalışırken gereken bilgileri saklar.
+feature branch|The developer created a feature branch before changing the scheduler.|Geliştirici zamanlayıcıyı değiştirmeden önce bir özellik dalı oluşturdu.
+file descriptor|The operating system assigns a file descriptor when a process opens a file.|İşletim sistemi bir süreç dosya açtığında dosya tanımlayıcısı atar.
+file locking|File locking prevents two processes from editing the same file at once.|Dosya kilitleme iki sürecin aynı dosyayı aynı anda düzenlemesini önler.
+file system|The file system organizes files and directories on a storage device.|Dosya sistemi depolama aygıtındaki dosyaları ve dizinleri düzenler.
+file system path|The file system path identifies the location of a file or directory.|Dosya sistemi yolu bir dosyanın veya dizinin konumunu belirtir.
+foreign key|A foreign key links a row to a record in another table.|Yabancı anahtar bir satırı başka bir tablodaki kayda bağlar.
+functional interface|A functional interface has one abstract method in Java.|Java'da fonksiyonel arayüzün tek bir soyut metodu vardır.
+functional programming|Functional programming encourages the use of pure functions and immutable data.|Fonksiyonel programlama saf fonksiyonların ve değişmez verilerin kullanımını teşvik eder.
+generic programming|Generic programming allows code to work with different data types.|Jenerik programlama kodun farklı veri türleriyle çalışmasını sağlar.
+generic type|A generic type lets a class or method work with a specified type parameter.|Genel tür bir sınıfın veya metodun belirli bir tür parametresiyle çalışmasını sağlar.
+graph database|A graph database stores entities and the relationships between them.|Graf veritabanı varlıkları ve aralarındaki ilişkileri saklar.
+graph traversal|Graph traversal visits nodes by following the edges between them.|Graf dolaşımı düğümleri aralarındaki kenarları izleyerek ziyaret eder.
+hash function|A hash function converts input data into a fixed-size value.|Karma işlevi girdi verisini sabit boyutlu bir değere dönüştürür.
+hash map|A hash map stores key-value pairs for fast lookup.|Karma eşlemi hızlı arama için anahtar-değer çiftlerini saklar.
+heap memory|Objects created at runtime are commonly stored in heap memory.|Çalışma zamanında oluşturulan nesneler genellikle öbek belleğinde saklanır.
+high availability|High availability keeps a service accessible despite individual failures.|Yüksek erişilebilirlik tekil arızalara rağmen hizmetin erişilebilir kalmasını sağlar.
+HTTP header|The HTTP header contains metadata about a request or response.|HTTP üst bilgisi istek veya yanıt hakkında üst veri içerir.
+HTTP request|The browser sends an HTTP request to retrieve the page.|Tarayıcı sayfayı almak için bir HTTP isteği gönderir.
+HTTP response|The server returns an HTTP response with a status code.|Sunucu durum kodu içeren bir HTTP yanıtı döndürür.
+immutable object|An immutable object cannot be changed after it is created.|Değişmez nesne oluşturulduktan sonra değiştirilemez.
+index scan|The query planner chooses an index scan to find matching rows.|Sorgu planlayıcısı eşleşen satırları bulmak için indeks taramasını seçer.
+input buffer|The input buffer temporarily stores data before it is processed.|Girdi arabelleği veriyi işlenmeden önce geçici olarak saklar.
+interface implementation|The class provides an interface implementation for the required methods.|Sınıf gerekli metotlar için bir arayüz gerçekleştirimini sağlar.
+interface segregation|Interface segregation keeps interfaces small and focused.|Arayüz ayrımı arayüzleri küçük ve odaklı tutar.
+inversion of control|Inversion of control lets a framework manage object creation and dependencies.|Kontrolün tersine çevrilmesi bir çatının nesne oluşturma ve bağımlılıkları yönetmesini sağlar.
+iteration statement|An iteration statement repeats a block while a condition is satisfied.|Yineleme deyimi bir koşul sağlandığı sürece kod bloğunu tekrarlar.
+JSON payload|The API expects a JSON payload with a user identifier.|API kullanıcı tanımlayıcısı içeren bir JSON yükü bekler.
+kernel|The operating system kernel manages access to hardware resources.|İşletim sistemi çekirdeği donanım kaynaklarına erişimi yönetir.
+key-value store|A key-value store retrieves a value by using its associated key.|Anahtar-değer deposu ilişkili anahtarı kullanarak bir değeri getirir.
+lambda expression|A lambda expression can provide a short implementation of a functional interface.|Lambda ifadesi fonksiyonel arayüz için kısa bir gerçekleştirim sağlayabilir.
+linked list|A linked list stores elements as nodes connected by references.|Bağlı liste öğeleri başvurularla birbirine bağlanan düğümler olarak saklar.
+memory allocation|Memory allocation reserves space for data during program execution.|Bellek ayırma program çalışırken veriler için alan ayırır.
+memory leak|A memory leak occurs when unused memory is not released.|Bellek sızıntısı kullanılmayan bellek serbest bırakılmadığında oluşur.
+memory management|Memory management controls how an application allocates and releases memory.|Bellek yönetimi uygulamanın belleği nasıl ayırıp serbest bırakacağını kontrol eder.
+message format|Both services must use the same message format to communicate.|İki hizmetin iletişim kurabilmesi için aynı mesaj biçimini kullanması gerekir.
+method overload|Method overload allows methods to share a name with different parameters.|Metot aşırı yükleme metotların farklı parametrelerle aynı adı paylaşmasına izin verir.
+namespace|A namespace prevents naming conflicts between related classes.|Ad alanı ilişkili sınıflar arasındaki ad çakışmalarını önler.
+network latency|High network latency makes the application feel slow.|Yüksek ağ gecikmesi uygulamanın yavaş hissedilmesine neden olur.
+network packet|Each network packet contains data and addressing information.|Her ağ paketi veri ve adresleme bilgisi içerir.
+object graph|The object graph shows how application objects reference one another.|Nesne grafiği uygulama nesnelerinin birbirine nasıl başvurduğunu gösterir.
+object lifetime|The object lifetime begins when the instance is created.|Nesne yaşam süresi örnek oluşturulduğunda başlar.
+object serialization|Object serialization converts an object into a format that can be stored or transmitted.|Nesne serileştirme bir nesneyi saklanabilen veya aktarılabilen bir biçime dönüştürür.
+open-source license|The open-source license explains how others may use the project.|Açık kaynak lisansı başkalarının projeyi nasıl kullanabileceğini açıklar.
+operating system kernel|The operating system kernel schedules processes and manages memory.|İşletim sistemi çekirdeği süreçleri zamanlar ve belleği yönetir.
+parallel processing|Parallel processing runs multiple operations at the same time.|Paralel işleme birden fazla işlemi aynı anda yürütür.
+parameterized query|A parameterized query helps protect the database from SQL injection.|Parametreli sorgu veritabanını SQL enjeksiyonuna karşı korumaya yardımcı olur.
+parse tree|The compiler builds a parse tree from the source expression.|Derleyici kaynak ifadeden bir ayrıştırma ağacı oluşturur.
+patch release|The patch release fixes bugs without adding major new features.|Yama sürümü önemli yeni özellikler eklemeden hataları düzeltir.
+persistent storage|Persistent storage keeps data after the application is closed.|Kalıcı depolama uygulama kapatıldıktan sonra da verileri saklar.
+pointer|A pointer stores the memory address of another value.|İşaretçi başka bir değerin bellek adresini saklar.
+polymorphic|A polymorphic method can behave differently for different object types.|Çok biçimli bir metot farklı nesne türleri için farklı davranabilir.
+process|The operating system creates a process when an application starts.|İşletim sistemi bir uygulama başladığında süreç oluşturur.
+process scheduling|Process scheduling determines which task receives CPU time next.|Süreç zamanlama sıradaki görevin CPU zamanını almasını belirler.
+program argument|The program argument tells the application which file to open.|Program argümanı uygulamaya hangi dosyayı açacağını söyler.
+query parameter|The query parameter filters the returned list by category.|Sorgu parametresi döndürülen listeyi kategoriye göre filtreler.
+query plan|The query plan shows how the database will execute a statement.|Sorgu planı veritabanının bir ifadeyi nasıl çalıştıracağını gösterir.
+recursion|Recursion occurs when a function calls itself to solve a smaller problem.|Özyineleme bir fonksiyonun daha küçük bir problemi çözmek için kendisini çağırmasıdır.
+regular expression|A regular expression can check whether an email address has the expected format.|Düzenli ifade bir e-posta adresinin beklenen biçimde olup olmadığını kontrol edebilir.
+relational database|A relational database stores data in tables connected by relationships.|İlişkisel veritabanı verileri ilişkilerle birbirine bağlanan tablolarda saklar.
+release candidate|The release candidate is tested before the final version is published.|Sürüm adayı son sürüm yayımlanmadan önce test edilir.
+remote procedure call|A remote procedure call lets one program request work from another computer.|Uzak yordam çağrısı bir programın başka bir bilgisayardan işlem istemesini sağlar.
+repository pattern|The repository pattern separates business logic from data storage details.|Depo tasarım deseni iş mantığını veri depolama ayrıntılarından ayırır.
+request header|The request header includes information about the client and requested format.|İstek üst bilgisi istemci ve istenen biçim hakkında bilgi içerir.
+request timeout|The request timeout prevents the application from waiting forever.|İstek zaman aşımı uygulamanın sonsuza kadar beklemesini önler.
+response code|The response code indicates whether the request succeeded.|Yanıt kodu isteğin başarılı olup olmadığını belirtir.
+runtime error|A runtime error occurs while the program is executing.|Çalışma zamanı hatası program yürütülürken ortaya çıkar.
+sandbox|The test runs inside a sandbox to protect the main system.|Test ana sistemi korumak için korumalı çalışma alanında yürütülür.
+scheduler|The scheduler decides when each background task should run.|Zamanlayıcı her arka plan görevinin ne zaman çalışacağını belirler.
+secure connection|A secure connection encrypts data exchanged between the client and server.|Güvenli bağlantı istemci ile sunucu arasında aktarılan verileri şifreler.
+semantic versioning|Semantic versioning uses major, minor, and patch numbers to describe releases.|Anlamsal sürümleme sürümleri tanımlamak için ana, ikincil ve yama numaralarını kullanır.
+service account|The service account gives the background process its own permissions.|Hizmet hesabı arka plan sürecine kendi izinlerini verir.
+session management|Session management keeps track of a user's authenticated activity.|Oturum yönetimi kullanıcının kimliği doğrulanmış etkinliğini takip eder.
+software component|Each software component has a clearly defined responsibility.|Her yazılım bileşeninin açıkça tanımlanmış bir sorumluluğu vardır.
+software dependency|The build fails when a required software dependency is missing.|Gerekli bir yazılım bağımlılığı eksik olduğunda derleme başarısız olur.
+software development kit|The software development kit includes tools and libraries for developers.|Yazılım geliştirme kiti geliştiriciler için araçlar ve kütüphaneler içerir.
+software release|The software release includes the installer and release notes.|Yazılım sürümü yükleyiciyi ve sürüm notlarını içerir.
+SQL injection|A parameterized query helps prevent an SQL injection attack.|Parametreli sorgu SQL enjeksiyonu saldırısını önlemeye yardımcı olur.
+stack overflow|A stack overflow can occur when recursion has no stopping condition.|Özyinelemenin durma koşulu olmadığında yığın taşması oluşabilir.
+static analysis|Static analysis can find some defects without running the program.|Statik analiz programı çalıştırmadan bazı kusurları bulabilir.
+static typing|Static typing checks variable types before the program runs.|Statik türleme değişken türlerini program çalışmadan önce kontrol eder.
+string interpolation|String interpolation inserts variable values into a text string.|Dizge araya yerleştirme değişken değerlerini metin dizgesine ekler.
+system call|A system call lets an application request a service from the operating system.|Sistem çağrısı bir uygulamanın işletim sisteminden hizmet istemesini sağlar.
+test automation|Test automation runs repeatable checks without manual interaction.|Test otomasyonu tekrarlanabilir kontrolleri elle müdahale olmadan çalıştırır.
+test case|Each test case checks one expected behaviour of the application.|Her test senaryosu uygulamanın beklenen bir davranışını kontrol eder.
+test double|A test double replaces a real dependency during a test.|Test ikizi test sırasında gerçek bir bağımlılığın yerini alır.
+test execution|Test execution records whether each check passed or failed.|Test yürütme her kontrolün geçip geçmediğini kaydeder.
+test fixture|The test fixture prepares the data and environment for a test.|Test düzeneği test için verileri ve ortamı hazırlar.
+test suite|The test suite groups related automated tests together.|Test paketi birbiriyle ilişkili otomatik testleri bir araya getirir.
+thread pool|A thread pool reuses worker threads to handle background tasks.|İş parçacığı havuzu arka plan görevlerini yürütmek için çalışan iş parçacıklarını yeniden kullanır.
+thread synchronization|Thread synchronization prevents concurrent tasks from corrupting shared data.|İş parçacığı eşzamanlaması eşzamanlı görevlerin paylaşılan verileri bozmasını önler.
+time complexity|The time complexity describes how an algorithm's running time grows with input size.|Zaman karmaşıklığı bir algoritmanın çalışma süresinin girdi boyutuyla nasıl arttığını açıklar.
+timeout|The timeout stops a task when it takes longer than the allowed period.|Zaman aşımı izin verilen süreden uzun süren bir görevi durdurur.
+tree traversal|Tree traversal visits every node in a tree according to a defined order.|Ağaç dolaşımı bir ağaçtaki her düğümü tanımlanmış bir sıraya göre ziyaret eder.
+type cast|A type cast converts a value from one data type to another.|Tür dönüştürme bir değeri bir veri türünden diğerine çevirir.
+type safety|Type safety prevents operations that are invalid for a value's type.|Tür güvenliği bir değerin türü için geçersiz işlemleri önler.
+unit testing|Unit testing checks a small part of the application in isolation.|Birim testi uygulamanın küçük bir bölümünü yalıtılmış olarak kontrol eder.
+user session|The user session ends when the user signs out.|Kullanıcı oturumu kullanıcı çıkış yaptığında sona erer.
+web application firewall|A web application firewall filters potentially harmful HTTP traffic.|Web uygulaması güvenlik duvarı potansiyel olarak zararlı HTTP trafiğini filtreler.
+web server|The web server returns pages and files to browser requests.|Web sunucusu tarayıcı isteklerine sayfalar ve dosyalar döndürür.
+webhook|A webhook sends a notification when a specified event occurs.|Web kancası belirtilen bir olay gerçekleştiğinde bildirim gönderir.
+working directory|The working directory is the default location for relative file paths.|Çalışma dizini göreli dosya yolları için varsayılan konumdur.
+zero-based index|A zero-based index starts counting from zero instead of one.|Sıfır tabanlı indeks saymaya bir yerine sıfırdan başlar.
