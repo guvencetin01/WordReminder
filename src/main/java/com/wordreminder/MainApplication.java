@@ -52,7 +52,6 @@ public class MainApplication extends Application {
             });
             wordRepository = new WordRepository(database);
             settingsRepository = new SettingsRepository(database);
-            wordRepository.seedBuiltInWords();
 
             WindowsStartupManager startupManager = new WindowsStartupManager();
             scheduler = new ReminderScheduler(() -> {
@@ -85,15 +84,34 @@ public class MainApplication extends Application {
                 }
             });
 
-            int interval = settingsRepository.getReminderMinutes();
-            scheduler.start(interval);
             boolean backgroundStart = getParameters().getRaw().contains("--background");
             boolean startMinimized = settingsRepository.isStartMinimized();
-            if (backgroundStart && startMinimized && trayIcon != null) {
-                mainWindow.hide();
-            } else {
-                mainWindow.show();
-            }
+
+            // The initial 4,654-row catalogue seed can touch thousands of SQLite rows.
+            // Keep it off the JavaFX thread, then start the reminder clock from completion.
+            databaseExecutor.execute(() -> {
+                try {
+                    wordRepository.seedBuiltInWords();
+                    int reminderInterval = settingsRepository.getReminderMinutes();
+                    postToFx(() -> {
+                        if (exiting) return;
+                        scheduler.start(reminderInterval);
+                        mainWindow.refreshData();
+                        if (backgroundStart && startMinimized && trayIcon != null) {
+                            mainWindow.hide();
+                        } else {
+                            mainWindow.show();
+                        }
+                    });
+                } catch (IOException | SQLException ex) {
+                    AppLogger.error("Kelime kataloğu hazırlanırken hata oluştu.", ex);
+                    postToFx(() -> {
+                        if (!exiting) showFatalError(ex);
+                    });
+                } catch (RejectedExecutionException ex) {
+                    if (!exiting) AppLogger.error("Kelime kataloğu görevi kuyruğa alınamadı.", ex);
+                }
+            });
         } catch (IOException | SQLException ex) {
             AppLogger.error("Uygulama başlatılırken hata oluştu.", ex);
             showFatalError(ex);
