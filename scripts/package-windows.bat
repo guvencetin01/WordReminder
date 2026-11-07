@@ -7,13 +7,13 @@ call mvn clean package dependency:copy-dependencies -DincludeScope=runtime -Dout
 if errorlevel 1 goto :error
 
 if not exist target\package-input mkdir target\package-input
-copy /Y target\wordreminder-3.2.0.jar target\package-input\wordreminder-3.2.0.jar >nul
+copy /Y target\wordreminder-3.3.0.jar target\package-input\wordreminder-3.3.0.jar >nul
 if errorlevel 1 goto :error
 
 if not exist target\installer mkdir target\installer
 
 echo [2/3] Windows kurulum paketi olusturuluyor...
-jpackage --type exe --name WordReminder --app-version 3.2.0 --vendor "WordReminder" --input target/package-input --main-jar wordreminder-3.2.0.jar --main-class com.wordreminder.MainApplication --dest target/installer --win-menu --win-shortcut --win-dir-chooser
+jpackage --type exe --name WordReminder --app-version 3.3.0 --vendor "WordReminder" --input target/package-input --main-jar wordreminder-3.3.0.jar --main-class com.wordreminder.MainApplication --dest target/installer --win-menu --win-shortcut --win-dir-chooser
 if errorlevel 1 goto :error
 
 echo [3/3] Tamamlandi. Kurulum paketi target\installer klasorunde.
