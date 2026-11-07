@@ -408,3 +408,109 @@
 .popup-hard-button:hover {
     -fx-background-color: #ffefcf;
 }
+
+/* Startup options: keep checkbox labels readable in compact settings cards. */
+.check-box {
+    -fx-text-fill: #334155;
+    -fx-padding: 3px;
+}
+.check-box > .box {
+    -fx-border-color: #9aa9bb;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+.startup-option-title {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #334155;
+}
+.startup-option-row {
+    -fx-spacing: 10px;
+}
+
+/* Warm, pale-green study card with a defined forest-green outline. */
+.popup-scroll {
+    -fx-background-color: #edf5eb;
+    -fx-background: #edf5eb;
+    -fx-border-color: #3f7048;
+    -fx-border-width: 1.2px;
+    -fx-border-radius: 14px;
+    -fx-background-radius: 14px;
+    -fx-padding: 0;
+}
+.popup-scroll > .viewport {
+    -fx-background-color: #edf5eb;
+    -fx-background-radius: 13px;
+}
+.popup-content {
+    -fx-background-color: linear-gradient(to bottom right, #f7fbf4, #eaf3e7);
+    -fx-background-radius: 13px;
+}
+.popup-brand {
+    -fx-text-fill: #42694a;
+}
+.popup-close {
+    -fx-text-fill: #4d7054;
+}
+.popup-badge {
+    -fx-text-fill: #315d3a;
+    -fx-background-color: #dcebd9;
+}
+.popup-word {
+    -fx-text-fill: #183d25;
+}
+.popup-pronunciation, .popup-recall-hint {
+    -fx-text-fill: #5d7561;
+}
+.popup-example-card {
+    -fx-background-color: #f8fcf6;
+    -fx-border-color: #b7cdb4;
+    -fx-border-radius: 11px;
+    -fx-background-radius: 11px;
+    -fx-effect: dropshadow(gaussian, rgba(31, 67, 39, 0.10), 10, 0.08, 0, 3);
+}
+.popup-section-label {
+    -fx-text-fill: #52745a;
+}
+.popup-example-sentence {
+    -fx-text-fill: #243f2a;
+}
+.popup-example-translation {
+    -fx-text-fill: #28613b;
+    -fx-background-color: #e4f1e1;
+}
+.popup-translation-missing {
+    -fx-text-fill: #788b7b;
+}
+.popup-meaning-card {
+    -fx-background-color: #e1efde;
+    -fx-border-color: #b4ceb0;
+}
+.popup-meaning {
+    -fx-text-fill: #28613b;
+}
+.popup-scroll .primary-button {
+    -fx-background-color: #356b43;
+    -fx-text-fill: white;
+}
+.popup-scroll .primary-button:hover {
+    -fx-background-color: #285837;
+}
+.popup-scroll .secondary-button {
+    -fx-background-color: #dcebd9;
+    -fx-text-fill: #294d32;
+    -fx-border-color: #b5cdb1;
+    -fx-border-radius: 8px;
+}
+.popup-scroll .secondary-button:hover {
+    -fx-background-color: #cfe2cb;
+}
+.popup-hard-button {
+    -fx-background-color: #e7f0df;
+    -fx-border-color: #789b70;
+    -fx-border-radius: 8px;
+    -fx-text-fill: #315d3a;
+}
+.popup-hard-button:hover {
+    -fx-background-color: #d8e9d2;
+}
