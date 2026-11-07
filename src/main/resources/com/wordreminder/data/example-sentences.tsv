@@ -1,0 +1,507 @@
+# English headword|English example sentence|Turkish translation
+# Curated example/translation pairs; built-in records are updated by exact English headword.
+# 2.7.0: 103 initial pairs; 2.8.0: 100 translations; 2.9.0: 100 new pairs;
+# 3.0.0: 100 translations of existing examples and 100 new beginner-level daily pairs.
+action|The team took action to solve the problem.|Ekip sorunu çözmek için harekete geçti.
+activity|Reading is a useful activity for children.|Okumak çocuklar için yararlı bir etkinliktir.
+age|At the age of ten, she learned to swim.|On yaşındayken yüzmeyi öğrendi.
+ago|I saw him two days ago.|Onu iki gün önce gördüm.
+agree|I agree with your idea.|Fikrine katılıyorum.
+alien|The story is about an alien from another planet.|Hikâye başka bir gezegenden gelen bir uzaylı hakkında.
+almost|The work is almost finished.|İş neredeyse tamamlandı.
+already|She has already finished her homework.|Ödevini çoktan bitirdi.
+also|He speaks English and also understands German.|İngilizce konuşuyor ve Almancayı da anlıyor.
+animal|The animal is resting under the tree.|Hayvan ağacın altında dinleniyor.
+apple|I eat an apple every morning.|Her sabah bir elma yerim.
+arm|He hurt his arm while playing football.|Futbol oynarken kolunu incitti.
+art|She studies art at university.|Üniversitede sanat eğitimi alıyor.
+article|I read an interesting article about science.|Bilim hakkında ilginç bir makale okudum.
+autumn|The leaves turn yellow in autumn.|Sonbaharda yapraklar sararır.
+away|Please put your phone away.|Lütfen telefonunu bir kenara koy.
+baby|The baby is sleeping in the next room.|Bebek yan odada uyuyor.
+bad|I had a bad day at work.|İşte kötü bir gün geçirdim.
+bag|She put her books in her bag.|Kitaplarını çantasına koydu.
+ball|The children are playing with a ball.|Çocuklar topla oynuyor.
+banana|He added a banana to his breakfast.|Kahvaltısına bir muz ekledi.
+bank|I need to go to the bank after work.|İşten sonra bankaya gitmem gerekiyor.
+bath|The child takes a warm bath every evening.|Çocuk her akşam ılık bir banyo yapar.
+beach|We walked along the beach at sunset.|Gün batımında sahil boyunca yürüdük.
+bean|She added beans to the soup.|Çorbaya fasulye ekledi.
+beautiful|They live in a beautiful house near the sea.|Denizin yakınında güzel bir evde yaşıyorlar.
+because|We stayed inside because it was raining.|Yağmur yağdığı için içeride kaldık.
+become|She wants to become a doctor.|Doktor olmak istiyor.
+bed|I usually read a book before bed.|Genellikle yatmadan önce kitap okurum.
+bedroom|My bedroom has a large window.|Yatak odamda büyük bir pencere var.
+beef|We had rice and beef for dinner.|Akşam yemeğinde pilav ve dana eti yedik.
+begin|The lesson will begin at nine.|Ders saat dokuzda başlayacak.
+believe|I believe that you can do it.|Bunu yapabileceğine inanıyorum.
+bell|The school bell rings at eight.|Okul zili saat sekizde çalar.
+below|Please write your name below the title.|Lütfen başlığın altına adını yaz.
+beside|She sat beside her friend.|Arkadaşının yanına oturdu.
+best|This is the best answer to the question.|Bu, sorunun en iyi yanıtı.
+better|I feel better today.|Bugün kendimi daha iyi hissediyorum.
+between|The bank is between the school and the park.|Banka okul ile parkın arasında.
+bicycle|He rides his bicycle to work.|İşe bisikletiyle gider.
+big|They bought a big table for the kitchen.|Mutfak için büyük bir masa aldılar.
+bird|A small bird is sitting on the window.|Pencerenin üzerinde küçük bir kuş duruyor.
+birth|The family celebrated the birth of their baby.|Aile, bebeklerinin doğumunu kutladı.
+black|She is wearing a black coat.|Siyah bir palto giyiyor.
+blank|Please leave the last line blank.|Lütfen son satırı boş bırak.
+blue|The sky is bright blue today.|Gökyüzü bugün parlak mavi.
+boat|We crossed the lake in a small boat.|Gölü küçük bir kayıkla geçtik.
+body|Regular exercise keeps your body healthy.|Düzenli egzersiz vücudunu sağlıklı tutar.
+bone|The dog found a bone in the garden.|Köpek bahçede bir kemik buldu.
+book|I borrowed a book from the library.|Kütüphaneden bir kitap ödünç aldım.
+both|Both students passed the exam.|Her iki öğrenci de sınavı geçti.
+bottle|There is a bottle of water on the desk.|Masanın üzerinde bir şişe su var.
+bowl|She put the apples in a bowl.|Elmaları bir kâseye koydu.
+box|The keys are in the small box.|Anahtarlar küçük kutunun içinde.
+brain|The human brain controls many body functions.|İnsan beyni birçok vücut işlevini kontrol eder.
+bread|I bought fresh bread from the bakery.|Fırından taze ekmek aldım.
+breakfast|We have breakfast together every morning.|Her sabah birlikte kahvaltı yaparız.
+bridge|The old bridge crosses the river.|Eski köprü nehrin üzerinden geçiyor.
+bright|The room is bright in the morning.|Oda sabahları aydınlık olur.
+brown|He has a brown jacket.|Kahverengi bir ceketi var.
+brush|I brush my teeth twice a day.|Dişlerimi günde iki kez fırçalarım.
+build|They plan to build a new school.|Yeni bir okul inşa etmeyi planlıyorlar.
+building|That building is more than one hundred years old.|O bina yüz yıldan daha eski.
+bus|I take the bus to work every day.|Her gün işe otobüsle giderim.
+business|She started a small business last year.|Geçen yıl küçük bir işletme kurdu.
+buy|I need to buy some food after work.|İşten sonra biraz yiyecek almam gerekiyor.
+call|Please call me when you arrive.|Vardığında lütfen beni ara.
+camera|This camera takes clear pictures.|Bu fotoğraf makinesi net fotoğraflar çekiyor.
+car|Their car is parked outside the house.|Arabaları evin dışında park edilmiş.
+care|Take care when you cross the road.|Yolu geçerken dikkatli ol.
+carry|Can you carry this bag for me?|Bu çantayı benim için taşıyabilir misin?
+case|In this case, we should wait.|Bu durumda beklemeliyiz.
+cat|The cat is sleeping on the sofa.|Kedi kanepede uyuyor.
+catch|Try to catch the ball with both hands.|Topu iki elinle yakalamaya çalış.
+celebrate|We celebrate her birthday every year.|Onun doğum gününü her yıl kutlarız.
+chair|Please take a chair and sit down.|Lütfen bir sandalye alıp otur.
+change|The weather can change very quickly.|Hava çok hızlı değişebilir.
+child|Every child needs time to play.|Her çocuğun oyun oynamak için zamana ihtiyacı vardır.
+city|I live in a busy city.|Kalabalık bir şehirde yaşıyorum.
+clean|Please keep your desk clean.|Lütfen masanı temiz tut.
+climb|The children can climb the hill safely.|Çocuklar tepeye güvenle tırmanabilir.
+clock|The clock on the wall is five minutes fast.|Duvardaki saat beş dakika ileri.
+cloud|A dark cloud covered the sun.|Koyu bir bulut güneşi kapattı.
+coffee|I drink a cup of coffee in the morning.|Sabahları bir fincan kahve içerim.
+cold|It is very cold outside today.|Bugün dışarısı çok soğuk.
+collect|He likes to collect old coins.|Eski madeni paraları toplamayı sever.
+cook|I cook dinner for my family.|Ailem için akşam yemeği pişiririm.
+correct|Your answer is correct.|Cevabın doğru.
+country|Türkiye is a beautiful country.|Türkiye güzel bir ülkedir.
+course|This course teaches basic English.|Bu kurs temel İngilizce öğretir.
+create|We need to create a new account.|Yeni bir hesap oluşturmamız gerekiyor.
+cut|Be careful not to cut your finger.|Parmağını kesmemeye dikkat et.
+dance|They dance together at the weekend.|Hafta sonları birlikte dans ederler.
+dark|The room became dark after sunset.|Gün batımından sonra oda karardı.
+day|I walk for thirty minutes every day.|Her gün otuz dakika yürürüm.
+decide|We need to decide before Friday.|Cumadan önce karar vermemiz gerekiyor.
+desk|There is a computer on my desk.|Masamın üzerinde bir bilgisayar var.
+different|We have different opinions about this issue.|Bu konuda farklı görüşlerimiz var.
+doctor|The doctor examined the patient.|Doktor hastayı muayene etti.
+door|Please close the door quietly.|Lütfen kapıyı sessizce kapat.
+drive|I drive to the office every morning.|Her sabah ofise arabayla giderim.
+early|She arrives early for every meeting.|Her toplantıya erken gelir.
+eat|We eat lunch at noon.|Öğle yemeğini öğlen yeriz.
+evening|I study English in the evening.|Akşamları İngilizce çalışırım.
+family|My family lives in Ankara.|Ailem Ankara’da yaşıyor.
+father|My father likes music.|Babam müziği sever.
+food|The food is very good.|Yemek çok güzel.
+friend|My friend works with me.|Arkadaşım benimle çalışıyor.
+goodbye|Goodbye, see you tomorrow.|Hoşça kal, yarın görüşürüz.
+hello|Hello, my name is Alex.|Merhaba, benim adım Alex.
+help|Can you help me?|Bana yardım edebilir misin?
+home|I work from home today.|Bugün evden çalışıyorum.
+house|Their house is near the park.|Onların evi parkın yakınında.
+morning|I read the news in the morning.|Sabahları haberleri okurum.
+mother|My mother is a teacher.|Annem öğretmen.
+no|No, I do not need help.|Hayır, yardıma ihtiyacım yok.
+please|Please open the window.|Lütfen pencereyi aç.
+shop|The shop is open today.|Dükkân bugün açık.
+street|Our office is on this street.|Ofisimiz bu sokakta.
+thank you|Thank you for your help.|Yardımın için teşekkür ederim.
+time|What time is the meeting?|Toplantı saat kaçta?
+tired|I am tired after work.|İşten sonra yorgunum.
+today|I have a lot of work today.|Bugün çok işim var.
+tomorrow|We can discuss it tomorrow.|Bunu yarın görüşebiliriz.
+water|Can I have some water?|Biraz su alabilir miyim?
+work|I work every day.|Her gün çalışırım.
+yes|Yes, I understand.|Evet, anlıyorum.
+app|This app helps me learn English.|Bu uygulama İngilizce öğrenmeme yardımcı oluyor.
+button|Click the blue button.|Mavi düğmeye tıkla.
+click|Click the file to select it.|Dosyayı seçmek için üzerine tıkla.
+close|Close the settings window.|Ayarlar penceresini kapat.
+computer|My computer is on the desk.|Bilgisayarım masanın üzerinde.
+copy|Copy the text into the document.|Metni belgenin içine kopyala.
+delete|Select the file and press Delete.|Dosyayı seç ve Delete tuşuna bas.
+desktop|The desktop is next to the monitor.|Masaüstü monitörün yanında.
+file|Open the file on your computer.|Dosyayı bilgisayarında aç.
+folder|Save the file in this folder.|Dosyayı bu klasöre kaydet.
+icon|Click the settings icon.|Ayarlar simgesine tıkla.
+image|Add an image to the page.|Sayfaya bir görsel ekle.
+keyboard|This keyboard is comfortable.|Bu klavyenin kullanımı rahat.
+laptop|I use my laptop at work.|Dizüstü bilgisayarımı işte kullanıyorum.
+menu|Open the menu at the top.|Üstteki menüyü aç.
+mouse|Move the mouse to the left.|Fareyi sola hareket ettir.
+name|Enter your name here.|Adını buraya gir.
+number|The error number is on the screen.|Hata numarası ekranda görünüyor.
+open|Open the application.|Uygulamayı aç.
+paste|Paste the link into the browser.|Bağlantıyı tarayıcıya yapıştır.
+print|Print the document if you need a paper copy.|Basılı bir kopyaya ihtiyacın varsa belgeyi yazdır.
+save|Save your work often.|Çalışmanı sık sık kaydet.
+screen|The screen is too bright.|Ekran çok parlak.
+text|The text is easy to read.|Metnin okunması kolay.
+window|A new window appears.|Yeni bir pencere açılır.
+address|Please send me your email address.|Lütfen e-posta adresini bana gönder.
+always|She always checks her messages.|Mesajlarını her zaman kontrol eder.
+answer|I do not know the answer.|Cevabı bilmiyorum.
+arrive|Please call me when you arrive.|Vardığında lütfen beni ara.
+available|Are you available tomorrow?|Yarın müsait misin?
+borrow|Can I borrow your charger?|Şarj aletini ödünç alabilir miyim?
+busy|I am busy this afternoon.|Bu öğleden sonra meşgulüm.
+careful|Be careful when you share personal information.|Kişisel bilgilerini paylaşırken dikkatli ol.
+choose|You can choose the best option.|En iyi seçeneği seçebilirsin.
+compare|Compare the two prices before you decide.|Karar vermeden önce iki fiyatı karşılaştır.
+explain|Can you explain this rule?|Bu kuralı açıklayabilir misin?
+imagine|Imagine living in another country.|Başka bir ülkede yaşadığını hayal et.
+increase|We need to increase the time for practice.|Alıştırma süresini artırmamız gerekiyor.
+instead|Let us take the train instead.|Onun yerine trene binelim.
+journey|The journey takes about two hours.|Yolculuk yaklaşık iki saat sürüyor.
+late|The train is running late.|Tren gecikiyor.
+leave|I usually leave the office at six.|Genellikle ofisten saat altıda ayrılırım.
+meeting|We have a team meeting at ten.|Saat onda ekip toplantımız var.
+order|I placed an order yesterday.|Dün bir sipariş verdim.
+price|The price is higher than I expected.|Fiyat beklediğimden daha yüksek.
+problem|We need to solve this problem.|Bu sorunu çözmemiz gerekiyor.
+sometimes|I sometimes work at home.|Bazen evden çalışırım.
+usually|I usually start work at nine.|Genellikle işe saat dokuzda başlarım.
+weather|The weather is warmer this week.|Bu hafta hava daha ılık.
+accessibility|We improved the application's accessibility for keyboard users.|Uygulamanın klavye kullanıcıları için erişilebilirliğini iyileştirdik.
+account|Create an account to continue.|Devam etmek için bir hesap oluştur.
+adapter|The adapter converts the database result into a domain object.|Adaptör, veritabanı sonucunu bir etki alanı nesnesine dönüştürür.
+administrator|Ask the administrator to grant the service permission to write to this folder.|Hizmete bu klasöre yazma izni vermesi için yöneticiden istekte bulun.
+airplane mode|Airplane mode disables the device’s wireless connections.|Uçak modu, cihazın kablosuz bağlantılarını devre dışı bırakır.
+application window|The application window stays hidden while the reminder runs in the background.|Hatırlatıcı arka planda çalışırken uygulama penceresi gizli kalır.
+archive file|The release archive file contains the application and its resources.|Sürüm arşiv dosyası, uygulamayı ve kaynaklarını içerir.
+attachment|The support ticket includes a log file as an attachment.|Destek talebine ek olarak bir günlük dosyası eklenmiş.
+audio file|The media player checks the audio file before playback.|Medya oynatıcı, oynatmadan önce ses dosyasını kontrol eder.
+autocomplete|Autocomplete suggests method names while you type.|Otomatik tamamlama, yazarken yöntem adlarını önerir.
+backup|Create a backup before changing the database schema.|Veritabanı şemasını değiştirmeden önce yedek oluştur.
+battery level|The application should avoid heavy background work when the battery level is low.|Pil seviyesi düşük olduğunda uygulama yoğun arka plan işlemlerinden kaçınmalıdır.
+bookmark|Save the API reference as a bookmark for quick access.|API başvuru sayfasını hızlı erişim için yer işareti olarak kaydet.
+browser|Open the website in your browser.|Web sitesini tarayıcında aç.
+browser tab|Keep the API reference open in a separate browser tab.|API başvuru sayfasını ayrı bir tarayıcı sekmesinde açık tut.
+calculator|The calculator checks the result of the conversion.|Hesap makinesi dönüşümün sonucunu kontrol eder.
+clipboard|The application copies the selected word to the clipboard.|Uygulama, seçilen kelimeyi panoya kopyalar.
+cloud storage|The team stores shared design files in cloud storage.|Ekip, ortak tasarım dosyalarını bulut depolama alanında saklar.
+configuration|The application loads its configuration when it starts.|Uygulama, başlatıldığında yapılandırmasını yükler.
+connection|The connection is not stable.|Bağlantı kararlı değil.
+console|Check the console for the exception details.|İstisnanın ayrıntıları için konsolu kontrol et.
+control panel|Open the control panel to review the system settings.|Sistem ayarlarını gözden geçirmek için denetim masasını aç.
+cursor|Move the cursor to the end of the line.|İmleci satırın sonuna taşı.
+dashboard|The dashboard shows the service status and recent errors.|Kontrol paneli, hizmet durumunu ve son hataları gösterir.
+data|The app stores data locally.|Uygulama verileri yerel olarak saklar.
+date picker|Use the date picker to select the deployment date.|Dağıtım tarihini seçmek için tarih seçiciyi kullan.
+default setting|The default setting enables reminders every ten minutes.|Varsayılan ayar, hatırlatıcıları her on dakikada bir etkinleştirir.
+bike|My bike is parked next to the door.|Bisikletim kapının yanında park edilmiş.
+bottom|The keys are at the bottom of the bag.|Anahtarlar çantanın dibinde.
+bucket|She filled the bucket with water.|Kovayı suyla doldurdu.
+butter|Please put some butter on the bread.|Lütfen ekmeğin üzerine biraz tereyağı sür.
+cafe|We had coffee at a small cafe near the station.|İstasyonun yakınındaki küçük bir kafede kahve içtik.
+candy|The child chose one piece of candy.|Çocuk bir şeker seçti.
+card|I sent my friend a birthday card.|Arkadaşıma doğum günü kartı gönderdim.
+cheese|Would you like some cheese with your bread?|Ekmeğinin yanında biraz peynir ister misin?
+chicken|We had chicken and rice for dinner.|Akşam yemeğinde tavuk ve pilav yedik.
+clothes|Put your wet clothes near the heater.|Islak kıyafetlerini ısıtıcının yanına koy.
+cup|She poured tea into my cup.|Fincanıma çay koydu.
+daughter|Their daughter starts school next year.|Kızları gelecek yıl okula başlayacak.
+dog|The dog is sleeping under the table.|Köpek masanın altında uyuyor.
+driver|The bus driver stopped near the school.|Otobüs şoförü okulun yakınında durdu.
+east|The sun rises in the east.|Güneş doğudan doğar.
+egg|I boiled an egg for breakfast.|Kahvaltı için bir yumurta haşladım.
+face|Wash your face with warm water.|Yüzünü ılık suyla yıka.
+famous|This town is famous for its old castle.|Bu kasaba eski kalesiyle ünlüdür.
+farm|My uncle works on a farm.|Amcam bir çiftlikte çalışıyor.
+few|Only a few students came to class today.|Bugün derse yalnızca birkaç öğrenci geldi.
+fire|They sat by the fire on a cold evening.|Soğuk bir akşam ateşin yanında oturdular.
+floor|Please clean the kitchen floor.|Lütfen mutfak zeminini temizle.
+flower|She gave her mother a yellow flower.|Annesine sarı bir çiçek verdi.
+forest|We walked through the forest in the morning.|Sabah ormanda yürüdük.
+front|There is a bus stop in front of the library.|Kütüphanenin önünde bir otobüs durağı var.
+fruit|Eat fresh fruit every day.|Her gün taze meyve ye.
+game|We played a game after dinner.|Akşam yemeğinden sonra bir oyun oynadık.
+garden|There are three apple trees in our garden.|Bahçemizde üç elma ağacı var.
+gate|Please close the garden gate.|Lütfen bahçe kapısını kapat.
+glass|Could I have a glass of water?|Bir bardak su alabilir miyim?
+gold|The ring is made of gold.|Yüzük altından yapılmış.
+grass|The children are playing on the grass.|Çocuklar çimenlerin üzerinde oynuyor.
+group|Our group meets every Monday.|Grubumuz her pazartesi buluşur.
+grow|These plants grow quickly in the sun.|Bu bitkiler güneşte hızlı büyür.
+hair|Her hair is wet after the rain.|Yağmurdan sonra saçları ıslak.
+hand|Raise your hand if you know the answer.|Cevabı biliyorsan elini kaldır.
+happy|I feel happy when I see my friends.|Arkadaşlarımı gördüğümde mutlu hissediyorum.
+hat|He wore a hat to protect himself from the sun.|Güneşten korunmak için şapka taktı.
+head|My head hurts after a long day.|Uzun bir günün ardından başım ağrıyor.
+health|Regular exercise is good for your health.|Düzenli egzersiz sağlığın için iyidir.
+heart|Her heart beats faster when she runs.|Koştuğunda kalbi daha hızlı atar.
+horse|The horse drank water from the river.|At nehirden su içti.
+hospital|Her brother works at a hospital.|Erkek kardeşi bir hastanede çalışıyor.
+hot|The soup is too hot to eat now.|Çorba şu anda yemek için fazla sıcak.
+ice|Put some ice in the juice.|Meyve suyuna biraz buz koy.
+idea|That is a good idea for our project.|Bu, projemiz için iyi bir fikir.
+important|It is important to get enough sleep.|Yeterince uyumak önemlidir.
+jacket|Take your jacket; it is cold outside.|Ceketini al; dışarısı soğuk.
+job|She found a new job in the city.|Şehirde yeni bir iş buldu.
+juice|Would you like a glass of orange juice?|Bir bardak portakal suyu ister misin?
+jump|The cat can jump onto the chair.|Kedi sandalyenin üzerine zıplayabilir.
+kitchen|My father is cooking in the kitchen.|Babam mutfakta yemek yapıyor.
+knife|Use a clean knife to cut the bread.|Ekmeği kesmek için temiz bir bıçak kullan.
+lake|We rented a small boat on the lake.|Gölde küçük bir tekne kiraladık.
+language|English is the language we use at work.|İngilizce işte kullandığımız dildir.
+large|They live in a large house near the park.|Parkın yakınında büyük bir evde yaşıyorlar.
+learn|I want to learn five new words today.|Bugün beş yeni kelime öğrenmek istiyorum.
+left|Turn left at the next street.|Bir sonraki sokakta sola dön.
+leg|He hurt his leg while playing football.|Futbol oynarken bacağını incitti.
+lemon|Add a slice of lemon to your tea.|Çayına bir dilim limon ekle.
+lesson|Our English lesson starts at nine.|İngilizce dersimiz dokuzda başlıyor.
+letter|I received a letter from my cousin.|Kuzenimden bir mektup aldım.
+life|Music is an important part of her life.|Müzik onun hayatının önemli bir parçasıdır.
+line|Please stand in line and wait.|Lütfen sıraya gir ve bekle.
+lion|We saw a lion at the zoo.|Hayvanat bahçesinde bir aslan gördük.
+little|The little boy is holding his mother's hand.|Küçük çocuk annesinin elini tutuyor.
+live|They live in a quiet village by the sea.|Denizin kenarında sakin bir köyde yaşıyorlar.
+look|Look at the picture on the wall.|Duvardaki resme bak.
+lunch|We usually have lunch at noon.|Genellikle öğle yemeğini öğlen yeriz.
+machine|This machine makes coffee in one minute.|Bu makine bir dakikada kahve yapıyor.
+market|I buy fresh vegetables at the market.|Pazardan taze sebze alırım.
+math|My sister enjoys math at school.|Kız kardeşim okulda matematik dersini seviyor.
+meal|We prepared a simple meal together.|Birlikte basit bir yemek hazırladık.
+meat|He does not eat meat.|Et yemiyor.
+milk|There is no milk in the fridge.|Buzdolabında hiç süt yok.
+money|I save a little money every month.|Her ay biraz para biriktiriyorum.
+month|We are going on holiday next month.|Gelecek ay tatile gidiyoruz.
+mountain|Snow covers the top of the mountain.|Dağın zirvesini kar kaplıyor.
+mouth|Open your mouth and say "ah."|Ağzını aç ve "aaa" de.
+movie|We watched a funny movie last night.|Dün gece komik bir film izledik.
+music|Soft music helps me relax.|Hafif müzik rahatlamama yardımcı olur.
+neck|This scarf keeps my neck warm.|Bu atkı boynumu sıcak tutuyor.
+night|I read a book every night.|Her gece kitap okurum.
+nose|The dog has a black nose.|Köpeğin siyah bir burnu var.
+nurse|The nurse checked the patient's temperature.|Hemşire hastanın ateşini ölçtü.
+office|My office is on the third floor.|Ofisim üçüncü katta.
+orange|She peeled an orange for her son.|Oğlu için bir portakal soydu.
+paper|Please write your name on this paper.|Lütfen adını bu kâğıda yaz.
+parent|Every parent wants their child to be safe.|Her ebeveyn çocuğunun güvende olmasını ister.
+park|We walked in the park after work.|İşten sonra parkta yürüdük.
+party|They are having a party on Saturday.|Cumartesi günü parti veriyorlar.
+pen|I signed the form with a blue pen.|Formu mavi bir kalemle imzaladım.
+pencil|The child drew a house with a pencil.|Çocuk kurşun kalemle bir ev çizdi.
+people|Many people take the bus to work.|Birçok insan işe otobüsle gider.
+person|She is the only person in the room.|Odada bulunan tek kişi o.
+phone|My phone is charging on the desk.|Telefonum masanın üzerinde şarj oluyor.
+photo|We took a photo in front of the museum.|Müzenin önünde fotoğraf çektik.
+piano|He practices the piano every evening.|Her akşam piyano çalışıyor.
+picture|There is a family picture above the sofa.|Kanepenin üzerinde bir aile fotoğrafı var.
+place|This is a quiet place to study.|Burası ders çalışmak için sessiz bir yer.
+device|The device needs an internet connection.|Cihazın internet bağlantısına ihtiyacı var.
+document|Save the document before closing it.|Kapatmadan önce belgeyi kaydet.
+document editor|The document editor saves changes to the local file.|Belge düzenleyici değişiklikleri yerel dosyaya kaydeder.
+download|Download the latest version.|En son sürümü indir.
+dropdown menu|Select the required environment from the dropdown menu.|Açılır menüden gerekli ortamı seç.
+email|I received your email.|E-postanı aldım.
+external drive|Copy the database backup to an external drive.|Veritabanı yedeğini harici bir sürücüye kopyala.
+field|Enter your email in this field.|Bu alana e-posta adresini gir.
+file extension|The file extension tells the operating system which application can open the file.|Dosya uzantısı, işletim sistemine dosyayı hangi uygulamanın açabileceğini bildirir.
+file name|Choose a descriptive file name for the release archive.|Sürüm arşivi için açıklayıcı bir dosya adı seç.
+file path|The application stores the database file path in its configuration.|Uygulama, veritabanı dosyasının yolunu yapılandırmasında saklar.
+file size|The upload service checks the file size before accepting the request.|Yükleme hizmeti isteği kabul etmeden önce dosya boyutunu kontrol eder.
+font size|Increase the font size to make the code easier to read.|Kodu daha kolay okunur hâle getirmek için yazı tipi boyutunu artır.
+form|Complete the form to create an account.|Hesap oluşturmak için formu doldur.
+format|The application supports this file format.|Uygulama bu dosya biçimini destekler.
+hard drive|The installer needs enough free space on the hard drive.|Yükleyicinin sabit diskte yeterli boş alana ihtiyacı var.
+headphone|The developer used a headphone during the online meeting.|Geliştirici çevrim içi toplantıda kulaklık kullandı.
+home page|The home page links to the product documentation.|Ana sayfa ürün belgelerine bağlantı verir.
+hotkey|Assign a hotkey to open the reminder window.|Hatırlatma penceresini açmak için bir kısayol tuşu ata.
+image editor|The image editor exports the icon as a PNG file.|Görüntü düzenleyici simgeyi PNG dosyası olarak dışa aktarır.
+input|The program checks the user input.|Program kullanıcı girdisini kontrol eder.
+input device|A keyboard is an input device.|Klavye bir giriş aygıtıdır.
+install|Install the application first.|Önce uygulamayı yükle.
+link|Click the link to open the page.|Sayfayı açmak için bağlantıya tıkla.
+login|The login process rejects an invalid password.|Oturum açma süreci geçersiz bir parolayı reddeder.
+logout|The application clears the session token after logout.|Uygulama, oturum kapatıldığında oturum belirtecini temizler.
+memory card|The device stores diagnostic photos on a memory card.|Cihaz tanılama fotoğraflarını hafıza kartında saklar.
+network|The computer is connected to the network.|Bilgisayar ağa bağlı.
+notification|The app sends a notification.|Uygulama bir bildirim gönderir.
+notification center|The notification center keeps recent system alerts.|Bildirim merkezi son sistem uyarılarını saklar.
+operating system|The application uses the operating system to register its startup entry.|Uygulama, başlangıç kaydını oluşturmak için işletim sistemini kullanır.
+option|Choose the first option to enable automatic updates.|Otomatik güncellemeleri etkinleştirmek için ilk seçeneği belirle.
+output|The output appears below the text box.|Çıktı, metin kutusunun altında görünür.
+password|Never share your password.|Parolanı asla kimseyle paylaşma.
+plug-in|The IDE loads the plug-in when it starts.|IDE, eklentiyi başlatıldığında yükler.
+pop-up window|A pop-up window displays the next word.|Açılır pencere sıradaki kelimeyi gösterir.
+power button|Press the power button to turn on the device.|Cihazı açmak için güç düğmesine bas.
+printer driver|The printer driver converts the document into a format the printer understands.|Yazıcı sürücüsü belgeyi yazıcının anlayacağı bir biçime dönüştürür.
+recycle bin|Deleted files remain in the recycle bin until it is emptied.|Silinen dosyalar, geri dönüşüm kutusu boşaltılana kadar orada kalır.
+remote control|The remote control sends commands to the presentation system.|Uzaktan kumanda, sunum sistemine komutlar gönderir.
+screen resolution|The layout adapts to the current screen resolution.|Düzen, geçerli ekran çözünürlüğüne uyum sağlar.
+scroll bar|Use the scroll bar to inspect the remaining rows.|Kalan satırları incelemek için kaydırma çubuğunu kullan.
+search|Use search to find a word.|Bir kelimeyi bulmak için aramayı kullan.
+settings|You can change the language in settings.|Ayarlardan dili değiştirebilirsin.
+sign in|Users must sign in before they can access the dashboard.|Kullanıcılar kontrol paneline erişmeden önce oturum açmalıdır.
+sign out|Sign out when you finish using a shared computer.|Paylaşılan bir bilgisayarı kullanmayı bitirdiğinde oturumu kapat.
+software update|The software update fixes a security issue.|Yazılım güncellemesi bir güvenlik sorununu giderir.
+status bar|The status bar shows whether the database connection is active.|Durum çubuğu, veritabanı bağlantısının etkin olup olmadığını gösterir.
+storage space|The application checks available storage space before exporting data.|Uygulama, verileri dışa aktarmadan önce kullanılabilir depolama alanını kontrol eder.
+sync|The clients sync their settings after authentication.|İstemciler kimlik doğrulamasından sonra ayarlarını eşitler.
+system tray|The application continues running in the system tray.|Uygulama sistem tepsisinde çalışmaya devam eder.
+table|The table contains customer names.|Tablo müşteri adlarını içerir.
+taskbar|The main window appears on the taskbar when it is visible.|Ana pencere görünür olduğunda görev çubuğunda belirir.
+text editor|Use a text editor to inspect the TSV catalog.|TSV kataloğunu incelemek için bir metin düzenleyici kullan.
+thumbnail|The file manager creates a thumbnail for each image.|Dosya yöneticisi her görüntü için bir küçük resim oluşturur.
+toggle|Use the toggle to enable or disable reminders.|Hatırlatmaları etkinleştirmek veya devre dışı bırakmak için anahtarı kullan.
+toolbar|The toolbar contains shortcuts for common actions.|Araç çubuğu sık kullanılan işlemler için kısayollar içerir.
+touchscreen|The layout supports both a mouse and a touchscreen.|Düzen hem fareyi hem de dokunmatik ekranı destekler.
+troubleshooting|The troubleshooting guide explains how to collect diagnostic logs.|Sorun giderme kılavuzu tanılama günlüklerinin nasıl toplanacağını açıklar.
+uninstall|Uninstall the previous version before testing a clean package.|Temiz bir paketi test etmeden önce önceki sürümü kaldır.
+update|Update the app to fix the problem.|Sorunu gidermek için uygulamayı güncelle.
+upload|Upload the document to the server.|Belgeyi sunucuya yükle.
+user|A user can change the language.|Bir kullanıcı dili değiştirebilir.
+user account|Each user account has its own application settings.|Her kullanıcı hesabının kendine ait uygulama ayarları vardır.
+user interface|The user interface should remain responsive while data is loading.|Veri yüklenirken kullanıcı arayüzü yanıt vermeye devam etmelidir.
+username|The API requires a username and a password.|API bir kullanıcı adı ve parola gerektirir.
+video call|The team discussed the release plan during a video call.|Ekip, video görüşmesi sırasında sürüm planını görüştü.
+voice input|Voice input can help users enter text without a keyboard.|Sesli giriş, kullanıcıların klavye olmadan metin girmesine yardımcı olabilir.
+web address|Enter the web address in the browser address bar.|Web adresini tarayıcının adres çubuğuna gir.
+web page|The web page sends a request when the user submits the form.|Web sayfası, kullanıcı formu gönderdiğinde bir istek yollar.
+webcam|The webcam is disabled by the operating system privacy setting.|Web kamerası, işletim sisteminin gizlilik ayarı nedeniyle devre dışı bırakılmış.
+website|The website works on mobile devices.|Web sitesi mobil cihazlarda çalışır.
+wireless|The device uses a wireless connection to reach the network.|Cihaz ağa kablosuz bağlantı kullanarak erişir.
+workspace|The IDE opens the project in a dedicated workspace.|IDE projeyi özel bir çalışma alanında açar.
+zip file|The release is distributed as a ZIP file.|Sürüm, ZIP dosyası olarak dağıtılır.
+achieve|She worked hard to achieve her goal.|Hedefine ulaşmak için çok çalıştı.
+adapt|It takes time to adapt to a new team.|Yeni bir ekibe uyum sağlamak zaman alır.
+although|Although it was difficult, we finished it.|Zor olmasına rağmen işi tamamladık.
+analyze|We need to analyze the results carefully.|Sonuçları dikkatlice analiz etmemiz gerekiyor.
+arrange|I will arrange a meeting with the team.|Ekiple bir toplantı ayarlayacağım.
+benefit|Regular exercise has many benefits.|Düzenli egzersizin birçok faydası vardır.
+challenge|Learning a new language is a challenge.|Yeni bir dil öğrenmek zorlu bir süreçtir.
+confident|I feel more confident when I practise.|Pratik yaptığımda kendime daha çok güveniyorum.
+consider|Please consider my suggestion.|Lütfen önerimi değerlendir.
+develop|We want to develop better habits.|Daha iyi alışkanlıklar geliştirmek istiyoruz.
+discuss|Let us discuss the main issue.|Ana konuyu konuşalım.
+encourage|Good colleagues encourage each other.|İyi çalışma arkadaşları birbirlerini teşvik eder.
+environment|A quiet environment helps me focus.|Sessiz bir ortam odaklanmama yardımcı olur.
+expect|We expect the work to finish today.|İşin bugün bitmesini bekliyoruz.
+experience|My previous experience helped me.|Önceki deneyimim bana yardımcı oldu.
+improve|I want to improve my speaking skills.|Konuşma becerilerimi geliştirmek istiyorum.
+mistake|Everyone makes a mistake sometimes.|Herkes bazen hata yapar.
+notice|Did you notice the small change?|Küçük değişikliği fark ettin mi?
+opportunity|This project is a good opportunity to learn.|Bu proje öğrenmek için iyi bir fırsat.
+prefer|I prefer clear and simple explanations.|Açık ve basit açıklamaları tercih ederim.
+probably|The update will probably take an hour.|Güncelleme muhtemelen bir saat sürecek.
+reason|What is the reason for the delay?|Gecikmenin nedeni nedir?
+require|This task will require more time.|Bu görev daha fazla zaman gerektirecek.
+result|The result was better than expected.|Sonuç beklediğimizden daha iyiydi.
+solution|We found a practical solution.|Pratik bir çözüm bulduk.
+bar|They ordered drinks at the hotel bar.|Oteldeki barda içecek sipariş ettiler.
+bat|He hit the ball with a wooden bat.|Topa tahta bir sopayla vurdu.
+bear|We saw a bear near the river.|Nehrin yakınında bir ayı gördük.
+bee|A bee landed on the yellow flower.|Sarı çiçeğin üzerine bir arı kondu.
+before|The bus arrived before noon.|Otobüs öğleden önce geldi.
+block|The library is one block from the school.|Kütüphane okula bir sokak uzaklıkta.
+board|The teacher wrote three words on the board.|Öğretmen tahtaya üç kelime yazdı.
+bring|Please bring your notebook to class.|Lütfen defterini derse getir.
+camp|We stayed at a camp near the lake.|Gölün yakınındaki bir kampta kaldık.
+church|The old church stands in the town centre.|Eski kilise şehir merkezinde yer alıyor.
+cloth|Use a clean cloth to wipe the table.|Masayı silmek için temiz bir bez kullan.
+club|She joined the school music club.|Okulun müzik kulübüne katıldı.
+coat|Take your coat; it is cold outside.|Montunu al; dışarısı soğuk.
+corn|We ate fresh corn with dinner.|Akşam yemeğinde taze mısır yedik.
+cover|Cover the food before putting it in the fridge.|Yemeği buzdolabına koymadan önce üzerini kapat.
+cow|The cow is eating grass in the field.|İnek tarlada ot yiyor.
+culture|Food is an important part of a country’s culture.|Yemek, bir ülkenin kültürünün önemli bir parçasıdır.
+date|Please date the form before you sign it.|Lütfen formu imzalamadan önce tarih at.
+delicious|This soup smells delicious.|Bu çorba çok lezzetli kokuyor.
+describe|Can you describe the house to me?|Evi bana tarif edebilir misin?
+design|They want to design a small garden.|Küçük bir bahçe tasarlamak istiyorlar.
+difference|There is a big difference between these two bags.|Bu iki çanta arasında büyük bir fark var.
+dish|My grandmother made a delicious rice dish.|Büyükannem lezzetli bir pilav yemeği yaptı.
+dollar|The book costs ten dollars.|Kitap on dolar tutuyor.
+dream|Her dream is to become a doctor.|Onun hayali doktor olmak.
+dress|She likes to dress in bright colours.|Canlı renklerde giyinmeyi seviyor.
+drum|He plays the drum in the school band.|Okul bandosunda davul çalıyor.
+dry|Leave the clothes outside to dry.|Kıyafetleri kuruması için dışarıda bırak.
+end|The lesson will end at three o’clock.|Ders saat üçte bitecek.
+enjoy|I enjoy walking by the sea.|Deniz kenarında yürümekten hoşlanırım.
+example|This sentence is a good example of the past tense.|Bu cümle geçmiş zamanın iyi bir örneğidir.
+excellent|You did an excellent job on the project.|Projede mükemmel bir iş çıkardın.
+expensive|That restaurant is too expensive for us.|O restoran bizim için fazla pahalı.
+farmer|The farmer starts work early every morning.|Çiftçi her sabah erkenden işe başlar.
+fast|This train is faster than the bus.|Bu tren otobüsten daha hızlı.
+fat|The cat is getting fat because it eats too much.|Kedi çok fazla yemek yediği için kilo alıyor.
+feed|Please feed the dog before you leave.|Lütfen gitmeden önce köpeği besle.
+feeling|I had a strange feeling about that place.|O yerle ilgili tuhaf bir hisse kapıldım.
+fever|He stayed home because he had a fever.|Ateşi olduğu için evde kaldı.
+fight|The two boys had a fight after school.|İki çocuk okuldan sonra kavga etti.
+fill|Fill the glass with cold water.|Bardağı soğuk suyla doldur.
+find|I cannot find my keys.|Anahtarlarımı bulamıyorum.
+finish|We need to finish our homework before dinner.|Ödevimizi akşam yemeğinden önce bitirmemiz gerekiyor.
+fish|We bought fresh fish at the market.|Pazardan taze balık aldık.
+flag|The flag moved in the wind.|Bayrak rüzgârda dalgalandı.
+free|The museum is free on Sundays.|Müzeye pazar günleri giriş ücretsizdir.
+fun|The children had fun at the beach.|Çocuklar sahilde eğlendi.
+garbage|Please put the garbage in the bin.|Lütfen çöpleri kutuya at.
+gift|She gave her friend a small gift.|Arkadaşına küçük bir hediye verdi.
+grade|He got a good grade in English.|İngilizceden iyi bir not aldı.
+grammar|We are learning English grammar this week.|Bu hafta İngilizce dil bilgisi öğreniyoruz.
+grape|She put some grapes in her lunchbox.|Beslenme çantasına biraz üzüm koydu.
+great|We had a great time at the picnic.|Piknikte harika vakit geçirdik.
+green|The leaves turn green in spring.|Yapraklar ilkbaharda yeşerir.
+guest|Each guest received a welcome card.|Her misafire bir hoş geldin kartı verildi.
+habit|Reading before bed is a good habit.|Yatmadan önce kitap okumak iyi bir alışkanlıktır.
+hall|The students waited in the school hall.|Öğrenciler okulun salonunda bekledi.
+happen|What will happen if we miss the train?|Treni kaçırırsak ne olacak?
+hard|This question is hard for beginners.|Bu soru yeni başlayanlar için zor.
+hill|They walked up the hill slowly.|Tepeye yavaşça yürüyerek çıktılar.
+hobby|Painting is her favourite hobby.|Resim yapmak onun en sevdiği hobidir.
+hold|Can you hold this bag for a moment?|Bu çantayı bir anlığına tutabilir misin?
+holiday|We visit our grandparents during the holiday.|Tatil sırasında büyükanne ve büyükbabamızı ziyaret ederiz.
+homework|I do my homework after dinner.|Ödevimi akşam yemeğinden sonra yaparım.
+hope|I hope you feel better soon.|Umarım kısa zamanda daha iyi hissedersin.
+hotel|We stayed in a small hotel near the station.|İstasyonun yakınındaki küçük bir otelde kaldık.
+hour|The journey takes about an hour.|Yolculuk yaklaşık bir saat sürüyor.
+information|The website gives useful information about the city.|Web sitesi şehir hakkında yararlı bilgiler veriyor.
+island|They spent the summer on a small island.|Yazı küçük bir adada geçirdiler.
+join|Would you like to join our team?|Ekibimize katılmak ister misin?
+king|The king lived in a large castle.|Kral büyük bir şatoda yaşardı.
+know|I know the answer to this question.|Bu sorunun cevabını biliyorum.
+leader|The team leader thanked everyone for their help.|Takım lideri yardımları için herkese teşekkür etti.
+leaf|A yellow leaf fell from the tree.|Ağaçtan sarı bir yaprak düştü.
+love|I love spending time with my family.|Ailemle vakit geçirmeyi seviyorum.
+magazine|She reads a magazine on the bus.|Otobüste dergi okuyor.
+map|We used a map to find the museum.|Müzeyi bulmak için harita kullandık.
+match|This blue shirt will match your trousers.|Bu mavi gömlek pantolonunla uyum sağlayacak.
+matter|It does not matter what time we arrive.|Saat kaçta vardığımız önemli değil.
+medicine|Take your medicine after breakfast.|İlacını kahvaltıdan sonra al.
+member|Every member of the team has a different role.|Ekibin her üyesinin farklı bir görevi var.
+message|I left a message on your phone.|Telefonuna bir mesaj bıraktım.
+note|She wrote a short note for her teacher.|Öğretmeni için kısa bir not yazdı.
+page|Please turn to page ten.|Lütfen onuncu sayfayı aç.
+pair|I bought a new pair of shoes.|Yeni bir çift ayakkabı aldım.
+pass|Please pass me the salt.|Lütfen tuzu bana uzat.
+pay|I need to pay for the tickets.|Biletlerin parasını ödemem gerekiyor.
+piece|Would you like a piece of cake?|Bir dilim kek ister misin?
+plan|We plan to visit our friends on Saturday.|Cumartesi günü arkadaşlarımızı ziyaret etmeyi planlıyoruz.
+plant|She waters the plant every morning.|Her sabah bitkiyi suluyor.
+plate|Put the clean plate on the table.|Temiz tabağı masanın üzerine koy.
+point|Can you point to the correct answer?|Doğru cevabı gösterebilir misin?
+program|The program starts at six o’clock.|Program saat altıda başlıyor.
+question|I have a question about this exercise.|Bu alıştırma hakkında bir sorum var.
+rain|The rain stopped just before noon.|Yağmur öğleden hemen önce durdu.
+rice|We eat rice with dinner.|Akşam yemeğinde pilav yeriz.
+river|The children played near the river.|Çocuklar nehrin yakınında oynadı.
+road|The road is closed because of the snow.|Kar nedeniyle yol kapalı.
+room|Our hotel room has a view of the sea.|Otel odamız deniz manzaralı.
+rule|The first rule is to listen carefully.|İlk kural dikkatlice dinlemektir.
