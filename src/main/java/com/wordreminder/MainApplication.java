@@ -37,6 +37,7 @@ public class MainApplication extends Application {
     private TrayIcon trayIcon;
     private boolean exiting;
     private boolean reminderRequestInFlight;
+    private volatile boolean reminderDispatchQueued;
     private boolean reminderPendingWhilePopupOpen;
     private boolean presentationRecordedForActivePopup;
     private boolean catalogReady;
@@ -66,7 +67,10 @@ public class MainApplication extends Application {
             scheduler = new ReminderScheduler(() -> {
                 long queuedAt = System.nanoTime();
                 try {
+                    if (reminderDispatchQueued) return;
+                    reminderDispatchQueued = true;
                     Platform.runLater(() -> {
+                        reminderDispatchQueued = false;
                         long uiQueueDelayMillis = java.util.concurrent.TimeUnit.NANOSECONDS
                                 .toMillis(System.nanoTime() - queuedAt);
                         if (uiQueueDelayMillis >= 2_000L) {
@@ -186,7 +190,7 @@ public class MainApplication extends Application {
             return;
         }
         if (reminderRequestInFlight) {
-            scheduler.retryAfterInterval();
+            // A lookup is already in progress; its completion will reset the interval.
             return;
         }
 
