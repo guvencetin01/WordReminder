@@ -39,6 +39,7 @@ public class MainApplication extends Application {
     private boolean reminderRequestInFlight;
     private boolean catalogReady;
     private ExecutorService databaseExecutor;
+    private ExecutorService reminderExecutor;
 
     @Override
     public void start(Stage primaryStage) {
@@ -48,6 +49,11 @@ public class MainApplication extends Application {
             database.initialize();
             databaseExecutor = Executors.newFixedThreadPool(3, runnable -> {
                 Thread thread = new Thread(runnable, "wordreminder-database");
+                thread.setDaemon(true);
+                return thread;
+            });
+            reminderExecutor = Executors.newSingleThreadExecutor(runnable -> {
+                Thread thread = new Thread(runnable, "wordreminder-reminder-db");
                 thread.setDaemon(true);
                 return thread;
             });
@@ -179,7 +185,7 @@ public class MainApplication extends Application {
         reminderRequestInFlight = true;
         long requestStartedNanos = System.nanoTime();
         try {
-            databaseExecutor.execute(() -> {
+            reminderExecutor.execute(() -> {
                 long queryStartedNanos = System.nanoTime();
                 Optional<Word> selected = Optional.empty();
                 SQLException queryError = null;
@@ -333,6 +339,7 @@ public class MainApplication extends Application {
         if (scheduler != null) scheduler.close();
         if (activePopup != null) activePopup.close();
         if (databaseExecutor != null) databaseExecutor.shutdownNow();
+        if (reminderExecutor != null) reminderExecutor.shutdownNow();
         if (trayIcon != null) {
             SystemTray.getSystemTray().remove(trayIcon);
             trayIcon = null;
@@ -362,6 +369,7 @@ public class MainApplication extends Application {
     public void stop() {
         if (scheduler != null) scheduler.close();
         if (databaseExecutor != null) databaseExecutor.shutdownNow();
+        if (reminderExecutor != null) reminderExecutor.shutdownNow();
         if (trayIcon != null) {
             SystemTray.getSystemTray().remove(trayIcon);
             trayIcon = null;
