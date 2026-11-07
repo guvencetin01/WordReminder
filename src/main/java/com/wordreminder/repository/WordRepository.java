@@ -234,7 +234,6 @@ public final class WordRepository {
             try (ResultSet result = statement.executeQuery()) {
                 if (!result.next()) return Optional.empty();
                 Word word = map(result);
-                markShown(connection, word.id());
                 return Optional.of(word);
             }
         }
@@ -519,16 +518,30 @@ public final class WordRepository {
         return value == null || value.isBlank() ? "ALL" : value.trim().toUpperCase();
     }
 
-    private void markShown(Connection connection, long wordId) throws SQLException {
-        try (PreparedStatement statement = connection.prepareStatement(
-                "UPDATE words SET last_shown_at = datetime('now') WHERE id = ?")) {
-            statement.setLong(1, wordId);
-            statement.executeUpdate();
-        }
-        try (PreparedStatement statement = connection.prepareStatement(
-                "INSERT INTO word_presentations(word_id) VALUES(?)")) {
-            statement.setLong(1, wordId);
-            statement.executeUpdate();
+    /**
+     * Records a presentation only after the reminder stage has actually been shown.
+     * Keeping this write separate from word selection prevents queued/failed popups
+     * from inflating the user's presentation history.
+     */
+    public void recordPresentation(long wordId) throws SQLException {
+        try (Connection connection = database.getConnection()) {
+            connection.setAutoCommit(false);
+            try {
+                try (PreparedStatement update = connection.prepareStatement(
+                        "UPDATE words SET last_shown_at = datetime('now') WHERE id = ?")) {
+                    update.setLong(1, wordId);
+                    update.executeUpdate();
+                }
+                try (PreparedStatement insert = connection.prepareStatement(
+                        "INSERT INTO word_presentations(word_id) VALUES(?)")) {
+                    insert.setLong(1, wordId);
+                    insert.executeUpdate();
+                }
+                connection.commit();
+            } catch (SQLException ex) {
+                connection.rollback();
+                throw ex;
+            }
         }
     }
 
