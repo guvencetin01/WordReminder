@@ -6,7 +6,7 @@
 
     <groupId>com.wordreminder</groupId>
     <artifactId>wordreminder</artifactId>
-    <version>3.2.0</version>
+    <version>3.3.0</version>
     <name>WordReminder</name>
     <description>Windows için İngilizce kelime hatırlatma uygulaması</description>
 
