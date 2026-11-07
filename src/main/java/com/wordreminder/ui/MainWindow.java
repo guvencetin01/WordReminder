@@ -7,6 +7,11 @@ import com.wordreminder.repository.SettingsRepository;
 import com.wordreminder.repository.WordRepository;
 import com.wordreminder.service.WindowsStartupManager;
 import java.sql.SQLException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.atomic.AtomicLong;
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
+import javafx.util.Duration;
 import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +65,11 @@ public final class MainWindow {
     private final WindowsStartupManager startupManager;
     private final IntConsumer intervalChanged;
     private final Runnable showNowAction;
+    private final Executor databaseExecutor;
+    private final AtomicLong dashboardRequestSequence = new AtomicLong();
+    private final AtomicLong tableRequestSequence = new AtomicLong();
+    private PauseTransition searchDebounce;
+    private boolean suppressFilterEvents;
     private Tab progressTab;
     private final TableView<Word> wordTable = new TableView<>();
     private TableColumn<Word, String> pronunciationColumn;
@@ -70,7 +80,7 @@ public final class MainWindow {
     private final Label customWordsValue = new Label("0");
     private final Label knownReviewsValue = new Label("0");
     private final Label dueWordsValue = new Label("0");
-    private final Label statusLabel = new Label("Hazır");
+    private final Label statusLabel = new Label("Kelime kataloğu hazırlanıyor...");
     private final Label resultCountLabel = new Label("0 kelime");
     private final Spinner<Integer> intervalSpinner = new Spinner<>();
     private final Spinner<Integer> dailyGoalSpinner = new Spinner<>();
@@ -91,16 +101,17 @@ public final class MainWindow {
                       SettingsRepository settingsRepository,
                       WindowsStartupManager startupManager,
                       IntConsumer intervalChanged,
-                      Runnable showNowAction) {
+                      Runnable showNowAction,
+                      Executor databaseExecutor) {
         this.stage = stage;
         this.wordRepository = wordRepository;
         this.settingsRepository = settingsRepository;
         this.startupManager = startupManager;
         this.intervalChanged = intervalChanged;
         this.showNowAction = showNowAction;
+        this.databaseExecutor = databaseExecutor;
         build();
         loadSettings();
-        refreshData();
     }
 
     public void show() {
@@ -125,18 +136,40 @@ public final class MainWindow {
         }
     }
 
+    /**
+     * Refreshes dashboard statistics and word rows away from the JavaFX application thread.
+     * Request sequence numbers prevent slower, older queries from overwriting newer UI state.
+     */
     public void refreshData() {
-        try {
-            totalWordsValue.setText(Integer.toString(wordRepository.countAll()));
-            customWordsValue.setText(Integer.toString(wordRepository.countCustom()));
-            knownReviewsValue.setText(Integer.toString(wordRepository.countKnownReviews()));
-            dueWordsValue.setText(Integer.toString(wordRepository.countDue()));
-            filterTable();
-            if (progressTab != null) progressTab.setContent(wrapScrollable(buildProgressPanel(), "progress-scroll-pane"));
-            statusLabel.setText("Kelime havuzu güncel");
-        } catch (SQLException ex) {
-            showError("Veriler yüklenemedi", ex.getMessage());
-        }
+        long request = dashboardRequestSequence.incrementAndGet();
+        databaseExecutor.execute(() -> {
+            try {
+                int totalWords = wordRepository.countAll();
+                int customWords = wordRepository.countCustom();
+                int knownReviews = wordRepository.countKnownReviews();
+                int dueWords = wordRepository.countDue();
+                ProgressData progress = loadProgressData();
+
+                Platform.runLater(() -> {
+                    if (request != dashboardRequestSequence.get()) return;
+                    totalWordsValue.setText(Integer.toString(totalWords));
+                    customWordsValue.setText(Integer.toString(customWords));
+                    knownReviewsValue.setText(Integer.toString(knownReviews));
+                    dueWordsValue.setText(Integer.toString(dueWords));
+                    if (progressTab != null) {
+                        progressTab.setContent(wrapScrollable(buildProgressPanel(progress), "progress-scroll-pane"));
+                    }
+                    statusLabel.setText("Kelime havuzu güncel");
+                });
+            } catch (SQLException ex) {
+                Platform.runLater(() -> {
+                    if (request == dashboardRequestSequence.get()) {
+                        showError("Veriler yüklenemedi", ex.getMessage());
+                    }
+                });
+            }
+        });
+        filterTable();
     }
 
     private void build() {
@@ -220,7 +253,7 @@ public final class MainWindow {
         tabs.getStyleClass().add("main-tabs");
         Tab wordsTab = new Tab("Kelime havuzu", buildWordsPanel());
         wordsTab.setClosable(false);
-        progressTab = new Tab("İstatistikler", wrapScrollable(buildProgressPanel(), "progress-scroll-pane"));
+        progressTab = new Tab("İstatistikler", wrapScrollable(buildProgressPanel(null), "progress-scroll-pane"));
         progressTab.setClosable(false);
         Tab settingsTab = new Tab("Ayarlar", wrapScrollable(buildSettingsPanel(), "settings-scroll-pane"));
         settingsTab.setClosable(false);
@@ -254,7 +287,11 @@ public final class MainWindow {
         searchField.setPrefWidth(270);
         searchField.setMinWidth(190);
         searchField.setMaxWidth(340);
-        searchField.textProperty().addListener((observable, oldValue, newValue) -> filterTable());
+        searchDebounce = new PauseTransition(Duration.millis(250));
+        searchDebounce.setOnFinished(event -> filterTable());
+        searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!suppressFilterEvents) searchDebounce.playFromStart();
+        });
 
         Button addButton = new Button("+ Kelime ekle");
         addButton.getStyleClass().add("primary-button");
@@ -280,7 +317,9 @@ public final class MainWindow {
         tableLevelFilter.setValue(ALL_LEVELS);
         tableLevelFilter.setPrefWidth(130);
         tableLevelFilter.setMinWidth(115);
-        tableLevelFilter.setOnAction(event -> filterTable());
+        tableLevelFilter.setOnAction(event -> {
+            if (!suppressFilterEvents) filterTable();
+        });
 
         Label categoryLabel = new Label("Alan:");
         categoryLabel.getStyleClass().add("field-label");
@@ -288,7 +327,9 @@ public final class MainWindow {
         tableCategoryFilter.setValue(ALL_CATEGORIES);
         tableCategoryFilter.setPrefWidth(145);
         tableCategoryFilter.setMinWidth(125);
-        tableCategoryFilter.setOnAction(event -> filterTable());
+        tableCategoryFilter.setOnAction(event -> {
+            if (!suppressFilterEvents) filterTable();
+        });
         Label learningLabel = new Label("Öğrenme durumu:");
         learningLabel.getStyleClass().add("field-label");
         tableLearningFilter.getItems().setAll("Tüm durumlar", "Henüz çalışılmayan", "Çalışılan Kelimeler",
@@ -296,7 +337,9 @@ public final class MainWindow {
         tableLearningFilter.setValue("Tüm durumlar");
         tableLearningFilter.setPrefWidth(205);
         tableLearningFilter.setMinWidth(165);
-        tableLearningFilter.setOnAction(event -> filterTable());
+        tableLearningFilter.setOnAction(event -> {
+            if (!suppressFilterEvents) filterTable();
+        });
 
         Button resetFiltersButton = new Button("Filtreleri sıfırla");
         resetFiltersButton.getStyleClass().add("secondary-button");
@@ -331,6 +374,7 @@ public final class MainWindow {
         wordTable.setPlaceholder(new Label("Bu filtrelerle eşleşen kelime bulunamadı."));
         wordTable.getStyleClass().add("word-table");
         wordTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
+        wordTable.setItems(tableItems);
 
         TableColumn<Word, String> english = new TableColumn<>("İNGİLİZCE");
         // Java records expose english(), not getEnglish(); PropertyValueFactory does not resolve this accessor.
@@ -394,7 +438,42 @@ public final class MainWindow {
         pronunciationColumn.setVisible(width >= 730);
     }
 
-    private VBox buildProgressPanel() {
+    /** Loads all report values on a database worker; no SQL runs while building JavaFX nodes. */
+    private ProgressData loadProgressData() throws SQLException {
+        int mastered = wordRepository.countMastered();
+        int reviews = wordRepository.countReviews();
+        int correct = wordRepository.countCorrectReviews();
+        int withExamples = wordRepository.countWithExamples();
+        int missingExamples = wordRepository.countMissingExamples();
+        int todayReviews = wordRepository.countReviewsToday();
+        int currentStreak = wordRepository.countCurrentReviewStreak();
+        int dailyGoal = settingsRepository.getDailyGoal();
+
+        List<PeriodData> periods = new ArrayList<>();
+        int[] periodDays = {1, 7, 30};
+        String[] periodNames = {"Bugün", "Son 7 gün", "Son 30 gün"};
+        for (int i = 0; i < periodDays.length; i++) {
+            int days = periodDays[i];
+            periods.add(new PeriodData(
+                    periodNames[i],
+                    wordRepository.countReviewsInLastDays(days),
+                    wordRepository.countKnownReviewsInLastDays(days),
+                    wordRepository.countDistinctWordsShownInLastDays(days),
+                    wordRepository.countTotalWordDisplaysInLastDays(days)));
+        }
+
+        List<LevelData> levels = new ArrayList<>();
+        for (CefrLevel level : CefrLevel.values()) {
+            levels.add(new LevelData(level.name(),
+                    wordRepository.countMasteredAtLevel(level.name()),
+                    wordRepository.countAtLevel(level.name())));
+        }
+        return new ProgressData(mastered, reviews, correct, withExamples, missingExamples,
+                todayReviews, currentStreak, dailyGoal, List.copyOf(periods), List.copyOf(levels));
+    }
+
+    /** Builds the statistics view using a preloaded immutable snapshot only. */
+    private VBox buildProgressPanel(ProgressData data) {
         VBox panel = new VBox(14);
         panel.setPadding(new Insets(20, 8, 8, 8));
         Label heading = new Label("Öğrenme istatistikleri");
@@ -403,112 +482,101 @@ public final class MainWindow {
         description.getStyleClass().add("hint-label");
         description.setWrapText(true);
         panel.getChildren().addAll(heading, description);
-        try {
-            int mastered = wordRepository.countMastered();
-            int reviews = wordRepository.countReviews();
-            int correct = wordRepository.countCorrectReviews();
-            int withExamples = wordRepository.countWithExamples();
-            int missingExamples = wordRepository.countMissingExamples();
-            int todayReviews = wordRepository.countReviewsToday();
-            int currentStreak = wordRepository.countCurrentReviewStreak();
-            int dailyGoal = settingsRepository.getDailyGoal();
-            double accuracy = reviews == 0 ? 0.0 : (double) correct / reviews;
-            Label summary = new Label("Öğrenilmiş kelime: " + mastered + "   •   Tamamlanan tekrar: " + reviews
-                    + "   •   Doğru yanıt oranı: " + Math.round(accuracy * 100) + "%"
-                    + "   •   Örnek cümle kapsamı: " + withExamples + "/" + (withExamples + missingExamples));
-            summary.getStyleClass().add("word-metadata");
-            summary.setWrapText(true);
-            summary.setMaxWidth(Double.MAX_VALUE);
-            Label streakLabel = new Label("Günlük öğrenme serisi: " + currentStreak
-                    + " gün  •  Bugün " + todayReviews + " tekrar tamamlandı");
-            streakLabel.getStyleClass().add("field-label");
-            streakLabel.setWrapText(true);
-            streakLabel.setMaxWidth(Double.MAX_VALUE);
-            panel.getChildren().addAll(summary, streakLabel);
 
-            Label reportHeading = new Label("Çalışma özeti");
-            reportHeading.getStyleClass().add("section-title");
-            Label reportHint = new Label("Çalışılan farklı kelime, kartı gösterilen benzersiz kelimeleri; toplam gösterim ise aynı kelimenin tekrar gösterimleri dâhil tüm kart gösterimlerini ifade eder. Tekrar sayısı yalnızca cevaplanan çalışma kayıtlarını sayar.");
-            reportHint.getStyleClass().add("hint-label");
-            reportHint.setWrapText(true);
-            Label historyNote = new Label("Not: 2.6.0 öncesinde kart gösterimlerinin ayrıntılı geçmişi tutulmuyordu. Eski verilerde yalnızca bilinen son gösterim aktarılır; ayrıntılı dönem istatistikleri bu sürümden itibaren birikir.");
-            historyNote.getStyleClass().add("hint-label");
-            historyNote.setWrapText(true);
-            GridPane reportGrid = new GridPane();
-            reportGrid.setHgap(12);
-            reportGrid.setVgap(8);
-            reportGrid.setMaxWidth(Double.MAX_VALUE);
-            for (int column = 0; column < 3; column++) {
-                ColumnConstraints constraints = new ColumnConstraints();
-                constraints.setPercentWidth(33.333);
-                constraints.setHgrow(Priority.ALWAYS);
-                reportGrid.getColumnConstraints().add(constraints);
-            }
-            int[] periods = {1, 7, 30};
-            String[] periodNames = {"Bugün", "Son 7 gün", "Son 30 gün"};
-            for (int i = 0; i < periods.length; i++) {
-                int period = periods[i];
-                VBox reportCard = new VBox(4);
-                reportCard.getStyleClass().add("settings-card");
-                Label periodLabel = new Label(periodNames[i]);
-                periodLabel.getStyleClass().add("field-label");
-                int periodReviews = wordRepository.countReviewsInLastDays(period);
-                int periodKnown = wordRepository.countKnownReviewsInLastDays(period);
-                int distinctWords = wordRepository.countDistinctWordsShownInLastDays(period);
-                int totalDisplays = wordRepository.countTotalWordDisplaysInLastDays(period);
-                Label distinctLabel = new Label("Çalışılan farklı kelime");
-                distinctLabel.getStyleClass().add("hint-label");
-                Label distinctValue = new Label(Integer.toString(distinctWords));
-                distinctValue.getStyleClass().add("stat-value");
-                Label displayLabel = new Label("Toplam kelime gösterimi: " + totalDisplays);
-                displayLabel.getStyleClass().add("word-metadata");
-                Label reviewLabel = new Label("Tamamlanan tekrar: " + periodReviews);
-                reviewLabel.getStyleClass().add("word-metadata");
-                Label ratio = new Label("Öğrendim: " + periodKnown + "  ·  Doğru yanıt: " + (periodReviews == 0 ? 0
-                        : Math.round((double) periodKnown / periodReviews * 100)) + "%");
-                ratio.getStyleClass().add("hint-label");
-                reportCard.getChildren().addAll(periodLabel, distinctLabel, distinctValue, displayLabel, reviewLabel, ratio);
-                reportGrid.add(reportCard, i, 0);
-                GridPane.setHgrow(reportCard, Priority.ALWAYS);
-            }
-            panel.getChildren().addAll(reportHeading, reportHint, historyNote, reportGrid);
+        if (data == null) {
+            Label loading = new Label("İstatistikler arka planda yükleniyor...");
+            loading.getStyleClass().add("hint-label");
+            panel.getChildren().add(loading);
+            return panel;
+        }
 
-            Label goalHeading = new Label("Günlük hedef");
-            goalHeading.getStyleClass().add("section-title");
-            Label dailyGoalLabel = new Label("Bugünkü tekrar hedefi: " + Math.min(todayReviews, dailyGoal)
-                    + " / " + dailyGoal + "  (" + Math.min(100, Math.round((double) todayReviews / dailyGoal * 100)) + "%)");
-            dailyGoalLabel.getStyleClass().add("field-label");
-            ProgressBar dailyGoalBar = new ProgressBar(Math.min(1.0, (double) todayReviews / dailyGoal));
-            dailyGoalBar.getStyleClass().add("cefr-progress");
-            dailyGoalBar.setMinHeight(14);
-            dailyGoalBar.setPrefHeight(14);
-            dailyGoalBar.setMaxWidth(Double.MAX_VALUE);
-            dailyGoalBar.setAccessibleText("Bugünkü tekrar hedefi: " + todayReviews + " / " + dailyGoal);
-            panel.getChildren().addAll(goalHeading, dailyGoalLabel, dailyGoalBar);
+        double accuracy = data.reviews() == 0 ? 0.0 : (double) data.correct() / data.reviews();
+        Label summary = new Label("Öğrenilmiş kelime: " + data.mastered()
+                + "   •   Tamamlanan tekrar: " + data.reviews()
+                + "   •   Doğru yanıt oranı: " + Math.round(accuracy * 100) + "%"
+                + "   •   Örnek cümle kapsamı: " + data.withExamples() + "/"
+                + (data.withExamples() + data.missingExamples()));
+        summary.getStyleClass().add("word-metadata");
+        summary.setWrapText(true);
+        summary.setMaxWidth(Double.MAX_VALUE);
+        Label streakLabel = new Label("Günlük öğrenme serisi: " + data.currentStreak()
+                + " gün  •  Bugün " + data.todayReviews() + " tekrar tamamlandı");
+        streakLabel.getStyleClass().add("field-label");
+        streakLabel.setWrapText(true);
+        streakLabel.setMaxWidth(Double.MAX_VALUE);
+        panel.getChildren().addAll(summary, streakLabel);
 
-            Label cefrHeading = new Label("CEFR seviyelerine göre ilerleme");
-            cefrHeading.getStyleClass().add("section-title");
-            panel.getChildren().add(cefrHeading);
-            for (CefrLevel level : CefrLevel.values()) {
-                int total = wordRepository.countAtLevel(level.name());
-                int levelMastered = wordRepository.countMasteredAtLevel(level.name());
-                double progress = total == 0 ? 0.0 : (double) levelMastered / total;
-                Label label = new Label(level.name() + "     " + levelMastered + " / " + total
-                        + " kelime  (" + Math.round(progress * 100) + "%)");
-                label.getStyleClass().add("field-label");
-                ProgressBar bar = new ProgressBar(progress);
-                bar.getStyleClass().add("cefr-progress");
-                bar.setMinHeight(14);
-                bar.setPrefHeight(14);
-                bar.setMaxWidth(Double.MAX_VALUE);
-                bar.setAccessibleText(level.name() + " öğrenme ilerlemesi yüzde " + Math.round(progress * 100));
-                VBox.setMargin(bar, new Insets(3, 0, 7, 0));
-                panel.getChildren().addAll(label, bar);
-            }
-        } catch (SQLException ex) {
-            Label error = new Label("İstatistikler yüklenemedi: " + ex.getMessage());
-            error.getStyleClass().add("error-label");
-            panel.getChildren().add(error);
+        Label reportHeading = new Label("Çalışma özeti");
+        reportHeading.getStyleClass().add("section-title");
+        Label reportHint = new Label("Çalışılan farklı kelime, kartı gösterilen benzersiz kelimeleri; toplam gösterim ise aynı kelimenin tekrar gösterimleri dâhil tüm kart gösterimlerini ifade eder. Tekrar sayısı yalnızca cevaplanan çalışma kayıtlarını sayar.");
+        reportHint.getStyleClass().add("hint-label");
+        reportHint.setWrapText(true);
+        Label historyNote = new Label("Not: 2.6.0 öncesinde kart gösterimlerinin ayrıntılı geçmişi tutulmuyordu. Eski verilerde yalnızca bilinen son gösterim aktarılır; ayrıntılı dönem istatistikleri bu sürümden itibaren birikir.");
+        historyNote.getStyleClass().add("hint-label");
+        historyNote.setWrapText(true);
+        GridPane reportGrid = new GridPane();
+        reportGrid.setHgap(12);
+        reportGrid.setVgap(8);
+        reportGrid.setMaxWidth(Double.MAX_VALUE);
+        for (int column = 0; column < 3; column++) {
+            ColumnConstraints constraints = new ColumnConstraints();
+            constraints.setPercentWidth(33.333);
+            constraints.setHgrow(Priority.ALWAYS);
+            reportGrid.getColumnConstraints().add(constraints);
+        }
+        for (int i = 0; i < data.periods().size(); i++) {
+            PeriodData period = data.periods().get(i);
+            VBox reportCard = new VBox(4);
+            reportCard.getStyleClass().add("settings-card");
+            Label periodLabel = new Label(period.label());
+            periodLabel.getStyleClass().add("field-label");
+            Label distinctLabel = new Label("Çalışılan farklı kelime");
+            distinctLabel.getStyleClass().add("hint-label");
+            Label distinctValue = new Label(Integer.toString(period.distinctWords()));
+            distinctValue.getStyleClass().add("stat-value");
+            Label displayLabel = new Label("Toplam kelime gösterimi: " + period.totalDisplays());
+            displayLabel.getStyleClass().add("word-metadata");
+            Label reviewLabel = new Label("Tamamlanan tekrar: " + period.reviews());
+            reviewLabel.getStyleClass().add("word-metadata");
+            Label ratio = new Label("Öğrendim: " + period.known() + "  ·  Doğru yanıt: "
+                    + (period.reviews() == 0 ? 0 : Math.round((double) period.known() / period.reviews() * 100)) + "%");
+            ratio.getStyleClass().add("hint-label");
+            reportCard.getChildren().addAll(periodLabel, distinctLabel, distinctValue, displayLabel, reviewLabel, ratio);
+            reportGrid.add(reportCard, i, 0);
+            GridPane.setHgrow(reportCard, Priority.ALWAYS);
+        }
+        panel.getChildren().addAll(reportHeading, reportHint, historyNote, reportGrid);
+
+        Label goalHeading = new Label("Günlük hedef");
+        goalHeading.getStyleClass().add("section-title");
+        Label dailyGoalLabel = new Label("Bugünkü tekrar hedefi: " + Math.min(data.todayReviews(), data.dailyGoal())
+                + " / " + data.dailyGoal() + "  ("
+                + Math.min(100, Math.round((double) data.todayReviews() / data.dailyGoal() * 100)) + "%)");
+        dailyGoalLabel.getStyleClass().add("field-label");
+        ProgressBar dailyGoalBar = new ProgressBar(Math.min(1.0, (double) data.todayReviews() / data.dailyGoal()));
+        dailyGoalBar.getStyleClass().add("cefr-progress");
+        dailyGoalBar.setMinHeight(14);
+        dailyGoalBar.setPrefHeight(14);
+        dailyGoalBar.setMaxWidth(Double.MAX_VALUE);
+        dailyGoalBar.setAccessibleText("Bugünkü tekrar hedefi: " + data.todayReviews() + " / " + data.dailyGoal());
+        panel.getChildren().addAll(goalHeading, dailyGoalLabel, dailyGoalBar);
+
+        Label cefrHeading = new Label("CEFR seviyelerine göre ilerleme");
+        cefrHeading.getStyleClass().add("section-title");
+        panel.getChildren().add(cefrHeading);
+        for (LevelData level : data.levels()) {
+            double progress = level.total() == 0 ? 0.0 : (double) level.mastered() / level.total();
+            Label label = new Label(level.level() + "     " + level.mastered() + " / " + level.total()
+                    + " kelime  (" + Math.round(progress * 100) + "%)");
+            label.getStyleClass().add("field-label");
+            ProgressBar bar = new ProgressBar(progress);
+            bar.getStyleClass().add("cefr-progress");
+            bar.setMinHeight(14);
+            bar.setPrefHeight(14);
+            bar.setMaxWidth(Double.MAX_VALUE);
+            bar.setAccessibleText(level.level() + " öğrenme ilerlemesi yüzde " + Math.round(progress * 100));
+            VBox.setMargin(bar, new Insets(3, 0, 7, 0));
+            panel.getChildren().addAll(label, bar);
         }
         return panel;
     }
@@ -531,7 +599,7 @@ public final class MainWindow {
         intervalBox.getStyleClass().add("settings-card");
         Label intervalHeading = new Label("Hatırlatma sıklığı");
         intervalHeading.getStyleClass().add("section-title");
-        Label intervalText = new Label("Süre, kart gösterildiğinde başlar. Kart açık kalırsa ikinci kart açılmaz; sonraki deneme ertelenir.");
+        Label intervalText = new Label("Süre, kart gösterildiğinde başlar. Bir kart en fazla 2 dakika açık kalır; süre dolunca etkileşim yoksa sessizce kapanır. Açık kart varken yenisi açılmaz.");
         intervalText.getStyleClass().add("hint-label");
         intervalText.setWrapText(true);
         intervalSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 180, 10));
@@ -587,14 +655,45 @@ public final class MainWindow {
         Label startupDescription = new Label("Bu seçenek, yalnızca mevcut Windows kullanıcısı için Başlangıç klasörüne kayıt ekler. Yönetici izni gerekmez.");
         startupDescription.getStyleClass().add("hint-label");
         startupDescription.setWrapText(true);
+        startWithWindowsCheck.setText("");
+        startMinimizedCheck.setText("");
+        startWithWindowsCheck.setAccessibleText("Windows oturumu açıldığında WordReminder'ı otomatik başlat");
+        startMinimizedCheck.setAccessibleText("Otomatik başlatıldığında ana pencereyi göstermeden sistem tepsisinde çalıştır");
         startWithWindowsCheck.setDisable(!startupManager.isSupported());
         startMinimizedCheck.setDisable(!startupManager.isSupported());
-        startWithWindowsCheck.setWrapText(true);
-        startMinimizedCheck.setWrapText(true);
-        startWithWindowsCheck.setMaxWidth(Double.MAX_VALUE);
-        startMinimizedCheck.setMaxWidth(Double.MAX_VALUE);
+        Label startupOptionTitle = new Label("Windows oturumu açıldığında WordReminder'ı otomatik başlat");
+        startupOptionTitle.getStyleClass().add("startup-option-title");
+        startupOptionTitle.setWrapText(true);
+        Label startupOptionHint = new Label("Program, mevcut Windows kullanıcısı oturum açtığında kendiliğinden çalışır.");
+        startupOptionHint.getStyleClass().add("hint-label");
+        startupOptionHint.setWrapText(true);
+        VBox startupOptionText = new VBox(3, startupOptionTitle, startupOptionHint);
+        HBox startupOptionRow = new HBox(10, startWithWindowsCheck, startupOptionText);
+        startupOptionRow.setAlignment(Pos.CENTER_LEFT);
+        startupOptionRow.setOnMouseClicked(event -> {
+            if (event.getTarget() != startWithWindowsCheck) {
+                startWithWindowsCheck.setSelected(!startWithWindowsCheck.isSelected());
+            }
+        });
+
+        Label minimizedOptionTitle = new Label("Başlangıçta pencereyi gösterme, sistem tepsisinde çalış");
+        minimizedOptionTitle.getStyleClass().add("startup-option-title");
+        minimizedOptionTitle.setWrapText(true);
+        Label minimizedOptionHint = new Label("Yalnızca yukarıdaki otomatik başlatma seçeneği açıkken uygulanır.");
+        minimizedOptionHint.getStyleClass().add("hint-label");
+        minimizedOptionHint.setWrapText(true);
+        VBox minimizedOptionText = new VBox(3, minimizedOptionTitle, minimizedOptionHint);
+        HBox minimizedOptionRow = new HBox(10, startMinimizedCheck, minimizedOptionText);
+        minimizedOptionRow.setAlignment(Pos.CENTER_LEFT);
+        minimizedOptionRow.setOnMouseClicked(event -> {
+            if (!startMinimizedCheck.isDisabled() && event.getTarget() != startMinimizedCheck) {
+                startMinimizedCheck.setSelected(!startMinimizedCheck.isSelected());
+            }
+        });
+        startWithWindowsCheck.selectedProperty().addListener((observable, oldValue, selected) ->
+                startMinimizedCheck.setDisable(!startupManager.isSupported() || !selected));
         startupBox.getChildren().addAll(startupHeading, startupDescription,
-                startWithWindowsCheck, startMinimizedCheck);
+                startupOptionRow, minimizedOptionRow);
 
         VBox backupBox = new VBox(8);
         backupBox.getStyleClass().add("settings-card");
@@ -694,7 +793,7 @@ public final class MainWindow {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         statusLabel.getStyleClass().add("status-label");
-        Label version = new Label("WordReminder • 3.0.0");
+        Label version = new Label("WordReminder • 3.6.0");
         version.getStyleClass().add("version-label");
         HBox footer = new HBox(statusLabel, spacer, version);
         footer.setAlignment(Pos.CENTER_LEFT);
@@ -702,17 +801,29 @@ public final class MainWindow {
     }
 
     private void filterTable() {
+        if (searchDebounce != null) searchDebounce.stop();
+        String search = searchField == null ? "" : searchField.getText();
         String level = selectedLevelCode(tableLevelFilter.getValue());
         String category = selectedCategoryCode(tableCategoryFilter.getValue());
         String learningState = selectedLearningStateCode(tableLearningFilter.getValue());
-        try {
-            tableItems.setAll(wordRepository.findAll(searchField == null ? "" : searchField.getText(),
-                    level, category, learningState));
-            wordTable.setItems(tableItems);
-            resultCountLabel.setText(tableItems.size() + " kelime gösteriliyor");
-        } catch (SQLException ex) {
-            showError("Arama yapılamadı", ex.getMessage());
-        }
+        long request = tableRequestSequence.incrementAndGet();
+
+        databaseExecutor.execute(() -> {
+            try {
+                List<Word> words = wordRepository.findAll(search, level, category, learningState);
+                Platform.runLater(() -> {
+                    if (request != tableRequestSequence.get()) return;
+                    tableItems.setAll(words);
+                    resultCountLabel.setText(tableItems.size() + " kelime gösteriliyor");
+                });
+            } catch (SQLException ex) {
+                Platform.runLater(() -> {
+                    if (request == tableRequestSequence.get()) {
+                        showError("Arama yapılamadı", ex.getMessage());
+                    }
+                });
+            }
+        });
     }
 
     private void showWordDialog(Word existing) {
@@ -846,10 +957,16 @@ public final class MainWindow {
     }
 
     private void resetWordFilters() {
-        if (searchField != null) searchField.clear();
-        tableLevelFilter.setValue(ALL_LEVELS);
-        tableCategoryFilter.setValue(ALL_CATEGORIES);
-        tableLearningFilter.setValue("Tüm durumlar");
+        if (searchDebounce != null) searchDebounce.stop();
+        suppressFilterEvents = true;
+        try {
+            if (searchField != null) searchField.clear();
+            tableLevelFilter.setValue(ALL_LEVELS);
+            tableCategoryFilter.setValue(ALL_CATEGORIES);
+            tableLearningFilter.setValue("Tüm durumlar");
+        } finally {
+            suppressFilterEvents = false;
+        }
         filterTable();
     }
 
@@ -859,6 +976,7 @@ public final class MainWindow {
             dailyGoalSpinner.getValueFactory().setValue(settingsRepository.getDailyGoal());
             startWithWindowsCheck.setSelected(settingsRepository.isStartWithWindows());
             startMinimizedCheck.setSelected(settingsRepository.isStartMinimized());
+            startMinimizedCheck.setDisable(!startupManager.isSupported() || !startWithWindowsCheck.isSelected());
             reminderLevelCombo.setValue(levelLabel(settingsRepository.getReminderLevel()));
             reminderCategoryCombo.setValue(categoryLabel(settingsRepository.getReminderCategory()));
         } catch (SQLException ex) {
@@ -869,7 +987,7 @@ public final class MainWindow {
     private void saveSettings() {
         int minutes = intervalSpinner.getValue();
         boolean startup = startWithWindowsCheck.isSelected();
-        boolean minimized = startMinimizedCheck.isSelected();
+        boolean minimized = startup && startMinimizedCheck.isSelected();
         String level = selectedLevelCode(reminderLevelCombo.getValue());
         String category = selectedCategoryCode(reminderCategoryCombo.getValue());
         try {
@@ -940,4 +1058,11 @@ public final class MainWindow {
         alert.setContentText(message == null ? "Bilinmeyen hata" : message);
         alert.showAndWait();
     }
+    private record PeriodData(String label, int reviews, int known, int distinctWords, int totalDisplays) { }
+
+    private record LevelData(String level, int mastered, int total) { }
+
+    private record ProgressData(int mastered, int reviews, int correct, int withExamples,
+                                int missingExamples, int todayReviews, int currentStreak, int dailyGoal,
+                                List<PeriodData> periods, List<LevelData> levels) { }
 }

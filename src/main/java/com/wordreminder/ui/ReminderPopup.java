@@ -9,11 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -26,10 +27,13 @@ public final class ReminderPopup {
     private final Stage stage;
     private final Consumer<String> reviewAction;
     private boolean finished;
+    private boolean hardWord;
+    private final PauseTransition autoCloseTimer = new PauseTransition(Duration.minutes(2));
 
     public ReminderPopup(Word word, Consumer<String> reviewAction) {
         this.stage = new Stage(StageStyle.UNDECORATED);
         this.reviewAction = reviewAction;
+        this.hardWord = word.hardWord();
         this.stage.setOnHidden(event -> {
             if (!finished) {
                 finished = true;
@@ -49,10 +53,13 @@ public final class ReminderPopup {
         stage.setY(bounds.getMaxY() - height - 18);
         stage.show();
         stage.toFront();
+        autoCloseTimer.setOnFinished(event -> finish("AUTO_TIMEOUT"));
+        autoCloseTimer.playFromStart();
     }
 
     /** Closes silently during application shutdown; no review action is recorded. */
     public void close() {
+        autoCloseTimer.stop();
         finished = true;
         stage.close();
     }
@@ -131,34 +138,43 @@ public final class ReminderPopup {
         learned.setDisable(true);
         learned.setOnAction(event -> finish("KNOWN"));
 
-        Button repeat = new Button("Tekrar et");
-        repeat.getStyleClass().add("secondary-button");
-        repeat.setDisable(true);
-        repeat.setOnAction(event -> finish("REPEAT"));
+        Button continueButton = new Button("Devam Et");
+        continueButton.getStyleClass().add("secondary-button");
+        continueButton.setDisable(true);
+        continueButton.setOnAction(event -> finish("REPEAT"));
 
-        Button later = new Button("5 dk sonra");
-        later.getStyleClass().add("secondary-button");
-        later.setOnAction(event -> finish("SNOOZE"));
-
-        Button hard = new Button(word.hardWord() ? "★ Zor kelimelerden çıkar" : "☆ Zor kelimelere ekle");
+        Button hard = new Button(hardWord ? "Zor Kelimelerden Çıkar" : "Zor Kelimelere Ekle");
         hard.getStyleClass().add("popup-hard-button");
         hard.setMaxWidth(Double.MAX_VALUE);
-        hard.setOnAction(event -> finish(word.hardWord() ? "UNHARD" : "HARD"));
+        hard.setOnAction(event -> {
+            boolean nextState = !hardWord;
+            reviewAction.accept(nextState ? "HARD" : "UNHARD");
+            hardWord = nextState;
+            hard.setText(hardWord ? "Zor Kelimelerden Çıkar" : "Zor Kelimelere Ekle");
+            hard.setAccessibleText(hard.getText());
+        });
 
         reveal.setOnAction(event -> {
+            reviewAction.accept("INTERACTED");
             meaningCard.setVisible(true);
             meaningCard.setManaged(true);
             recallHint.setText("Kendini değerlendir: Bu kelimeyi hatırlayabildin mi?");
             reveal.setVisible(false);
             reveal.setManaged(false);
             learned.setDisable(false);
-            repeat.setDisable(false);
+            continueButton.setDisable(false);
         });
 
-        FlowPane actions = new FlowPane(8, 8, learned, repeat, later);
-        actions.setAlignment(Pos.CENTER_LEFT);
+        HBox actions = new HBox(8, learned, continueButton, hard);
+        actions.setAlignment(Pos.CENTER);
+        actions.getStyleClass().add("popup-actions");
+        for (Button actionButton : new Button[]{learned, continueButton, hard}) {
+            HBox.setHgrow(actionButton, Priority.ALWAYS);
+            actionButton.setMaxWidth(Double.MAX_VALUE);
+            actionButton.setMinWidth(0);
+        }
         content.getChildren().addAll(header, badges, english, pronunciation,
-                exampleCard, recallHint, meaningCard, reveal, actions, hard);
+                exampleCard, recallHint, meaningCard, reveal, actions);
 
         ScrollPane scroll = new ScrollPane(content);
         scroll.getStyleClass().add("popup-scroll");
@@ -178,6 +194,7 @@ public final class ReminderPopup {
             return;
         }
         finished = true;
+        autoCloseTimer.stop();
         stage.close();
         reviewAction.accept(action);
     }

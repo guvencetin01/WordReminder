@@ -54,6 +54,11 @@ public final class ReminderScheduler implements AutoCloseable {
         schedule(Duration.ofMinutes(intervalMinutes));
     }
 
+    /** Uses the configured reminder interval for a normal repeat decision. */
+    public synchronized void snoozeToConfiguredInterval() {
+        schedule(Duration.ofMinutes(intervalMinutes));
+    }
+
     /** Temporarily replaces the regular interval with a user-selected snooze. */
     public synchronized void snooze(Duration duration) {
         if (duration == null || duration.isNegative()) {

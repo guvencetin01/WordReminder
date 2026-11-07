@@ -1,3 +1,53 @@
+## [3.6.0] - Örnek doğruluğu ve hatırlatma kartı düzeni
+
+- Tekrarlanan yapay cümle kalıpları, bağlama ve hedef kelimenin kullanımına uygun örneklerle değiştirildi.
+- Tespit edilen hatalı Türkçe çeviriler düzeltildi; seçili yaygın kelimelerin sözlük anlamları ve kelime türleri gözden geçirildi.
+- Kart eylemleri tek satırda "Öğrendim", "Devam Et", "Zor Kelimelere Ekle" sırasıyla düzenlendi.
+- "5 dk sonra" butonu ve yalnızca bu eyleme ait SNOOZE akışı kaldırıldı. "Devam Et" normal ayarlı tekrar aralığını kullanır.
+- SQLite şeması 7 olarak kalır; migration veya kullanıcı verisi temizliği yapılmaz.
+
+## [3.5.0] - Tüm kelimelere örnek cümle
+
+- Katalogdaki 4.654 benzersiz kelimenin tamamı için en az bir İngilizce örnek cümle kapsamı sağlandı; A1–C2 seviyeleri ile günlük ve teknik gruplar tamamlandı.
+- `example-sentences.tsv` dosyası 4.343 benzersiz kelimeye ait İngilizce örnek ve Türkçe çeviri içerir.
+- Katalogda önceden bulunan 614 örnek de dâhil edildiğinde İngilizce örnek kapsamı 4.654/4.654 olur. Mevcut katalog örneklerinin 311'i ayrı Türkçe çeviri kaydı olmadan gösterilir.
+- Yinelenen anahtar, katalog dışı başlık, boş alan ve hedef kelimeyi içermeyen cümle denetimleri temiz geçti.
+- SQLite şeması 7 olarak kalır; migration, kullanıcı verisi sıfırlama veya silme yapılmadı.
+
+## [3.4.0] - A2 örnek cümleleri
+
+- A2 seviyesindeki 25 günlük kelimeye doğal İngilizce örnek cümle ve Türkçe çeviri eklendi.
+- İçerik paketi 749 örnek/çeviri girdisine ulaştı; etkili katalogda 1.060 örnek cümle bulunur.
+- Veritabanı şeması 7 olarak kalır; migration yoktur.
+
+## [3.3.0] - Hatırlatma zamanlaması ve kart yaşam döngüsü
+
+- Hatırlatma aralığı kaydedilmiş ayara tam olarak uyar; varsayılan değer 10 dakikadır. Ayar değişikliği zamanlayıcıya hemen uygulanır. “Tekrar et” eylemi de bu ayarı kullanır; yalnızca açıkça seçilen “5 dk sonra” eylemi 5 dakikalık tek seferlik ertelemedir.
+- Aynı anda yalnızca bir kart gösterilir. Aralık açık kart sırasında dolarsa tek bekleyen hatırlatma kart kapanınca gösterilir; tekrar tekrar ertelenmez.
+- Kart, açıldıktan 2 dakika sonra otomatik kapanır.
+- Kullanıcının hiç etkileşmediği ve zaman aşımıyla kapanan kart gösterim istatistiğine eklenmez. Etkileşim varsa gösterim yalnızca bir kez kaydedilir.
+- Veritabanı şeması 7; migration yoktur.
+
+## [3.2.0] - Kart tasarımı, başlangıç ayarları ve örnek cümleler
+
+- Windows başlangıç seçeneklerinin açıklamaları ayrı metin alanlarında gösterilir; sistem tepsisinde başlatma yalnızca otomatik başlatma açıkken seçilebilir.
+- Hatırlatma kartı açık yeşil arka plan, ince koyu yeşil kenarlık ve uyumlu buton/metin renkleriyle yeniden tasarlandı.
+- Zor kelime işareti kart kapanmadan açılıp kapatılır; diğer hatırlatma kararları kartı kapatır.
+- 121 günlük kelimeye İngilizce örnek ve Türkçe çeviri eklendi; içerik dosyası 724 satıra ulaştı.
+- Etkili katalog 1.035 İngilizce örnek ve 724 Türkçe çeviri içerir; 311 mevcut örnek çeviri bekler.
+- SQLite şeması 7 olarak kalır; kullanıcı verileri korunur.
+
+## [3.1.0] - Zamanlama güvenilirliği ve içerik genişletmesi
+
+- Hatırlatma için kelime seçimi, kart gösterim kaydı ve tekrar/öğrenildi kayıtları veritabanı yürütücüsüne taşındı; JavaFX arayüz iş parçacığında senkron SQLite sorgusu/işlemi yapılmaz.
+- Zaman kritik hatırlatma sorguları, tablo/istatistik işleri ve kullanıcı işlemlerinden bağımsız tek iş parçacıklı bir veritabanı yürütücüsünde çalışır.
+- Ana pencerenin kelime tablosu araması ve istatistik yenilemesi arka planda çalışır. Arama 250 ms gecikmeyle toplulaştırılır; istek sıra numaraları eski sorgu sonuçlarının yeni sonuçları ezmesini engeller.
+- İlk katalog seed işlemi uygulama penceresini bloke etmeden arka planda yürütülür. Normal hatırlatma sayacı seed tamamlandıktan sonra başlar.
+- Kelime gösterim geçmişi Stage.show() başarılı olduktan sonra ayrı transaction ile yazılır; kuyruğa alınan veya gösterilemeyen popup'lar gösterim istatistiğini artırmaz.
+- Hatırlatma günlüklerinde veritabanı iş kuyruğu, sorgu, JavaFX kuyruğu ve popup oluşturma/gösterim süreleri ayrı ölçülür.
+- Mevcut İngilizce örnek cümlesi bulunan 100 teknik terime Türkçe çeviri eklendi. Katalogda 914 İngilizce örnek, 603 Türkçe çeviri ve 311 çevirisi bekleyen örnek bulunur.
+- ReminderScheduler için anlık tetikleme, ertelemenin eski görevi değiştirmesi ve kapatıldığında bekleyen görevin iptali testleri eklendi.
+- SQLite şema sürümü 7 olarak kalır; migration yoktur. Kişisel kelimeler, öğrenme ve gösterim geçmişi, sayaçlar ve ayarlar korunur.
 ## [3.0.0] - Hatırlatma zamanlaması ve içerik genişletmesi
 
 - Daha önce İngilizce örneği bulunan 100 kelimenin Türkçe cümle çevirisi eklendi.

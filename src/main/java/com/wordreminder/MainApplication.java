@@ -17,7 +17,10 @@ import java.awt.TrayIcon;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.Duration;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.Optional;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -32,6 +35,13 @@ public class MainApplication extends Application {
     private ReminderPopup activePopup;
     private TrayIcon trayIcon;
     private boolean exiting;
+    private boolean reminderRequestInFlight;
+    private volatile boolean reminderDispatchQueued;
+    private boolean reminderPendingWhilePopupOpen;
+    private boolean presentationRecordedForActivePopup;
+    private boolean catalogReady;
+    private ExecutorService databaseExecutor;
+    private ExecutorService reminderExecutor;
 
     @Override
     public void start(Stage primaryStage) {
@@ -39,15 +49,27 @@ public class MainApplication extends Application {
         try {
             Database database = new Database();
             database.initialize();
+            databaseExecutor = Executors.newFixedThreadPool(3, runnable -> {
+                Thread thread = new Thread(runnable, "wordreminder-database");
+                thread.setDaemon(true);
+                return thread;
+            });
+            reminderExecutor = Executors.newSingleThreadExecutor(runnable -> {
+                Thread thread = new Thread(runnable, "wordreminder-reminder-db");
+                thread.setDaemon(true);
+                return thread;
+            });
             wordRepository = new WordRepository(database);
             settingsRepository = new SettingsRepository(database);
-            wordRepository.seedBuiltInWords();
 
             WindowsStartupManager startupManager = new WindowsStartupManager();
             scheduler = new ReminderScheduler(() -> {
                 long queuedAt = System.nanoTime();
                 try {
+                    if (reminderDispatchQueued) return;
+                    reminderDispatchQueued = true;
                     Platform.runLater(() -> {
+                        reminderDispatchQueued = false;
                         long uiQueueDelayMillis = java.util.concurrent.TimeUnit.NANOSECONDS
                                 .toMillis(System.nanoTime() - queuedAt);
                         if (uiQueueDelayMillis >= 2_000L) {
@@ -61,7 +83,7 @@ public class MainApplication extends Application {
                 }
             });
             mainWindow = new MainWindow(primaryStage, wordRepository, settingsRepository,
-                    startupManager, scheduler::intervalChanged, scheduler::triggerNow);
+                    startupManager, scheduler::intervalChanged, scheduler::triggerNow, databaseExecutor);
 
             installSystemTray();
             mainWindow.setTrayAvailable(trayIcon != null);
@@ -74,15 +96,35 @@ public class MainApplication extends Application {
                 }
             });
 
-            int interval = settingsRepository.getReminderMinutes();
-            scheduler.start(interval);
             boolean backgroundStart = getParameters().getRaw().contains("--background");
             boolean startMinimized = settingsRepository.isStartMinimized();
-            if (backgroundStart && startMinimized && trayIcon != null) {
-                mainWindow.hide();
-            } else {
+            boolean hideAtStartup = backgroundStart && startMinimized && trayIcon != null;
+            if (!hideAtStartup) {
                 mainWindow.show();
             }
+
+            // The initial 4,654-row catalogue seed can touch thousands of SQLite rows.
+            // Keep it off the JavaFX thread, then start the reminder clock from completion.
+            databaseExecutor.execute(() -> {
+                try {
+                    wordRepository.seedBuiltInWords();
+                    int reminderInterval = settingsRepository.getReminderMinutes();
+                    postToFx(() -> {
+                        if (exiting) return;
+                        catalogReady = true;
+                        scheduler.start(reminderInterval);
+                        mainWindow.refreshData();
+                        if (hideAtStartup) mainWindow.hide();
+                    });
+                } catch (IOException | SQLException ex) {
+                    AppLogger.error("Kelime kataloğu hazırlanırken hata oluştu.", ex);
+                    postToFx(() -> {
+                        if (!exiting) showFatalError(ex);
+                    });
+                } catch (RejectedExecutionException ex) {
+                    if (!exiting) AppLogger.error("Kelime kataloğu görevi kuyruğa alınamadı.", ex);
+                }
+            });
         } catch (IOException | SQLException ex) {
             AppLogger.error("Uygulama başlatılırken hata oluştu.", ex);
             showFatalError(ex);
@@ -130,68 +172,209 @@ public class MainApplication extends Application {
         return image;
     }
 
+    /**
+     * Runs the reminder lookup on a database worker. The JavaFX thread only creates and
+     * displays the card after the query has completed.
+     */
     private void showNextReminder() {
-        if (exiting) {
+        if (exiting) return;
+        if (!catalogReady) {
+            scheduler.retryAfterInterval();
             return;
         }
         if (activePopup != null) {
-            scheduler.retryAfterInterval();
+            // The interval elapsed while a card was visible. Do not start another timer:
+            // deliver one reminder as soon as this card is closed.
+            reminderPendingWhilePopupOpen = true;
             return;
         }
+        if (reminderRequestInFlight) {
+            // A lookup is already in progress; its completion will reset the interval.
+            return;
+        }
+
+        reminderRequestInFlight = true;
+        long requestStartedNanos = System.nanoTime();
         try {
-            Optional<Word> next = wordRepository.findNextForReview(
-                    settingsRepository.getReminderLevel(), settingsRepository.getReminderCategory());
-            if (next.isEmpty()) {
+            reminderExecutor.execute(() -> {
+                long queryStartedNanos = System.nanoTime();
+                Optional<Word> selected = Optional.empty();
+                SQLException queryError = null;
+                try {
+                    selected = wordRepository.findNextForReview(
+                            settingsRepository.getReminderLevel(), settingsRepository.getReminderCategory());
+                } catch (SQLException ex) {
+                    queryError = ex;
+                }
+                long queryFinishedNanos = System.nanoTime();
+                Optional<Word> result = selected;
+                SQLException failure = queryError;
+
+                postToFx(() -> {
+                    reminderRequestInFlight = false;
+                    if (exiting) return;
+
+                    long uiQueueDelayMillis = TimeUnit.NANOSECONDS.toMillis(
+                            System.nanoTime() - queryFinishedNanos);
+                    if (uiQueueDelayMillis >= 2_000L) {
+                        AppLogger.warn("Hatırlatma sonucu JavaFX kuyruğunda " + uiQueueDelayMillis
+                                + " ms bekledi; ana arayüz yükü kontrol edilmeli.");
+                    }
+                    if (activePopup != null) {
+                        reminderPendingWhilePopupOpen = true;
+                        return;
+                    }
+                    if (failure != null) {
+                        AppLogger.error("Hatırlatma için sıradaki kelime alınamadı.", failure);
+                        showError("Kelime getirilemedi", failure.getMessage());
+                        scheduler.retryAfterInterval();
+                        return;
+                    }
+                    if (result.isEmpty()) {
+                        scheduler.retryAfterInterval();
+                        return;
+                    }
+
+                    try {
+                        long popupBuildStartedNanos = System.nanoTime();
+                        Word word = result.get();
+                        presentationRecordedForActivePopup = false;
+                        activePopup = new ReminderPopup(word, action -> handlePopupAction(word, action));
+                        activePopup.show();
+                        long displayedAtNanos = System.nanoTime();
+                        long workerQueueMillis = TimeUnit.NANOSECONDS.toMillis(
+                                queryStartedNanos - requestStartedNanos);
+                        long databaseMillis = TimeUnit.NANOSECONDS.toMillis(
+                                queryFinishedNanos - queryStartedNanos);
+                        long totalMillis = TimeUnit.NANOSECONDS.toMillis(
+                                displayedAtNanos - requestStartedNanos);
+                        long popupMillis = TimeUnit.NANOSECONDS.toMillis(
+                                displayedAtNanos - popupBuildStartedNanos);
+                        AppLogger.info("Hatırlatma kartı gösterildi; veritabanı kuyruğu=" + workerQueueMillis
+                                + " ms, veritabanı=" + databaseMillis
+                                + " ms, JavaFX kuyruğu=" + uiQueueDelayMillis
+                                + " ms, kart oluşturma/gösterme=" + popupMillis
+                                + " ms, toplam istek süresi=" + totalMillis + " ms.");
+                        scheduler.reminderDisplayed();
+                    } catch (RuntimeException ex) {
+                        activePopup = null;
+                        AppLogger.error("Hatırlatma kartı oluşturulamadı veya gösterilemedi.", ex);
+                        scheduler.retryAfterInterval();
+                    }
+                });
+            });
+        } catch (RejectedExecutionException ex) {
+            reminderRequestInFlight = false;
+            if (!exiting) {
+                AppLogger.error("Hatırlatma veritabanı görevi kuyruğa alınamadı.", ex);
                 scheduler.retryAfterInterval();
-                return;
             }
-            Word word = next.get();
-            activePopup = new ReminderPopup(word, action -> handlePopupAction(word, action));
-            activePopup.show();
-            scheduler.reminderDisplayed();
-        } catch (SQLException ex) {
-            AppLogger.error("Hatırlatma için sıradaki kelime alınamadı.", ex);
-            showError("Kelime getirilemedi", ex.getMessage());
-            scheduler.retryAfterInterval();
         }
     }
 
     private void handlePopupAction(Word word, String action) {
-        activePopup = null;
-        boolean refreshRequired = false;
-        try {
-            switch (action) {
-                case "KNOWN" -> {
-                    wordRepository.recordReview(word.id(), "KNOWN");
-                    refreshRequired = true;
-                }
-                case "REPEAT" -> {
-                    wordRepository.recordReview(word.id(), "REPEAT");
-                    scheduler.snooze(Duration.ofMinutes(10));
-                    refreshRequired = true;
-                }
-                case "SNOOZE" -> scheduler.snooze(Duration.ofMinutes(5));
-                case "HARD" -> {
-                    wordRepository.setHardWord(word.id(), true);
-                    refreshRequired = true;
-                }
-                case "UNHARD" -> {
-                    wordRepository.setHardWord(word.id(), false);
-                    refreshRequired = true;
-                }
-                case "DISMISS" -> { }
-                default -> scheduler.retryAfterInterval();
-            }
-            // Dismiss and snooze do not change database content; avoid needlessly reloading
-            // the 4,654-row table and statistics on the JavaFX application thread.
-            if (refreshRequired) {
-                mainWindow.refreshData();
-            }
-        } catch (SQLException ex) {
-            AppLogger.error("Hatırlatma işlemi veritabanına kaydedilemedi.", ex);
-            showError("Tekrar kaydedilemedi", ex.getMessage());
-            scheduler.retryAfterInterval();
+        // A card is counted only after the user interacts with it. A card that times out
+        // untouched is deliberately excluded from presentation statistics.
+        if (!"AUTO_TIMEOUT".equals(action) && !presentationRecordedForActivePopup) {
+            presentationRecordedForActivePopup = true;
+            recordUserSeenPresentation(word);
         }
+
+        // Hard-word toggles and the reveal action are non-terminal.
+        boolean terminalAction = switch (action) {
+            case "HARD", "UNHARD", "INTERACTED" -> false;
+            default -> true;
+        };
+        if (terminalAction) {
+            activePopup = null;
+        }
+
+        switch (action) {
+            case "KNOWN" -> {
+                executeDatabaseMutation(
+                        "Kelime öğrenildi olarak kaydedilemedi.",
+                        () -> wordRepository.recordReview(word.id(), "KNOWN"));
+                resumePendingReminderIfNeeded();
+            }
+            case "REPEAT" -> {
+                reminderPendingWhilePopupOpen = false;
+                scheduler.snoozeToConfiguredInterval();
+                executeDatabaseMutation(
+                        "Kelime tekrar kararı kaydedilemedi.",
+                        () -> wordRepository.recordReview(word.id(), "REPEAT"));
+            }
+            case "HARD" -> executeDatabaseMutation(
+                    "Zor kelime işareti kaydedilemedi.",
+                    () -> wordRepository.setHardWord(word.id(), true));
+            case "UNHARD" -> executeDatabaseMutation(
+                    "Zor kelime işareti kaldırılamadı.",
+                    () -> wordRepository.setHardWord(word.id(), false));
+            case "DISMISS", "AUTO_TIMEOUT" -> resumePendingReminderIfNeeded();
+            case "INTERACTED" -> { }
+            default -> {
+                scheduler.retryAfterInterval();
+                resumePendingReminderIfNeeded();
+            }
+        }
+    }
+
+    private void recordUserSeenPresentation(Word word) {
+        try {
+            reminderExecutor.execute(() -> {
+                try {
+                    wordRepository.recordPresentation(word.id());
+                } catch (SQLException ex) {
+                    AppLogger.error("Kullanıcının etkileşimde bulunduğu kartın gösterimi kaydedilemedi.", ex);
+                }
+            });
+        } catch (RejectedExecutionException ex) {
+            AppLogger.error("Kelime kartı gösterim kaydı kuyruğa alınamadı.", ex);
+        }
+    }
+
+    private void resumePendingReminderIfNeeded() {
+        if (reminderPendingWhilePopupOpen && !exiting) {
+            reminderPendingWhilePopupOpen = false;
+            scheduler.triggerNow();
+        }
+    }
+
+    /** Executes short SQLite writes away from JavaFX and refreshes the UI asynchronously. */
+    private void executeDatabaseMutation(String errorMessage, SqlMutation mutation) {
+        if (reminderExecutor == null || reminderExecutor.isShutdown()) return;
+        try {
+            reminderExecutor.execute(() -> {
+                try {
+                    mutation.run();
+                    postToFx(() -> {
+                        if (!exiting && mainWindow != null) mainWindow.refreshData();
+                    });
+                } catch (SQLException ex) {
+                    AppLogger.error(errorMessage, ex);
+                    postToFx(() -> {
+                        if (!exiting) {
+                            showError("İşlem kaydedilemedi", ex.getMessage());
+                            scheduler.retryAfterInterval();
+                        }
+                    });
+                }
+            });
+        } catch (RejectedExecutionException ex) {
+            AppLogger.error("Hatırlatma veritabanı işlemi kuyruğa alınamadı.", ex);
+        }
+    }
+
+    private void postToFx(Runnable action) {
+        try {
+            Platform.runLater(action);
+        } catch (IllegalStateException ex) {
+            AppLogger.warn("JavaFX platformu kapandığı için arayüz güncellemesi gönderilemedi.");
+        }
+    }
+
+    @FunctionalInterface
+    private interface SqlMutation {
+        void run() throws SQLException;
     }
 
     private void exitApplication() {
@@ -199,6 +382,8 @@ public class MainApplication extends Application {
         exiting = true;
         if (scheduler != null) scheduler.close();
         if (activePopup != null) activePopup.close();
+        if (databaseExecutor != null) databaseExecutor.shutdownNow();
+        if (reminderExecutor != null) reminderExecutor.shutdownNow();
         if (trayIcon != null) {
             SystemTray.getSystemTray().remove(trayIcon);
             trayIcon = null;
@@ -227,6 +412,8 @@ public class MainApplication extends Application {
     @Override
     public void stop() {
         if (scheduler != null) scheduler.close();
+        if (databaseExecutor != null) databaseExecutor.shutdownNow();
+        if (reminderExecutor != null) reminderExecutor.shutdownNow();
         if (trayIcon != null) {
             SystemTray.getSystemTray().remove(trayIcon);
             trayIcon = null;

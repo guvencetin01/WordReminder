@@ -1,3 +1,51 @@
+## 3.6.0 içerik ve hatırlatma kartı
+- İçerik taramasında tespit edilen tekrarlanan yapay cümle kalıplarındaki 113 örnek cümle ve Türkçe karşılıkları düzeltildi.
+- Seçili yaygın kelimelerde örnekle uyuşmayan Türkçe anlamlar ve kelime türleri gözden geçirildi; 32 katalog başlığının karşılık/tür alanı güncellendi.
+- Hatırlatma kartı eylemleri tek HBox satırında "Öğrendim", "Devam Et", "Zor Kelimelere Ekle" sırasındadır; üç düğme yatayda eşit genişlik alır.
+- "Devam Et" mevcut REPEAT akışını ve kullanıcının belirlediği tekrar aralığını kullanır. 5 dakikalık erteleme düğmesi ve SNOOZE dalı kaldırıldı.
+- Örnek kaynağı 4.343 benzersiz satır, kelime kataloğu 4.654 benzersiz başlık içerir. Hedefli kontrol: yinelenen örnek 0, bozuk/boş satır 0, parantezli çeviri artığı 0, eski genel şablon 0.
+- SQLite şeması 7 olarak kalır; öğrenme geçmişi, kişisel kelimeler ve ayarlar korunur.
+
+## 3.5.0 tam örnek cümle kapsamı
+- Katalogda 4.654 benzersiz kelime vardır; bu sürümde her kelimenin en az bir İngilizce örnek cümlesi bulunacak biçimde eksik kapsam tamamlandı.
+- `example-sentences.tsv` içinde 4.343 benzersiz kelime başlığı için üç alanlı kayıt bulunur: İngilizce başlık, İngilizce örnek, Türkçe çeviri.
+- `word-catalog.tsv` içindeki 614 yerleşik örnek de sayıldığında bütün 4.654 başlığın İngilizce örneği vardır. 311 katalog örneği için ayrıca Türkçe çeviri kaydı bulunmaz.
+- Son statik doğrulama: katalog 4.654/4.654 kapsandı; 4.343 küratörlü kayıt; tekrar 0; katalog dışı başlık 0; boş/bozuk satır 0; hedef kelimeyi içermeyen cümle 0.
+- SQLite şeması 7 olarak kalır. Migration, tablo temizliği veya kullanıcı verisi silme işlemi yoktur.
+
+## 3.4.0 içerik notları
+- A2 DAILY grubundaki 25 kelimeye örnek cümle ve Türkçe çeviri eklendi: cheap, cheek, chef, chemical, chest, childhood, chili, chin, choice, citizen, classic, cleaner, clear, clerk, clue, coast, coin, colorful, comfortable, common, communicate, competition, complaint, complete, continue.
+- Her yeni satır katalogda doğrulandı; mevcut kelime örneklerinin üzerine yazılmadı. Şema değişikliği yoktur.
+- Toplam örnek/çeviri girdisi 749; etkili İngilizce örnek sayısı 1.060.
+
+## 3.3.0 hatırlatma zamanlaması
+- SettingsRepository.getReminderMinutes() ve MainWindow interval spinner varsayılanı 10 dakikadır; mevcut kayıtlı değer korunur.
+- Scheduler start(minutes) uygulama açılışında kayıtlı değeri alır. Ayar kaydedilince intervalChanged(minutes) eski görevi iptal edip tam yeni aralıkla sayacı yeniden başlatır. “Tekrar et” snoozeToConfiguredInterval() ile kayıtlı ayarı kullanır; yalnızca kullanıcı açıkça “5 dk sonra” seçerse tek seferlik 5 dakika uygulanır.
+- Normal gösterimden sonra sonraki aralık kartın gösterildiği anda başlar. Zamanlayıcı kart açıkken dolarsa MainApplication reminderPendingWhilePopupOpen bayrağını kurar; yeni kart başlatmaz. Kart kapandığında bekleyen tek hatırlatma triggerNow ile çalışır.
+- ReminderPopup PauseTransition(Duration.minutes(2)) ile 2 dakika sonra AUTO_TIMEOUT gönderir.
+- AUTO_TIMEOUT istatistik kaydı oluşturmaz. İlk gerçek kullanıcı etkileşiminde (anlamı göster, zor kelime işareti, öğrenildi/tekrar/ertele/kapat) recordPresentation yalnızca bir kez yazılır. Bu sayede hiç kullanılmadan zaman aşımına uğrayan kartlar gösterim sayılarını şişirmez.
+- Hard-word düğmesi ve anlamı göster eylemi kartı kapatmaz; diğer terminal eylemler kapatır.
+- Veritabanı şeması 7 olarak kalır; mevcut kullanıcı verileri korunur.
+
+## 3.2.0 arayüz ve içerik notları
+- Windows başlangıç alanında CheckBox metni doğrudan kontrole gömülmez; ayrı başlık/açıklama etiketleriyle gösterilir. Böylece dar ayar kartlarında açıklamanın görünmemesi sorunu önlenir.
+- Sistem tepsisinde başlatma ayarı, Windows oturum açılışında otomatik başlatma seçeneğine bağlıdır. Otomatik başlatma kapatılırsa kaydedilen start_minimized değeri de false olur.
+- ReminderPopup zor-kelime düğmesi HARD/UNHARD eylemlerini kartı kapatmadan yollar; MainApplication bu iki eylemde activePopup referansını korur. Diğer eylemler kartı kapatır.
+- Hatırlatma kartı için açık yeşil zemin, koyu yeşil çerçeve, okunaklı koyu metin ve yeşil tonlu düğmeler kullanılır. ScrollPane ve viewport dahil beyaz yüzey bırakılmaz.
+- example-sentences.tsv dosyasına 121 yeni günlük kelime için elle hazırlanmış İngilizce örnek ve Türkçe karşılık eklendi. İçerik paketi 724 girdidir; etkili örnek toplamı 1.035, çevrili örnek 724, çeviri bekleyen mevcut örnek 311, örneksiz kelime 3.619.
+- SQLite şeması 7 olarak kalır. Yeni migration, tablo temizliği veya kullanıcı verisi silme işlemi yoktur.
+
+## 3.1.0 zamanlama ve performans notları
+- MainApplication.showNextReminder() kelime seçimini artık veritabanı yürütücüsünde yapar. JavaFX tarafında yalnızca hazır Word nesnesinden popup oluşturulur ve gösterilir.
+- MainWindow.refreshData(), tablo araması ve istatistik sorguları arka planda çalışır. JavaFX düğümleri yalnızca immutable ProgressData snapshot'ından oluşturulur.
+- Arama alanı 250 ms PauseTransition ile debounce edilir. tableRequestSequence ve dashboardRequestSequence eski sorguların yeni sonuçları ezmesini önler.
+- Başlangıçtaki 4.654 kelimelik katalog seed işlemi arka planda yürütülür; pencere hazırlık durumuyla açılır, hatırlatma saati seed bitiminde başlar.
+- wordRepository.findNextForReview() seçim yapar ancak gösterim kaydı yazmaz. recordPresentation() yalnızca popup Stage.show() sonrasında transaction içinde last_shown_at ve word_presentations verisini günceller.
+- Popup gösterim logu veritabanı yürütücüsünde bekleme, SQL süresi, JavaFX kuyruğu, kart oluşturma/gösterme ve toplam süresini ayrı kaydeder. Kullanıcı kelime metni veya kişisel içerik loglanmaz.
+- Arayüz ve rapor işleri için üç veritabanı iş parçacığı, zaman kritik hatırlatma sorguları için ayrı bir tek iş parçacıklı yürütücü kullanılır. İki yürütücü de uygulama kapanırken shutdownNow() ile durdurulur; görevler daemon thread'dir.
+- JUnit testleri: anlık tetikleme bir kez çalışır; snooze önceki bekleyen görevi değiştirir; kapatma bekleyen görevi iptal eder.
+- İçerik kaynağı 603 satıra çıkarıldı. 100 mevcut teknik örnek için Türkçe çeviri eklendi; 914 İngilizce örneğin 603'ü çevrili, 311'i çevirisizdir. 3.740 kelimede örnek yoktur.
+- SQLite şeması 7 olarak kalır. words, word_reviews, word_presentations, kişisel kelimeler ve ayarlar için migration veya temizleme yapılmaz.
 ## 3.0.0 zamanlama incelemesi ve içerik notları
 - `ReminderScheduler` önceki sürümde her hatırlatma aralığını kart kullanıcı tarafından kapatıldıktan/işlendikten sonra başlatıyordu. Kullanıcının kartta kaldığı süre her döngüde birikerek görüntüleme sıklığını ayarlanan değerin üzerine çıkarıyordu.
 - Yeni davranış: başlangıçta ilk kart ayarlı süre sonunda gösterilir; kart gösterildiğinde bir sonraki düzenli aralık başlar. Kart zamanlayıcı tetiklendiğinde hâlâ açıksa ikinci kart açılmaz ve bir sonraki deneme bir tam aralık sonrasına alınır.
