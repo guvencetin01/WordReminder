@@ -599,7 +599,7 @@ public final class MainWindow {
         intervalBox.getStyleClass().add("settings-card");
         Label intervalHeading = new Label("Hatırlatma sıklığı");
         intervalHeading.getStyleClass().add("section-title");
-        Label intervalText = new Label("Süre, kart gösterildiğinde başlar. Kart açık kalırsa ikinci kart açılmaz; sonraki deneme ertelenir.");
+        Label intervalText = new Label("Süre, kart gösterildiğinde başlar. Bir kart en fazla 2 dakika açık kalır; süre dolunca etkileşim yoksa sessizce kapanır. Açık kart varken yenisi açılmaz.");
         intervalText.getStyleClass().add("hint-label");
         intervalText.setWrapText(true);
         intervalSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 180, 10));
