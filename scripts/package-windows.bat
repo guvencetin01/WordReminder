@@ -3,7 +3,7 @@ setlocal
 cd /d "%~dp0.."
 
 echo [1/3] Maven ile uygulama ve bagimliliklar derleniyor...
-call mvn -DskipTests clean package dependency:copy-dependencies -DincludeScope=runtime -DoutputDirectory=target/package-input
+call mvn clean package dependency:copy-dependencies -DincludeScope=runtime -DoutputDirectory=target/package-input
 if errorlevel 1 goto :error
 
 if not exist target\package-input mkdir target\package-input
