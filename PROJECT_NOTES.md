@@ -1,3 +1,11 @@
+## 3.6.0 içerik ve hatırlatma kartı
+- İçerik taramasında tespit edilen tekrarlanan yapay cümle kalıplarındaki 113 örnek cümle ve Türkçe karşılıkları düzeltildi.
+- Seçili yaygın kelimelerde örnekle uyuşmayan Türkçe anlamlar ve kelime türleri gözden geçirildi; 31 katalog başlığının karşılık/tür alanı güncellendi.
+- Hatırlatma kartı eylemleri tek HBox satırında "Öğrendim", "Devam Et", "Zor Kelimelere Ekle" sırasındadır; üç düğme yatayda eşit genişlik alır.
+- "Devam Et" mevcut REPEAT akışını ve kullanıcının belirlediği tekrar aralığını kullanır. 5 dakikalık erteleme düğmesi ve SNOOZE dalı kaldırıldı.
+- Örnek kaynağı 4.343 benzersiz satır, kelime kataloğu 4.654 benzersiz başlık içerir. Hedefli kontrol: yinelenen örnek 0, bozuk/boş satır 0, parantezli çeviri artığı 0, eski genel şablon 0.
+- SQLite şeması 7 olarak kalır; öğrenme geçmişi, kişisel kelimeler ve ayarlar korunur.
+
 ## 3.5.0 tam örnek cümle kapsamı
 - Katalogda 4.654 benzersiz kelime vardır; bu sürümde her kelimenin en az bir İngilizce örnek cümlesi bulunacak biçimde eksik kapsam tamamlandı.
 - `example-sentences.tsv` içinde 4.343 benzersiz kelime başlığı için üç alanlı kayıt bulunur: İngilizce başlık, İngilizce örnek, Türkçe çeviri.
