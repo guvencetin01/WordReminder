@@ -793,7 +793,7 @@ public final class MainWindow {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         statusLabel.getStyleClass().add("status-label");
-        Label version = new Label("WordReminder • 3.4.0");
+        Label version = new Label("WordReminder • 3.5.0");
         version.getStyleClass().add("version-label");
         HBox footer = new HBox(statusLabel, spacer, version);
         footer.setAlignment(Pos.CENTER_LEFT);
