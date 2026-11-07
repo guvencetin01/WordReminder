@@ -1,3 +1,14 @@
+## 3.1.0 zamanlama ve performans notları
+- MainApplication.showNextReminder() kelime seçimini artık veritabanı yürütücüsünde yapar. JavaFX tarafında yalnızca hazır Word nesnesinden popup oluşturulur ve gösterilir.
+- MainWindow.refreshData(), tablo araması ve istatistik sorguları arka planda çalışır. JavaFX düğümleri yalnızca immutable ProgressData snapshot'ından oluşturulur.
+- Arama alanı 250 ms PauseTransition ile debounce edilir. tableRequestSequence ve dashboardRequestSequence eski sorguların yeni sonuçları ezmesini önler.
+- Başlangıçtaki 4.654 kelimelik katalog seed işlemi arka planda yürütülür; pencere hazırlık durumuyla açılır, hatırlatma saati seed bitiminde başlar.
+- wordRepository.findNextForReview() seçim yapar ancak gösterim kaydı yazmaz. recordPresentation() yalnızca popup Stage.show() sonrasında transaction içinde last_shown_at ve word_presentations verisini günceller.
+- Popup gösterim logu veritabanı yürütücüsünde bekleme, SQL süresi, JavaFX kuyruğu, kart oluşturma/gösterme ve toplam süresini ayrı kaydeder. Kullanıcı kelime metni veya kişisel içerik loglanmaz.
+- Üç veritabanı iş parçacığı kullanılır. Uygulama kapanırken yürütücü shutdownNow() ile durdurulur; görevler daemon thread'dir.
+- JUnit testleri: anlık tetikleme bir kez çalışır; snooze önceki bekleyen görevi değiştirir; kapatma bekleyen görevi iptal eder.
+- İçerik kaynağı 603 satıra çıkarıldı. 100 mevcut teknik örnek için Türkçe çeviri eklendi; 914 İngilizce örneğin 603'ü çevrili, 311'i çevirisizdir. 3.740 kelimede örnek yoktur.
+- SQLite şeması 7 olarak kalır. words, word_reviews, word_presentations, kişisel kelimeler ve ayarlar için migration veya temizleme yapılmaz.
 ## 3.0.0 zamanlama incelemesi ve içerik notları
 - `ReminderScheduler` önceki sürümde her hatırlatma aralığını kart kullanıcı tarafından kapatıldıktan/işlendikten sonra başlatıyordu. Kullanıcının kartta kaldığı süre her döngüde birikerek görüntüleme sıklığını ayarlanan değerin üzerine çıkarıyordu.
 - Yeni davranış: başlangıçta ilk kart ayarlı süre sonunda gösterilir; kart gösterildiğinde bir sonraki düzenli aralık başlar. Kart zamanlayıcı tetiklendiğinde hâlâ açıksa ikinci kart açılmaz ve bir sonraki deneme bir tam aralık sonrasına alınır.
