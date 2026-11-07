@@ -17,7 +17,6 @@ import java.awt.TrayIcon;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.Duration;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
@@ -303,10 +302,6 @@ public class MainApplication extends Application {
                 executeDatabaseMutation(
                         "Kelime tekrar kararı kaydedilemedi.",
                         () -> wordRepository.recordReview(word.id(), "REPEAT"));
-            }
-            case "SNOOZE" -> {
-                reminderPendingWhilePopupOpen = false;
-                scheduler.snooze(Duration.ofMinutes(5));
             }
             case "HARD" -> executeDatabaseMutation(
                     "Zor kelime işareti kaydedilemedi.",
