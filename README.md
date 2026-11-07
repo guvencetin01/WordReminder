@@ -1,4 +1,12 @@
-# WordReminder 3.1.0
+# WordReminder 3.2.0
+
+## 3.2.0 yenilikleri
+- Windows başlangıç ayarlarının metinleri ayrı açıklama satırlarıyla görünür hale getirildi. Sistem tepsisinde başlatma seçeneği, otomatik başlatmaya bağlandı.
+- Hatırlatma kartı beyaz yerine açık yeşil zemin, ince koyu yeşil kenarlık ve uyumlu yeşil tonlu metin/butonlarla yenilendi.
+- “Zor kelimelere ekle / çıkar” düğmesi artık kartı kapatmadan işaretlemeyi değiştirir. Öğrendim, Tekrar et ve 5 dk sonra seçenekleri kartı kapatmaya devam eder.
+- 121 yeni günlük kelime için İngilizce örnek cümle ve Türkçe çeviri eklendi. Toplam içerik paketi 724 kelime-cümle-çeviri girdisine ulaştı.
+- Etkili katalogda 1.035 İngilizce örnek cümle ve 724 Türkçe çeviri bulunur; 311 mevcut örnek için çeviri beklenir.
+- SQLite şeması 7 olarak kalır; migration yoktur. Kişisel kelimeler, tekrar geçmişi ve ayarlar korunur.
 
 ## 3.1.0 yenilikleri
 - Hatırlatma için kelime seçimi, gösterim kaydı ve cevap kaydı SQLite işlemleri JavaFX arayüz iş parçacığından ayrıldı.
@@ -110,7 +118,7 @@ CEFR, dil yeterliliğini iletişimsel görevler üzerinden tanımlar; her kelime
 
 ## Örnek cümleler
 
-Katalogdaki 914 İngilizce örneğin 603 tanesi Türkçe çevirisiyle birlikte gösterilir. 2.7.0, 2.9.0 ve 3.0.0 sürümlerinde toplam 300 günlük kelime için yeni cümle/çeviri çiftleri elle hazırlanmıştır. Ayrıca daha önce örneği bulunan 200 kelimenin Türkçe cümle çevirisi sonradan eklenmiştir. Kalan 311 mevcut örneğin Türkçe çevirisi ve örneği bulunmayan 3.740 kelime için yeni içerik, doğruluk kontrolünden geçirilmiş küçük paketlerle aşamalı olarak hazırlanacaktır. Eksik içerik tahminî veya otomatik çeviriyle doldurulmaz.
+Katalogdaki 1.035 İngilizce örneğin 724 tanesi Türkçe çevirisiyle birlikte gösterilir. 2.7.0, 2.9.0 ve 3.0.0 sürümlerinde toplam 300 günlük kelime için yeni cümle/çeviri çiftleri elle hazırlanmıştır. Ayrıca daha önce örneği bulunan 200 kelimenin Türkçe cümle çevirisi sonradan eklenmiştir. Kalan 311 mevcut örneğin Türkçe çevirisi ve örneği bulunmayan 3.740 kelime için yeni içerik, doğruluk kontrolünden geçirilmiş küçük paketlerle aşamalı olarak hazırlanacaktır. Eksik içerik tahminî veya otomatik çeviriyle doldurulmaz.
 
 ## Özellikler
 
