@@ -26,10 +26,12 @@ public final class ReminderPopup {
     private final Stage stage;
     private final Consumer<String> reviewAction;
     private boolean finished;
+    private boolean hardWord;
 
     public ReminderPopup(Word word, Consumer<String> reviewAction) {
         this.stage = new Stage(StageStyle.UNDECORATED);
         this.reviewAction = reviewAction;
+        this.hardWord = word.hardWord();
         this.stage.setOnHidden(event -> {
             if (!finished) {
                 finished = true;
@@ -140,10 +142,18 @@ public final class ReminderPopup {
         later.getStyleClass().add("secondary-button");
         later.setOnAction(event -> finish("SNOOZE"));
 
-        Button hard = new Button(word.hardWord() ? "★ Zor kelimelerden çıkar" : "☆ Zor kelimelere ekle");
+        Button hard = new Button(hardWord ? "★ Zor kelimelerden çıkar" : "☆ Zor kelimelere ekle");
         hard.getStyleClass().add("popup-hard-button");
         hard.setMaxWidth(Double.MAX_VALUE);
-        hard.setOnAction(event -> finish(word.hardWord() ? "UNHARD" : "HARD"));
+        hard.setOnAction(event -> {
+            boolean nextState = !hardWord;
+            reviewAction.accept(nextState ? "HARD" : "UNHARD");
+            hardWord = nextState;
+            hard.setText(hardWord ? "★ Zor kelimelerden çıkar" : "☆ Zor kelimelere ekle");
+            hard.setAccessibleText(hardWord
+                    ? "Zor kelimeler listesinden çıkar"
+                    : "Zor kelimeler listesine ekle");
+        });
 
         reveal.setOnAction(event -> {
             meaningCard.setVisible(true);
