@@ -606,7 +606,7 @@ graphical interface|The graphical interface lets users manage the application wi
 identifier|A variable identifier must follow the language’s naming rules.|Değişken tanımlayıcısı, programlama dilinin adlandırma kurallarına uymalıdır.
 implementation|The implementation should follow the interface contract.|Gerçekleme, arayüz sözleşmesine uygun olmalıdır.
 increment|The loop increments the counter after processing each record.|Döngü her kaydı işledikten sonra sayacı artırır.
-# 3.2.0: 100 new daily example sentences with Turkish translations.
+# 3.2.0: 121 new daily example sentences with Turkish translations.
 heavy|This box is too heavy for me to carry.|Bu kutu benim taşımam için fazla ağır.
 hide|The child tried to hide behind the curtain.|Çocuk perdenin arkasına saklanmaya çalıştı.
 high|The apartment has a beautiful view from the high balcony.|Dairenin yüksek balkonundan güzel bir manzara görünüyor.
