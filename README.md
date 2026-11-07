@@ -1,4 +1,14 @@
-# WordReminder 3.0.0
+# WordReminder 3.1.0
+
+## 3.1.0 yenilikleri
+- Hatırlatma için kelime seçimi, gösterim kaydı ve cevap kaydı SQLite işlemleri JavaFX arayüz iş parçacığından ayrıldı.
+- Kelime tablosu ve istatistikler arka planda yüklenir; arama 250 ms gecikmeyle toplulaştırılır ve eski sonuçların yeni sonuçları ezmesi engellenir.
+- İlk katalog hazırlığı uygulama penceresini kilitlemeden arka planda yapılır; normal hatırlatma sayacı katalog hazırlandıktan sonra başlatılır.
+- Kart gösterim geçmişi artık yalnızca pencere gerçekten gösterildikten sonra kaydedilir.
+- Günlük kayıtları veritabanı kuyruğu, sorgu, JavaFX kuyruğu ve popup gösterim sürelerini ayrı ayrı ölçer.
+- Mevcut İngilizce örnek cümlesi bulunan 100 teknik terime Türkçe çeviri eklendi. Örnek sayısı 914, çeviri sayısı 603 oldu.
+- SQLite şeması 7 olarak kalır; yeni migration yoktur. Kişisel kelimeler, tekrar geçmişi ve ayarlar korunur.
+- Zamanlayıcı için tetikleme, erteleme ve kapatma testleri eklendi.
 
 ## 3.0.0 yenilikleri
 - Daha önce İngilizce örneği bulunan 100 kelimeye bağlama uygun Türkçe çeviri eklendi.
@@ -71,7 +81,7 @@ Windows için masaüstünde çalışan İngilizce kelime öğrenme ve hatırlatm
 - **4.654 kelimelik** katalog korunmuştur: 3.654 günlük İngilizce ve 1.000 yazılım/teknik İngilizce.
 - Her kelimede kelime türü alanı bulunur. Bu etiketler sözlükbilimsel olarak kesin değil, öğrenmeye yardımcı yaklaşık sınıflandırmalardır.
 - **4.582 kelime için ABD İngilizcesi IPA telaffuzu** eklenmiştir. Kaynakta karşılığı bulunmayan 72 kelimenin telaffuzu boş bırakılır.
-- Örnek cümle sayısı **914** olmuştur: 454 günlük ve 460 teknik örnek. Bunların **503** tanesi Türkçe cümle çevirisine sahiptir; 411 örneğin çevirisi henüz hazırlanmamıştır. Ayrıca 3.740 katalog kelimesinde henüz örnek cümle bulunmaz. Teknik katalogdaki örnek cümleler yazılım geliştirme bağlamına göre hazırlanmıştır.
+- Örnek cümle sayısı **914** olmuştur: 454 günlük ve 460 teknik örnek. Bunların **603** tanesi Türkçe cümle çevirisine sahiptir; 311 örneğin çevirisi henüz hazırlanmamıştır. Ayrıca 3.740 katalog kelimesinde henüz örnek cümle bulunmaz. Teknik katalogdaki örnek cümleler yazılım geliştirme bağlamına göre hazırlanmıştır.
 - Yazılım terimlerinin bazı Türkçe karşılıkları bağlamı netleştirecek şekilde düzenlenmiştir.
 - Ana kelime tablosunda IPA ve kelime türü sütunları; hatırlatma penceresinde telaffuz/tür bilgisi gösterilir.
 - 1.8.0 için veritabanı şema yükseltmesi gerekmez; mevcut öğrenme geçmişi, kişisel kelimeler ve ayarlar korunur. 1.2 öncesi eski veriler 1.2.0'ın temiz başlangıç kararı gereği zaten taşınmaz.
@@ -100,7 +110,7 @@ CEFR, dil yeterliliğini iletişimsel görevler üzerinden tanımlar; her kelime
 
 ## Örnek cümleler
 
-Katalogdaki 914 İngilizce örneğin 503 tanesi Türkçe çevirisiyle birlikte gösterilir. 2.7.0, 2.9.0 ve 3.0.0 sürümlerinde toplam 300 günlük kelime için yeni cümle/çeviri çiftleri elle hazırlanmıştır. Ayrıca daha önce örneği bulunan 200 kelimenin Türkçe cümle çevirisi sonradan eklenmiştir. Kalan 411 mevcut örneğin Türkçe çevirisi ve örneği bulunmayan 3.740 kelime için yeni içerik, doğruluk kontrolünden geçirilmiş küçük paketlerle aşamalı olarak hazırlanacaktır. Eksik içerik tahminî veya otomatik çeviriyle doldurulmaz.
+Katalogdaki 914 İngilizce örneğin 603 tanesi Türkçe çevirisiyle birlikte gösterilir. 2.7.0, 2.9.0 ve 3.0.0 sürümlerinde toplam 300 günlük kelime için yeni cümle/çeviri çiftleri elle hazırlanmıştır. Ayrıca daha önce örneği bulunan 200 kelimenin Türkçe cümle çevirisi sonradan eklenmiştir. Kalan 311 mevcut örneğin Türkçe çevirisi ve örneği bulunmayan 3.740 kelime için yeni içerik, doğruluk kontrolünden geçirilmiş küçük paketlerle aşamalı olarak hazırlanacaktır. Eksik içerik tahminî veya otomatik çeviriyle doldurulmaz.
 
 ## Özellikler
 
