@@ -1,3 +1,12 @@
+## 3.3.0 hatırlatma zamanlaması
+- SettingsRepository.getReminderMinutes() ve MainWindow interval spinner varsayılanı 10 dakikadır; mevcut kayıtlı değer korunur.
+- Scheduler start(minutes) uygulama açılışında kayıtlı değeri alır. Ayar kaydedilince intervalChanged(minutes) eski görevi iptal edip tam yeni aralıkla sayacı yeniden başlatır.
+- Normal gösterimden sonra sonraki aralık kartın gösterildiği anda başlar. Zamanlayıcı kart açıkken dolarsa MainApplication reminderPendingWhilePopupOpen bayrağını kurar; yeni kart başlatmaz. Kart kapandığında bekleyen tek hatırlatma triggerNow ile çalışır.
+- ReminderPopup PauseTransition(Duration.minutes(2)) ile 2 dakika sonra AUTO_TIMEOUT gönderir.
+- AUTO_TIMEOUT istatistik kaydı oluşturmaz. İlk gerçek kullanıcı etkileşiminde (anlamı göster, zor kelime işareti, öğrenildi/tekrar/ertele/kapat) recordPresentation yalnızca bir kez yazılır. Bu sayede hiç kullanılmadan zaman aşımına uğrayan kartlar gösterim sayılarını şişirmez.
+- Hard-word düğmesi ve anlamı göster eylemi kartı kapatmaz; diğer terminal eylemler kapatır.
+- Veritabanı şeması 7 olarak kalır; mevcut kullanıcı verileri korunur.
+
 ## 3.2.0 arayüz ve içerik notları
 - Windows başlangıç alanında CheckBox metni doğrudan kontrole gömülmez; ayrı başlık/açıklama etiketleriyle gösterilir. Böylece dar ayar kartlarında açıklamanın görünmemesi sorunu önlenir.
 - Sistem tepsisinde başlatma ayarı, Windows oturum açılışında otomatik başlatma seçeneğine bağlıdır. Otomatik başlatma kapatılırsa kaydedilen start_minimized değeri de false olur.
