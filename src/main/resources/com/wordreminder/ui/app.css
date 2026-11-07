@@ -514,3 +514,10 @@
 .popup-hard-button:hover {
     -fx-background-color: #d8e9d2;
 }
+
+
+/* Keep the three reminder actions aligned on one compact row. */
+.popup-actions .button {
+    -fx-padding: 8px 5px;
+    -fx-font-size: 10px;
+}
