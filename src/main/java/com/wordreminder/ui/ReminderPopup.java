@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
@@ -139,26 +138,20 @@ public final class ReminderPopup {
         learned.setDisable(true);
         learned.setOnAction(event -> finish("KNOWN"));
 
-        Button repeat = new Button("Tekrar et");
-        repeat.getStyleClass().add("secondary-button");
-        repeat.setDisable(true);
-        repeat.setOnAction(event -> finish("REPEAT"));
+        Button continueButton = new Button("Devam Et");
+        continueButton.getStyleClass().add("secondary-button");
+        continueButton.setDisable(true);
+        continueButton.setOnAction(event -> finish("REPEAT"));
 
-        Button later = new Button("5 dk sonra");
-        later.getStyleClass().add("secondary-button");
-        later.setOnAction(event -> finish("SNOOZE"));
-
-        Button hard = new Button(hardWord ? "★ Zor kelimelerden çıkar" : "☆ Zor kelimelere ekle");
+        Button hard = new Button(hardWord ? "Zor Kelimelerden Çıkar" : "Zor Kelimelere Ekle");
         hard.getStyleClass().add("popup-hard-button");
         hard.setMaxWidth(Double.MAX_VALUE);
         hard.setOnAction(event -> {
             boolean nextState = !hardWord;
             reviewAction.accept(nextState ? "HARD" : "UNHARD");
             hardWord = nextState;
-            hard.setText(hardWord ? "★ Zor kelimelerden çıkar" : "☆ Zor kelimelere ekle");
-            hard.setAccessibleText(hardWord
-                    ? "Zor kelimeler listesinden çıkar"
-                    : "Zor kelimeler listesine ekle");
+            hard.setText(hardWord ? "Zor Kelimelerden Çıkar" : "Zor Kelimelere Ekle");
+            hard.setAccessibleText(hard.getText());
         });
 
         reveal.setOnAction(event -> {
@@ -169,13 +162,19 @@ public final class ReminderPopup {
             reveal.setVisible(false);
             reveal.setManaged(false);
             learned.setDisable(false);
-            repeat.setDisable(false);
+            continueButton.setDisable(false);
         });
 
-        FlowPane actions = new FlowPane(8, 8, learned, repeat, later);
-        actions.setAlignment(Pos.CENTER_LEFT);
+        HBox actions = new HBox(8, learned, continueButton, hard);
+        actions.setAlignment(Pos.CENTER);
+        actions.getStyleClass().add("popup-actions");
+        for (Button actionButton : new Button[]{learned, continueButton, hard}) {
+            HBox.setHgrow(actionButton, Priority.ALWAYS);
+            actionButton.setMaxWidth(Double.MAX_VALUE);
+            actionButton.setMinWidth(0);
+        }
         content.getChildren().addAll(header, badges, english, pronunciation,
-                exampleCard, recallHint, meaningCard, reveal, actions, hard);
+                exampleCard, recallHint, meaningCard, reveal, actions);
 
         ScrollPane scroll = new ScrollPane(content);
         scroll.getStyleClass().add("popup-scroll");
