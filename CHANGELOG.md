@@ -1,3 +1,11 @@
+## [3.6.0] - Örnek doğruluğu ve hatırlatma kartı düzeni
+
+- Tekrarlanan yapay cümle kalıpları, bağlama ve hedef kelimenin kullanımına uygun örneklerle değiştirildi.
+- Tespit edilen hatalı Türkçe çeviriler düzeltildi; seçili yaygın kelimelerin sözlük anlamları ve kelime türleri gözden geçirildi.
+- Kart eylemleri tek satırda "Öğrendim", "Devam Et", "Zor Kelimelere Ekle" sırasıyla düzenlendi.
+- "5 dk sonra" butonu ve yalnızca bu eyleme ait SNOOZE akışı kaldırıldı. "Devam Et" normal ayarlı tekrar aralığını kullanır.
+- SQLite şeması 7 olarak kalır; migration veya kullanıcı verisi temizliği yapılmaz.
+
 ## [3.5.0] - Tüm kelimelere örnek cümle
 
 - Katalogdaki 4.654 benzersiz kelimenin tamamı için en az bir İngilizce örnek cümle kapsamı sağlandı; A1–C2 seviyeleri ile günlük ve teknik gruplar tamamlandı.
