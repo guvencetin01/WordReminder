@@ -1,4 +1,11 @@
-# WordReminder 3.5.0
+# WordReminder 3.6.0
+
+## 3.6.0 yenilikleri
+- Hatırlatma kartı eylemleri tek satırda "Öğrendim", "Devam Et" ve "Zor Kelimelere Ekle" sırasıyla gösterilir.
+- "5 dk sonra" kaldırıldı. "Devam Et", kullanıcının ayarladığı normal tekrar aralığını kullanır.
+- İçerik denetiminde belirlenen sorunlu örnek cümleler ve Türkçe çevirileri düzeltildi; bazı yaygın başlıkların Türkçe anlamları ve kelime türleri de gözden geçirildi.
+- SQLite şeması 7 olarak kalır; kullanıcı verileri, öğrenme geçmişi ve ayarlar korunur.
+
 
 ## 3.5.0 yenilikleri
 - Katalogdaki 4.654 kelimenin tamamına en az bir İngilizce örnek cümle sağlandı. Günlük ve teknik kelimeler, A1–C2 seviyeleri kapsama dâhildir.
