@@ -5,7 +5,7 @@
 - Başlangıçtaki 4.654 kelimelik katalog seed işlemi arka planda yürütülür; pencere hazırlık durumuyla açılır, hatırlatma saati seed bitiminde başlar.
 - wordRepository.findNextForReview() seçim yapar ancak gösterim kaydı yazmaz. recordPresentation() yalnızca popup Stage.show() sonrasında transaction içinde last_shown_at ve word_presentations verisini günceller.
 - Popup gösterim logu veritabanı yürütücüsünde bekleme, SQL süresi, JavaFX kuyruğu, kart oluşturma/gösterme ve toplam süresini ayrı kaydeder. Kullanıcı kelime metni veya kişisel içerik loglanmaz.
-- Üç veritabanı iş parçacığı kullanılır. Uygulama kapanırken yürütücü shutdownNow() ile durdurulur; görevler daemon thread'dir.
+- Arayüz ve rapor işleri için üç veritabanı iş parçacığı, zaman kritik hatırlatma sorguları için ayrı bir tek iş parçacıklı yürütücü kullanılır. İki yürütücü de uygulama kapanırken shutdownNow() ile durdurulur; görevler daemon thread'dir.
 - JUnit testleri: anlık tetikleme bir kez çalışır; snooze önceki bekleyen görevi değiştirir; kapatma bekleyen görevi iptal eder.
 - İçerik kaynağı 603 satıra çıkarıldı. 100 mevcut teknik örnek için Türkçe çeviri eklendi; 914 İngilizce örneğin 603'ü çevrili, 311'i çevirisizdir. 3.740 kelimede örnek yoktur.
 - SQLite şeması 7 olarak kalır. words, word_reviews, word_presentations, kişisel kelimeler ve ayarlar için migration veya temizleme yapılmaz.
