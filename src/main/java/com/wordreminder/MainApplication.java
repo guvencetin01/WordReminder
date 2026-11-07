@@ -299,7 +299,7 @@ public class MainApplication extends Application {
             }
             case "REPEAT" -> {
                 reminderPendingWhilePopupOpen = false;
-                scheduler.snooze(Duration.ofMinutes(10));
+                scheduler.snoozeToConfiguredInterval();
                 executeDatabaseMutation(
                         "Kelime tekrar kararı kaydedilemedi.",
                         () -> wordRepository.recordReview(word.id(), "REPEAT"));
