@@ -505,3 +505,104 @@ river|The children played near the river.|Çocuklar nehrin yakınında oynadı.
 road|The road is closed because of the snow.|Kar nedeniyle yol kapalı.
 room|Our hotel room has a view of the sea.|Otel odamız deniz manzaralı.
 rule|The first rule is to listen carefully.|İlk kural dikkatlice dinlemektir.
+# 3.1.0: 100 Turkish translations for existing technical examples.
+alias|Create an alias for a frequently used command.|Sık kullanılan bir komut için takma ad oluştur.
+annotation|The annotation tells the framework how to process the method.|Ek açıklama, çerçeveye metodu nasıl işleyeceğini söyler.
+anonymous function|An anonymous function can be passed as an argument.|Anonim bir fonksiyon argüman olarak verilebilir.
+application log|The application log records errors and important events.|Uygulama günlüğü hataları ve önemli olayları kaydeder.
+application settings|The application settings are stored in the user profile.|Uygulama ayarları kullanıcı profilinde saklanır.
+array|The array contains five numbers.|Dizi beş sayı içerir.
+array element|The loop updates each array element.|Döngü her dizi elemanını günceller.
+array index|The first array index is zero in Java.|Java'da ilk dizi indeksi sıfırdır.
+assertion|The assertion checks that the returned value is correct.|Doğrulama ifadesi, döndürülen değerin doğru olup olmadığını kontrol eder.
+asynchronous|The asynchronous operation does not block the user interface.|Eşzamansız işlem kullanıcı arayüzünü engellemez.
+attribute|The HTML attribute defines an element’s behavior.|HTML özniteliği bir öğenin davranışını tanımlar.
+automation|Automation reduces repetitive build and deployment tasks.|Otomasyon, tekrarlanan derleme ve dağıtım görevlerini azaltır.
+backend|The backend validates requests before saving data.|Arka uç, istekleri veritabanına kaydetmeden önce doğrular.
+background process|A background process performs the task without blocking the main window.|Arka plan süreci, ana pencereyi engellemeden görevi yerine getirir.
+binary file|The program reads the binary file as a sequence of bytes.|Program ikili dosyayı bir bayt dizisi olarak okur.
+binary operator|A binary operator works with two operands.|İkili işleç iki işlenen üzerinde çalışır.
+bitwise operator|A bitwise operator performs an operation on individual bits.|Bit düzeyinde işleç, tek tek bitler üzerinde işlem yapar.
+boolean expression|The boolean expression evaluates to true or false.|Mantıksal ifade true veya false sonucunu verir.
+boolean value|A boolean value can be either true or false.|Mantıksal değer true ya da false olabilir.
+branch|Create a new branch for this feature.|Bu özellik için yeni bir dal oluştur.
+breakpoint|Set a breakpoint to inspect the variable’s value.|Değişkenin değerini incelemek için bir kesme noktası koy.
+bug|We found a bug in the login page.|Giriş sayfasında bir yazılım hatası bulduk.
+build configuration|The build configuration defines the project dependencies and compiler options.|Derleme yapılandırması, proje bağımlılıklarını ve derleyici seçeneklerini tanımlar.
+build error|The build error identifies a problem that prevents the project from compiling.|Derleme hatası, projenin derlenmesini engelleyen sorunu belirtir.
+build script|The build script compiles the source code and runs the tests.|Derleme betiği kaynak kodu derler ve testleri çalıştırır.
+bytecode|The Java compiler translates source code into bytecode.|Java derleyicisi kaynak kodu bayt koduna dönüştürür.
+cache folder|Clear the cache folder if it contains outdated files.|Eski dosyalar içeriyorsa önbellek klasörünü temizle.
+callback|The callback runs when the asynchronous request finishes.|Geri çağırım, eşzamansız istek tamamlandığında çalışır.
+case sensitivity|Case sensitivity means that “File” and “file” are treated as different names.|Büyük-küçük harf duyarlılığı, “File” ve “file” adlarının farklı kabul edilmesi demektir.
+casting|Casting converts a value from one data type to another.|Tür dönüştürme, bir değeri başka bir veri türüne çevirir.
+character encoding|UTF-8 is a character encoding used by the application.|UTF-8, uygulamanın kullandığı karakter kodlamalarından biridir.
+class|The class represents a customer.|Sınıf bir müşteriyi temsil eder.
+class member|A class member belongs to the class or one of its instances.|Sınıf üyesi, sınıfa veya onun örneklerinden birine aittir.
+code editor|The code editor highlights syntax errors as you type.|Kod düzenleyici, yazarken sözdizimi hatalarını vurgular.
+command line|Run the Maven command from the command line.|Maven komutunu komut satırından çalıştır.
+command prompt|Open the command prompt in the project directory.|Komut istemini proje klasöründe aç.
+comment|Add a comment to explain why this condition is necessary.|Bu koşulun neden gerekli olduğunu açıklamak için yorum satırı ekle.
+commit|Create a commit with a clear message.|Açık bir mesajla bir commit oluştur.
+comparison operator|The comparison operator checks whether two values are equal.|Karşılaştırma işleci iki değerin eşit olup olmadığını kontrol eder.
+compile|The compiler cannot compile this project.|Derleyici bu projeyi derleyemiyor.
+compile error|A compile error must be fixed before the application can run.|Uygulama çalışmadan önce derleme hatası düzeltilmelidir.
+compiler|The compiler reports an error when the source code is invalid.|Kaynak kod geçersiz olduğunda derleyici hata bildirir.
+component|Each user interface component has a clearly defined responsibility.|Her arayüz bileşeninin açıkça tanımlanmış bir sorumluluğu vardır.
+condition|The condition is checked before the loop.|Döngüden önce koşul kontrol edilir.
+configuration file|The configuration file stores the application’s default values.|Yapılandırma dosyası uygulamanın varsayılan değerlerini saklar.
+configuration option|This configuration option controls how long a session remains active.|Bu yapılandırma seçeneği bir oturumun ne kadar süreceğini kontrol eder.
+configuration setting|Change the configuration setting before restarting the service.|Hizmeti yeniden başlatmadan önce yapılandırma ayarını değiştir.
+constructor|The constructor initializes the object’s fields.|Kurucu metot nesnenin alanlarını başlatır.
+context|The method needs the database context to complete the operation.|İşlemi tamamlamak için metodun veritabanı bağlamına ihtiyacı var.
+control flow|The return statement changes the control flow of the method.|return ifadesi metodun kontrol akışını değiştirir.
+data entry|The form validates each data entry before saving it.|Form, her veri girişini kaydetmeden önce doğrular.
+data export|The data export creates a CSV file from the selected records.|Veri dışa aktarma işlemi, seçilen kayıtlardan bir CSV dosyası oluşturur.
+data field|The email address is stored in a separate data field.|E-posta adresi ayrı bir veri alanında saklanır.
+data format|The importer checks the data format before parsing the file.|İçe aktarıcı, dosyayı ayrıştırmadan önce veri biçimini kontrol eder.
+data import|The data import rejects rows with missing required values.|Veri içe aktarma işlemi, zorunlu değerleri eksik satırları reddeder.
+data loss|A verified backup helps prevent data loss during migration.|Doğrulanmış bir yedek, geçiş sırasında veri kaybını önlemeye yardımcı olur.
+data structure|Choose a data structure that supports fast lookup.|Hızlı aramayı destekleyen bir veri yapısı seç.
+data type|Choose a data type that represents the value accurately.|Değeri doğru biçimde temsil eden bir veri türü seç.
+database file|The database file contains the vocabulary and review history.|Veritabanı dosyası kelime havuzunu ve tekrar geçmişini içerir.
+debug|We need to debug the failing test.|Başarısız olan testi hata ayıklayarak incelemeliyiz.
+debug build|The debug build includes information that helps developers inspect the program.|Hata ayıklama derlemesi, geliştiricilerin programı incelemesine yardımcı olan bilgileri içerir.
+debug log|The debug log records details needed to reproduce the issue.|Hata ayıklama günlüğü, sorunu yeniden oluşturmaya yarayan ayrıntıları kaydeder.
+debugger|The debugger lets you inspect variables while the program runs.|Hata ayıklayıcı, program çalışırken değişkenleri incelemeni sağlar.
+default argument|The method uses a default argument when the caller omits the optional value.|Çağıran taraf isteğe bağlı değeri sağlamadığında metot varsayılan argümanı kullanır.
+default value|The default value is used when no setting has been saved.|Herhangi bir ayar kaydedilmediğinde varsayılan değer kullanılır.
+deprecated method|Replace the deprecated method with its recommended alternative.|Kullanımdan kaldırılmış metodu önerilen alternatifiyle değiştir.
+developer tool|The developer tool helps inspect network requests and page errors.|Geliştirici aracı, ağ isteklerini ve sayfa hatalarını incelemeye yardımcı olur.
+development environment|The development environment uses the same Java version as the build server.|Geliştirme ortamı, derleme sunucusuyla aynı Java sürümünü kullanır.
+directory|Place the configuration file in the project directory.|Yapılandırma dosyasını proje dizinine yerleştir.
+disk space|The installer checks the available disk space before extracting files.|Kurulum programı dosyaları çıkarmadan önce kullanılabilir disk alanını kontrol eder.
+documentation|The documentation explains how to configure and run the application.|Belgeler, uygulamanın nasıl yapılandırılacağını ve çalıştırılacağını açıklar.
+empty string|The validator rejects an empty string for the required field.|Doğrulayıcı, zorunlu alan için boş dizgeyi reddeder.
+environment variable|The application reads the database path from an environment variable.|Uygulama veritabanı yolunu bir ortam değişkeninden okur.
+error handling routine|The error handling routine records the failure and displays a useful message.|Hata işleme yordamı başarısızlığı kaydeder ve yararlı bir mesaj gösterir.
+error message|The error message should explain how to correct the problem.|Hata mesajı, sorunun nasıl düzeltileceğini açıklamalıdır.
+event handler|The event handler responds when the user clicks the button.|Olay işleyicisi, kullanıcı düğmeye tıkladığında yanıt verir.
+exception|The application catches this exception.|Uygulama bu istisnayı yakalar.
+execute|The program executes the command.|Program komutu yürütür.
+extension method|The extension method adds a helper operation to the existing type.|Uzantı metodu mevcut türe yardımcı bir işlem ekler.
+feature request|The team reviewed the feature request before planning the next release.|Ekip, sonraki sürümü planlamadan önce özellik isteğini değerlendirdi.
+file access|The process needs file access to read the configuration.|Sürecin yapılandırmayı okumak için dosya erişimine ihtiyacı var.
+file extension check|The file extension check rejects unsupported formats.|Dosya uzantısı denetimi desteklenmeyen biçimleri reddeder.
+file format|The parser supports the TSV file format.|Ayrıştırıcı TSV dosya biçimini destekler.
+file handle|The operating system returns a file handle after opening the file.|İşletim sistemi dosyayı açtıktan sonra bir dosya tanıtıcısı döndürür.
+file input|The file input accepts a local path from the user.|Dosya girdisi kullanıcıdan yerel bir yol alır.
+file operation|The file operation fails when the target directory is read-only.|Hedef klasör salt okunur olduğunda dosya işlemi başarısız olur.
+file output|The file output is written to the export directory.|Dosya çıktısı dışa aktarma klasörüne yazılır.
+file permission|The process needs file permission to write to this folder.|Sürecin bu klasöre yazmak için dosya iznine ihtiyacı var.
+file transfer|The file transfer failed because the connection was interrupted.|Bağlantı kesildiği için dosya aktarımı başarısız oldu.
+flowchart|The flowchart shows how data moves through the process.|Akış şeması, verilerin süreç içinde nasıl ilerlediğini gösterir.
+function|This function returns a user name.|Bu fonksiyon bir kullanıcı adı döndürür.
+function call|The function call passes the customer ID to the service.|Fonksiyon çağrısı müşteri kimliğini hizmete iletir.
+function parameter|Each function parameter should have a clear name.|Her fonksiyon parametresinin açık bir adı olmalıdır.
+function signature|The function signature defines its name, parameters, and return type.|Fonksiyon imzası adını, parametrelerini ve dönüş türünü tanımlar.
+getter|The getter returns the current value of the property.|Alıcı metot, özelliğin mevcut değerini döndürür.
+global variable|Avoid using a global variable when a local variable is sufficient.|Yerel değişken yeterliyse global değişken kullanmaktan kaçın.
+graphical interface|The graphical interface lets users manage the application without commands.|Grafik arayüz, kullanıcıların komut yazmadan uygulamayı yönetmesini sağlar.
+identifier|A variable identifier must follow the language’s naming rules.|Değişken tanımlayıcısı, programlama dilinin adlandırma kurallarına uymalıdır.
+implementation|The implementation should follow the interface contract.|Gerçekleme, arayüz sözleşmesine uygun olmalıdır.
+increment|The loop increments the counter after processing each record.|Döngü her kaydı işledikten sonra sayacı artırır.
