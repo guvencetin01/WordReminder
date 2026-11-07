@@ -4142,3 +4142,85 @@ performance profiling|Performance profiling identifies which functions consume t
 performance regression|The test detected a performance regression after the latest change.|Test son değişiklikten sonra performans gerilemesi tespit etti.
 persistent connection|A persistent connection can be reused for multiple requests.|Kalıcı bağlantı birden fazla istek için yeniden kullanılabilir.
 platform engineering|Platform engineering builds shared tools that help development teams deliver software.|Platform mühendisliği geliştirme ekiplerinin yazılım teslim etmesine yardımcı olan ortak araçlar oluşturur.
+platform reliability|Platform reliability improves when failures are detected and recovered from quickly.|Arızalar hızla tespit edilip giderildiğinde platform güvenilirliği artar.
+progressive delivery|Progressive delivery releases a change gradually while monitoring its impact.|Aşamalı teslimat bir değişikliği etkisini izleyerek kademeli biçimde yayımlar.
+progressive rollout|The team used a progressive rollout to limit the risk of the update.|Ekip güncellemenin riskini sınırlamak için kademeli kullanıma alma yöntemi kullandı.
+property-based testing|Property-based testing checks general rules against many generated inputs.|Özellik tabanlı test genel kuralları çok sayıda oluşturulmuş girdiyle kontrol eder.
+query execution plan|The query execution plan showed that a table scan was slowing the report.|Sorgu yürütme planı tablo taramasının raporu yavaşlattığını gösterdi.
+read replica|The application sends reporting queries to a read replica.|Uygulama raporlama sorgularını okuma kopyasına gönderir.
+readiness probe|The readiness probe prevents traffic from reaching a service before it is ready.|Hazır olma denetimi hizmet hazır olmadan trafiğin ona ulaşmasını önler.
+reconciliation loop|The reconciliation loop compares the actual state with the desired state.|Mutabakat döngüsü mevcut durumu istenen durumla karşılaştırır.
+recovery point objective|The recovery point objective defines how much recent data may be lost after an outage.|Kurtarma noktası hedefi bir kesintiden sonra ne kadar yakın tarihli verinin kaybedilebileceğini tanımlar.
+recovery time objective|The recovery time objective sets the maximum acceptable time to restore a service.|Kurtarma süresi hedefi bir hizmeti geri yüklemek için kabul edilebilir en uzun süreyi belirler.
+regression testing|Regression testing checks that existing features still work after a change.|Gerileme testi bir değişiklikten sonra mevcut özelliklerin hâlâ çalıştığını kontrol eder.
+release automation|Release automation reduces manual steps when publishing a new version.|Sürüm otomasyonu yeni bir sürüm yayımlanırken elle yapılan adımları azaltır.
+release management|Release management coordinates planning, approval, and publication of software versions.|Sürüm yönetimi yazılım sürümlerinin planlanmasını, onaylanmasını ve yayımlanmasını koordine eder.
+reliability engineering|Reliability engineering focuses on preventing failures and improving service resilience.|Güvenilirlik mühendisliği arızaları önlemeye ve hizmet dayanıklılığını artırmaya odaklanır.
+request correlation|Request correlation helps engineers follow one request across multiple services.|İstek ilişkilendirme mühendislerin tek bir isteği birden fazla hizmet boyunca takip etmesine yardımcı olur.
+resilience pattern|The circuit breaker is a resilience pattern that stops repeated calls to a failing service.|Devre kesici arızalı bir hizmete tekrarlanan çağrıları durduran bir dayanıklılık örüntüsüdür.
+resource contention|Resource contention occurs when several tasks compete for the same limited resource.|Kaynak çekişmesi birkaç görev aynı sınırlı kaynak için yarıştığında ortaya çıkar.
+resource isolation|Resource isolation prevents one workload from exhausting resources needed by another.|Kaynak yalıtımı bir iş yükünün diğerinin ihtiyaç duyduğu kaynakları tüketmesini önler.
+resource quota|The resource quota limits how much memory a container can use.|Kaynak kotası bir konteynerin kullanabileceği bellek miktarını sınırlar.
+response time objective|The response time objective defines the target time for completing a user request.|Yanıt süresi hedefi bir kullanıcı isteğinin tamamlanması için hedef süreyi belirler.
+roll-forward recovery|Roll-forward recovery restores a database by applying later valid transactions.|İleri sararak kurtarma daha sonraki geçerli işlemleri uygulayarak veritabanını geri yükler.
+rolling deployment|A rolling deployment replaces application instances gradually rather than all at once.|Kademeli dağıtım uygulama örneklerini bir anda değil aşamalı olarak değiştirir.
+rolling update|The rolling update replaces old instances while keeping the service available.|Kademeli güncelleme hizmeti erişilebilir tutarken eski örnekleri yenileriyle değiştirir.
+runtime instrumentation|Runtime instrumentation collects diagnostic information while the application is running.|Çalışma zamanı enstrümantasyonu uygulama çalışırken tanılama bilgileri toplar.
+security boundary|The security boundary separates trusted components from untrusted input.|Güvenlik sınırı güvenilir bileşenleri güvenilmeyen girdilerden ayırır.
+security posture|The audit assesses the security posture of the organisation's systems.|Denetim kuruluşun sistemlerinin güvenlik durumunu değerlendirir.
+service availability|Service availability measures how often users can successfully access a service.|Hizmet erişilebilirliği kullanıcıların bir hizmete ne sıklıkta başarıyla erişebildiğini ölçer.
+service boundary|The service boundary defines which responsibilities belong to a particular service.|Hizmet sınırı belirli bir hizmete hangi sorumlulukların ait olduğunu tanımlar.
+service composition|Service composition combines smaller services to provide a larger business capability.|Hizmet bileşimi daha büyük bir iş yeteneği sağlamak için küçük hizmetleri birleştirir.
+service degradation|Service degradation occurs when response times or functionality become worse.|Hizmet bozulması yanıt süreleri veya işlevsellik kötüleştiğinde ortaya çıkar.
+service dependency|The deployment checklist records every external service dependency.|Dağıtım kontrol listesi tüm harici hizmet bağımlılıklarını kaydeder.
+service discovery|Service discovery allows applications to find available service instances dynamically.|Hizmet keşfi uygulamaların kullanılabilir hizmet örneklerini dinamik olarak bulmasını sağlar.
+service health check|The service health check verifies that the endpoint is responding correctly.|Hizmet sağlık kontrolü uç noktanın doğru yanıt verdiğini doğrular.
+service integration|Service integration connects the billing service with the customer system.|Hizmet entegrasyonu faturalandırma hizmetini müşteri sistemine bağlar.
+service level agreement|The service level agreement defines the provider's formal commitments to the customer.|Hizmet seviyesi sözleşmesi sağlayıcının müşteriye yönelik resmî taahhütlerini tanımlar.
+service level objective|The service level objective sets a measurable target for service performance.|Hizmet seviyesi hedefi hizmet performansı için ölçülebilir bir hedef belirler.
+service mesh|A service mesh manages communication, security, and observability between services.|Hizmet ağı hizmetler arasındaki iletişimi, güvenliği ve gözlemlenebilirliği yönetir.
+service orchestration|Service orchestration coordinates several services to complete a business process.|Hizmet orkestrasyonu bir iş sürecini tamamlamak için birkaç hizmeti koordine eder.
+service ownership|Clear service ownership makes responsibility for maintenance and incidents explicit.|Açık hizmet sahipliği bakım ve olaylara ilişkin sorumluluğu belirgin hâle getirir.
+service reliability|Service reliability is measured by the number and impact of failures.|Hizmet güvenilirliği arızaların sayısı ve etkisiyle ölçülür.
+service topology|The service topology shows dependencies between the running services.|Hizmet topolojisi çalışan hizmetler arasındaki bağımlılıkları gösterir.
+shared-nothing architecture|A shared-nothing architecture gives each node its own memory and storage.|Paylaşımsız mimari her düğüme kendi belleğini ve depolamasını verir.
+sidecar pattern|The sidecar pattern places a helper component beside the main application service.|Yan araç örüntüsü yardımcı bir bileşeni ana uygulama hizmetinin yanına yerleştirir.
+single sign-on|Single sign-on lets employees access several approved applications after one login.|Tek oturum açma çalışanların bir kez giriş yaptıktan sonra birkaç onaylı uygulamaya erişmesini sağlar.
+software architecture review|The software architecture review examined scalability and security risks.|Yazılım mimarisi incelemesi ölçeklenebilirlik ve güvenlik risklerini değerlendirdi.
+software bill of materials|The software bill of materials lists the libraries and components included in a release.|Yazılım bileşen listesi bir sürümde bulunan kütüphaneleri ve bileşenleri listeler.
+software configuration management|Software configuration management tracks changes to source files and build settings.|Yazılım yapılandırma yönetimi kaynak dosyalardaki ve derleme ayarlarındaki değişiklikleri takip eder.
+software deployment|Software deployment installs a tested version in the target environment.|Yazılım dağıtımı test edilmiş bir sürümü hedef ortama kurar.
+software design principle|The principle of separation of concerns is a useful software design principle.|Sorumlulukların ayrılması ilkesi yararlı bir yazılım tasarım ilkesidir.
+software maintainability|Clear modules and useful tests improve software maintainability.|Açık modüller ve yararlı testler yazılımın bakım yapılabilirliğini artırır.
+software observability|Software observability helps teams understand behaviour from logs, metrics, and traces.|Yazılım gözlemlenebilirliği ekiplerin günlükler, ölçümler ve izlerden davranışı anlamasına yardımcı olur.
+software portability|Software portability allows an application to run on different operating systems.|Yazılım taşınabilirliği bir uygulamanın farklı işletim sistemlerinde çalışmasını sağlar.
+software provenance|Software provenance records where code and dependencies originated.|Yazılım köken bilgisi kodun ve bağımlılıkların nereden geldiğini kaydeder.
+software reliability|Software reliability improves when defects are found before release.|Kusurlar sürümden önce bulunduğunda yazılım güvenilirliği artar.
+software scalability|Software scalability describes how well an application handles increasing demand.|Yazılım ölçeklenebilirliği bir uygulamanın artan talebi ne kadar iyi karşıladığını açıklar.
+software supply chain|The software supply chain includes source code, build tools, and third-party libraries.|Yazılım tedarik zinciri kaynak kodunu, derleme araçlarını ve üçüncü taraf kütüphaneleri içerir.
+static code analysis|Static code analysis finds potential defects without executing the application.|Statik kod analizi uygulamayı çalıştırmadan olası kusurları bulur.
+storage replication|Storage replication keeps copies of data on separate storage systems.|Depolama çoğaltma verilerin kopyalarını ayrı depolama sistemlerinde tutar.
+system architecture|The system architecture describes the major components and their interactions.|Sistem mimarisi ana bileşenleri ve bunların etkileşimlerini açıklar.
+system availability|System availability remained high during the maintenance period.|Bakım süresi boyunca sistem erişilebilirliği yüksek kaldı.
+system hardening|System hardening removes unnecessary services and strengthens security settings.|Sistem güçlendirme gereksiz hizmetleri kaldırır ve güvenlik ayarlarını güçlendirir.
+system integration|System integration connects the new application to existing business software.|Sistem entegrasyonu yeni uygulamayı mevcut iş yazılımlarına bağlar.
+system monitoring|System monitoring alerts the team when memory usage becomes unusually high.|Sistem izleme bellek kullanımı olağan dışı yükseldiğinde ekibi uyarır.
+technical debt|The team scheduled time to reduce technical debt in the older modules.|Ekip eski modüllerdeki teknik borcu azaltmak için zaman ayırdı.
+technical specification|The technical specification describes the expected behaviour and constraints of the system.|Teknik şartname sistemin beklenen davranışını ve kısıtlarını açıklar.
+test automation framework|The test automation framework runs browser checks after every build.|Test otomasyon çatısı her derlemeden sonra tarayıcı kontrollerini çalıştırır.
+test coverage|The report shows that test coverage increased after new unit tests were added.|Rapor yeni birim testleri eklendikten sonra test kapsamının arttığını gösteriyor.
+test environment|The team reproduced the issue in a separate test environment.|Ekip sorunu ayrı bir test ortamında yeniden oluşturdu.
+test isolation|Test isolation prevents one test from changing another test's data.|Test yalıtımı bir testin diğer testin verilerini değiştirmesini önler.
+test oracle|The test oracle defines the expected result for each input.|Test doğrulayıcısı her girdi için beklenen sonucu tanımlar.
+test-driven development|Test-driven development begins with a failing test before the implementation is written.|Test odaklı geliştirme gerçekleştirim yazılmadan önce başarısız bir testle başlar.
+tracing span|Each tracing span records the duration of one operation in a distributed request.|Her izleme aralığı dağıtık bir istekteki tek bir işlemin süresini kaydeder.
+traffic shaping|Traffic shaping controls the rate and priority of network requests.|Trafik şekillendirme ağ isteklerinin hızını ve önceliğini kontrol eder.
+transaction boundary|The transaction boundary defines which database changes must succeed or fail together.|İşlem sınırı hangi veritabanı değişikliklerinin birlikte başarılı veya başarısız olması gerektiğini tanımlar.
+transaction isolation|Transaction isolation controls how concurrent database transactions can see each other's changes.|İşlem yalıtımı eşzamanlı veritabanı işlemlerinin birbirlerinin değişikliklerini nasıl görebileceğini kontrol eder.
+transaction log|The transaction log records database changes so they can be recovered.|İşlem günlüğü veritabanı değişikliklerini kurtarılabilmeleri için kaydeder.
+transaction processing|Transaction processing ensures that related operations are completed consistently.|İşlem işleme ilişkili operasyonların tutarlı biçimde tamamlanmasını sağlar.
+vertical partitioning|Vertical partitioning stores selected columns separately to improve access patterns.|Dikey bölümleme erişim biçimlerini iyileştirmek için seçilen sütunları ayrı saklar.
+vertical scaling|Vertical scaling increases the CPU or memory of an existing server.|Dikey ölçekleme mevcut bir sunucunun CPU veya bellek kapasitesini artırır.
+workload isolation|Workload isolation prevents background jobs from slowing down user requests.|İş yükü yalıtımı arka plan görevlerinin kullanıcı isteklerini yavaşlatmasını önler.
+zero trust architecture|Zero trust architecture verifies every access request instead of trusting the internal network.|Sıfır güven mimarisi iç ağa güvenmek yerine her erişim isteğini doğrular.
+zero-downtime migration|The team used a zero-downtime migration to move data while the service stayed online.|Ekip hizmet çevrim içiyken verileri taşımak için kesintisiz geçiş kullandı.
